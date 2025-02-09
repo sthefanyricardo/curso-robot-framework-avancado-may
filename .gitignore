@@ -1,6 +1,7 @@
 # Ignorar pastas comuns
 results/
 arquivos_curso
+__pycache__/
 
 # Ignorar arquivos específicos
 *.log
