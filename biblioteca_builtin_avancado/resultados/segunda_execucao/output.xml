@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.12.0 on win32)" generated="2025-02-09T01:31:13.633470" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests">
+<suite id="s1-s1" name="Argumentos" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\argumentos.robot">
+<test id="s1-s1-t1" name="Relembrando argumentos posicionais x nomeados" line="2">
+<kw name="Teste de Argumentos Básico">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:13.799962" level="INFO">1 - 2 - 3 - 4</msg>
+<arg>${arg1} - ${arg2} - ${arg3} - ${arg4}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:13.798958" elapsed="0.003999"/>
+</kw>
+<arg>1</arg>
+<arg>2</arg>
+<arg>3</arg>
+<arg>4</arg>
+<status status="PASS" start="2025-02-09T01:31:13.782958" elapsed="0.019999"/>
+</kw>
+<kw name="Teste de Argumentos Básico">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:13.817956" level="INFO">4 - 3 - 2 - 1</msg>
+<arg>${arg1} - ${arg2} - ${arg3} - ${arg4}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:13.816960" elapsed="0.000996"/>
+</kw>
+<arg>arg4=1</arg>
+<arg>arg3=2</arg>
+<arg>arg2=3</arg>
+<arg>arg1=4</arg>
+<status status="PASS" start="2025-02-09T01:31:13.808956" elapsed="0.010004"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:13.780961" elapsed="0.038998"/>
+</test>
+<test id="s1-s1-t2" name="Teste de Argumentos Opcionais" line="6">
+<kw name="Passando argumentos opcionais como parâmetro">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:13.824955" level="INFO">Nome completo: Mayara silva Fernandes</msg>
+<arg>Nome completo: ${nome} ${nome_do_meio} ${ultimo_nome}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:13.823957" elapsed="0.000998"/>
+</kw>
+<arg>nome=Mayara</arg>
+<arg>ultimo_nome=Fernandes</arg>
+<status status="PASS" start="2025-02-09T01:31:13.821954" elapsed="0.003001"/>
+</kw>
+<kw name="Passando argumentos opcionais como parâmetro">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:13.827952" level="INFO">Nome completo: Mayara Ribeiro Fernandes</msg>
+<arg>Nome completo: ${nome} ${nome_do_meio} ${ultimo_nome}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:13.826954" elapsed="0.003007"/>
+</kw>
+<arg>nome=Mayara</arg>
+<arg>nome_do_meio=Ribeiro</arg>
+<arg>ultimo_nome=Fernandes</arg>
+<status status="PASS" start="2025-02-09T01:31:13.825954" elapsed="0.005011"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:13.820954" elapsed="0.014004"/>
+</test>
+<test id="s1-s1-t3" name="Criando lista e dicionário via parâmetro" line="10">
+<kw name="Teste Criando um Dicionário">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:13.841958" level="INFO">{'cwd': '/home/user', 'shell': 'True', 'env': 'False'}</msg>
+<arg>${meu_dicionario}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:13.840958" elapsed="0.001000"/>
+</kw>
+<arg>cwd=/home/user</arg>
+<arg>shell=True</arg>
+<arg>env=False</arg>
+<status status="PASS" start="2025-02-09T01:31:13.838958" elapsed="0.003000"/>
+</kw>
+<kw name="Teste Criando uma Lista">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:13.843952" level="INFO">['may', 'ribeiro', 'fernandes']</msg>
+<arg>${minha_lista}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:13.843952" elapsed="0.001000"/>
+</kw>
+<arg>may</arg>
+<arg>ribeiro</arg>
+<arg>fernandes</arg>
+<status status="PASS" start="2025-02-09T01:31:13.842956" elapsed="0.003003"/>
+</kw>
+<kw name="Teste Criando os dois">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:13.851952" level="INFO">['may', 'ribeiro', 'fernandes']
+{'shell': 'True', 'env': 'False'}</msg>
+<arg>${minha_lista}\n${meu_dicionario}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:13.850954" elapsed="0.000998"/>
+</kw>
+<arg>may</arg>
+<arg>ribeiro</arg>
+<arg>fernandes</arg>
+<arg>shell=True</arg>
+<arg>env=False</arg>
+<status status="PASS" start="2025-02-09T01:31:13.849954" elapsed="0.001998"/>
+</kw>
+<doc>No Python é conhecido como "kwargs"</doc>
+<status status="PASS" start="2025-02-09T01:31:13.836954" elapsed="0.015997"/>
+</test>
+<status status="PASS" start="2025-02-09T01:31:13.770962" elapsed="0.084994"/>
+</suite>
+<suite id="s1-s2" name="Esperas" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\esperas.robot">
+<test id="s1-s2-t1" name="Exemplo 01: Teste lidando com o timeout do teste" line="8">
+<kw name="Simular espera do teste">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-09T01:31:14.919080" level="FAIL">Test timeout 1 second exceeded.</msg>
+<arg>${TEMPO}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="FAIL" start="2025-02-09T01:31:13.888953" elapsed="1.030127">Test timeout 1 second exceeded.</status>
+</kw>
+<arg>2s</arg>
+<status status="FAIL" start="2025-02-09T01:31:13.886950" elapsed="1.033129">Test timeout 1 second exceeded.</status>
+</kw>
+<kw name="Teardown do meu teste" type="TEARDOWN">
+<kw name="Run Keyword If Timeout Occurred" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:14.937078" level="INFO">Esse teste demorou demais, possível problema de performance!</msg>
+<arg>Esse teste demorou demais, possível problema de performance!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:14.937078" elapsed="0.000000"/>
+</kw>
+<arg>Log</arg>
+<arg>Esse teste demorou demais, possível problema de performance!</arg>
+<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
+<status status="PASS" start="2025-02-09T01:31:14.936078" elapsed="0.001999"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:14.923078" elapsed="0.014999"/>
+</kw>
+<timeout value="1 second"/>
+<status status="FAIL" start="2025-02-09T01:31:13.885952" elapsed="1.055128">Test timeout 1 second exceeded.</status>
+</test>
+<test id="s1-s2-t2" name="Exemplo 02: Teste de espera" line="12">
+<kw name="Esperar uma keyword obter sucesso!">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T01:31:15.117069" level="INFO">${HORA_ATUAL} = 2025-02-09 01:31:15.117</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.051071" elapsed="0.065998"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-02-09T01:31:15.205060" level="INFO">${HORA_ATUAL} = 2025-02-09 01:31:15.117000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.118067" elapsed="0.086993"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.258059" level="INFO">Hora atual: 1
+Minuto atual: 31
+Segundo atual: 15</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.206060" elapsed="0.052997"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.259057" elapsed="0.003001"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.041070" elapsed="0.221986"/>
+</kw>
+<arg>60x</arg>
+<arg>1 seconds</arg>
+<arg>Essa keyword só passa se estivermos no segundo 15!</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.039076" elapsed="0.223980"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.038074" elapsed="0.224982"/>
+</kw>
+<kw name="Teardown do meu teste" type="TEARDOWN">
+<kw name="Run Keyword If Timeout Occurred" owner="BuiltIn">
+<arg>Log</arg>
+<arg>Esse teste demorou demais, possível problema de performance!</arg>
+<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.273061" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.271056" elapsed="0.002005"/>
+</kw>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2025-02-09T01:31:15.020076" elapsed="0.264979"/>
+</test>
+<status status="FAIL" start="2025-02-09T01:31:13.859959" elapsed="1.434099"/>
+</suite>
+<suite id="s1-s3" name="Falhas Previstas" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\falhas_previstas.robot">
+<test id="s1-s3-t1" name="Exemplo 01: Teste lidando com falhas previstas" line="3">
+<kw name="Essa keyword vai falhar, mas vou ignorar (a suíte irá passar)!">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.351057" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-02-09T01:31:15.350052" elapsed="0.002000">'"May" == "João"' should be true.</status>
+</kw>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.350052" elapsed="0.003002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.355053" level="INFO">Continuo a execução!!</msg>
+<arg>Continuo a execução!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.355053" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.347056" elapsed="0.008995"/>
+</kw>
+<kw name="Essa keyword vai falhar, mas é uma falha que deve acontecer para meu teste ser considerado OK!">
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.365060" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-02-09T01:31:15.361051" elapsed="0.005010">'"May" == "João"' should be true.</status>
+</kw>
+<arg>'"May" == "João"' should be true.</arg>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.360054" elapsed="0.007001"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.358051" elapsed="0.009004"/>
+</kw>
+<kw name="Essa keyword vai falhar, não vou ignorar (a suíte irá falhar), mas vou continuar a execução!">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.374052" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-02-09T01:31:15.372052" elapsed="0.002998">'"May" == "João"' should be true.</status>
+</kw>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2025-02-09T01:31:15.372052" elapsed="0.011009">'"May" == "João"' should be true.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.386061" level="INFO">Continuo a execução 1!!</msg>
+<arg>Continuo a execução 1!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.384054" elapsed="0.004997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.390050" level="INFO">Continuo a execução 2!!</msg>
+<arg>Continuo a execução 2!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.389051" elapsed="0.000999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.391050" level="INFO">Continuo a execução 3!!</msg>
+<arg>Continuo a execução 3!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.391050" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:15.370051" elapsed="0.021998">'"May" == "João"' should be true.</status>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:15.342051" elapsed="0.051995">'"May" == "João"' should be true.</status>
+</test>
+<test id="s1-s3-t2" name="Exemplo 02: Teste de continuação da suíte" line="10">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.443045" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.426047" elapsed="0.023998"/>
+</test>
+<test id="s1-s3-t3" name="Exemplo 03: Teste de continuação da suíte" line="13">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.472044" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.468046" elapsed="0.014005"/>
+</test>
+<status status="FAIL" start="2025-02-09T01:31:15.322054" elapsed="0.168990"/>
+</suite>
+<suite id="s1-s4" name="For" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\for.robot">
+<test id="s1-s4-t1" name="Teste do novo formato do FOR" line="2">
+<kw name="Velho formato do FOR de listas">
+<kw name=":FOR">
+<msg time="2025-02-09T01:31:15.525040" level="FAIL">Support for the old FOR loop syntax has been removed. Replace ':FOR' with 'FOR', end the loop with 'END', and remove escaping backslashes.</msg>
+<arg>${animal}</arg>
+<arg>IN</arg>
+<arg>gato</arg>
+<arg>cachorro</arg>
+<arg>cavalo</arg>
+<status status="FAIL" start="2025-02-09T01:31:15.525040" elapsed="0.000000">Support for the old FOR loop syntax has been removed. Replace ':FOR' with 'FOR', end the loop with 'END', and remove escaping backslashes.</status>
+</kw>
+<kw name="\">
+<arg>Log</arg>
+<arg>O animal desse laço é: ${animal}!</arg>
+<status status="NOT RUN" start="2025-02-09T01:31:15.526044" elapsed="0.000000"/>
+</kw>
+<kw name="\">
+<arg>Log</arg>
+<arg>Vamos para o próximo animal da lista...</arg>
+<status status="NOT RUN" start="2025-02-09T01:31:15.527040" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:15.524041" elapsed="0.004999">Support for the old FOR loop syntax has been removed. Replace ':FOR' with 'FOR', end the loop with 'END', and remove escaping backslashes.</status>
+</kw>
+<kw name="Novo formato do FOR de listas">
+<status status="NOT RUN" start="2025-02-09T01:31:15.533043" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:15.522040" elapsed="0.011999">Support for the old FOR loop syntax has been removed. Replace ':FOR' with 'FOR', end the loop with 'END', and remove escaping backslashes.</status>
+</test>
+<test id="s1-s4-t2" name="Teste de FOR aninhado" line="6">
+<kw name="Cria cadastro de produtos (FOR aninhado)">
+<for flavor="IN">
+<iter>
+<kw name="Imprime tamanhos para o produto">
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.583045" level="INFO">Produto: baby look - Tam: P</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.577043" elapsed="0.008993"/>
+</kw>
+<var name="${tamanho}">P</var>
+<status status="PASS" start="2025-02-09T01:31:15.576036" elapsed="0.011001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.590036" level="INFO">Produto: baby look - Tam: M</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.590036" elapsed="0.000000"/>
+</kw>
+<var name="${tamanho}">M</var>
+<status status="PASS" start="2025-02-09T01:31:15.589037" elapsed="0.007998"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.603035" level="INFO">Produto: baby look - Tam: G</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.602036" elapsed="0.000999"/>
+</kw>
+<var name="${tamanho}">G</var>
+<status status="PASS" start="2025-02-09T01:31:15.601035" elapsed="0.002999"/>
+</iter>
+<var>${tamanho}</var>
+<value>P</value>
+<value>M</value>
+<value>G</value>
+<status status="PASS" start="2025-02-09T01:31:15.574037" elapsed="0.029997"/>
+</for>
+<arg>${produto}</arg>
+<status status="PASS" start="2025-02-09T01:31:15.573038" elapsed="0.030996"/>
+</kw>
+<var name="${produto}">baby look</var>
+<status status="PASS" start="2025-02-09T01:31:15.572037" elapsed="0.031997"/>
+</iter>
+<iter>
+<kw name="Imprime tamanhos para o produto">
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.617033" level="INFO">Produto: camiseta - Tam: P</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.614038" elapsed="0.002995"/>
+</kw>
+<var name="${tamanho}">P</var>
+<status status="PASS" start="2025-02-09T01:31:15.611036" elapsed="0.006998"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.621037" level="INFO">Produto: camiseta - Tam: M</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.619034" elapsed="0.002003"/>
+</kw>
+<var name="${tamanho}">M</var>
+<status status="PASS" start="2025-02-09T01:31:15.619034" elapsed="0.002003"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.625033" level="INFO">Produto: camiseta - Tam: G</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.622035" elapsed="0.004999"/>
+</kw>
+<var name="${tamanho}">G</var>
+<status status="PASS" start="2025-02-09T01:31:15.621037" elapsed="0.010995"/>
+</iter>
+<var>${tamanho}</var>
+<value>P</value>
+<value>M</value>
+<value>G</value>
+<status status="PASS" start="2025-02-09T01:31:15.609036" elapsed="0.022996"/>
+</for>
+<arg>${produto}</arg>
+<status status="PASS" start="2025-02-09T01:31:15.606036" elapsed="0.026998"/>
+</kw>
+<var name="${produto}">camiseta</var>
+<status status="PASS" start="2025-02-09T01:31:15.605035" elapsed="0.027999"/>
+</iter>
+<iter>
+<kw name="Imprime tamanhos para o produto">
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.637032" level="INFO">Produto: blusa - Tam: P</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.636030" elapsed="0.001002"/>
+</kw>
+<var name="${tamanho}">P</var>
+<status status="PASS" start="2025-02-09T01:31:15.636030" elapsed="0.001002"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.639029" level="INFO">Produto: blusa - Tam: M</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.638032" elapsed="0.000997"/>
+</kw>
+<var name="${tamanho}">M</var>
+<status status="PASS" start="2025-02-09T01:31:15.638032" elapsed="0.001999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.641031" level="INFO">Produto: blusa - Tam: G</msg>
+<arg>Produto: ${produto} - Tam: ${tamanho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.640031" elapsed="0.001000"/>
+</kw>
+<var name="${tamanho}">G</var>
+<status status="PASS" start="2025-02-09T01:31:15.640031" elapsed="0.001000"/>
+</iter>
+<var>${tamanho}</var>
+<value>P</value>
+<value>M</value>
+<value>G</value>
+<status status="PASS" start="2025-02-09T01:31:15.635035" elapsed="0.005996"/>
+</for>
+<arg>${produto}</arg>
+<status status="PASS" start="2025-02-09T01:31:15.634033" elapsed="0.007999"/>
+</kw>
+<var name="${produto}">blusa</var>
+<status status="PASS" start="2025-02-09T01:31:15.633034" elapsed="0.008998"/>
+</iter>
+<var>${produto}</var>
+<value>baby look</value>
+<value>camiseta</value>
+<value>blusa</value>
+<status status="PASS" start="2025-02-09T01:31:15.566042" elapsed="0.075990"/>
+</for>
+<status status="PASS" start="2025-02-09T01:31:15.560040" elapsed="0.081992"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.558039" elapsed="0.084991"/>
+</test>
+<test id="s1-s4-t3" name="Teste FOR usando várias váriaveis" line="9">
+<kw name="Cria dicionário de traduções">
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.655161" level="INFO">Animal 1:
+Em inglês: cat
+Em finlandês: kissa
+Em português: gato</msg>
+<arg>Animal ${index}:\nEm inglês: ${english}\nEm finlandês: ${finnish}\nEm português: ${portugues}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.654152" elapsed="0.001009"/>
+</kw>
+<var name="${index}">1</var>
+<var name="${english}">cat</var>
+<var name="${finnish}">kissa</var>
+<var name="${portugues}">gato</var>
+<status status="PASS" start="2025-02-09T01:31:15.653162" elapsed="0.002871"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.659030" level="INFO">Animal 2:
+Em inglês: dog
+Em finlandês: koira
+Em português: cachorro</msg>
+<arg>Animal ${index}:\nEm inglês: ${english}\nEm finlandês: ${finnish}\nEm português: ${portugues}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.658031" elapsed="0.002003"/>
+</kw>
+<var name="${index}">2</var>
+<var name="${english}">dog</var>
+<var name="${finnish}">koira</var>
+<var name="${portugues}">cachorro</var>
+<status status="PASS" start="2025-02-09T01:31:15.656033" elapsed="0.004001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.671031" level="INFO">Animal 3:
+Em inglês: horse
+Em finlandês: hevonen
+Em português: cavalo</msg>
+<arg>Animal ${index}:\nEm inglês: ${english}\nEm finlandês: ${finnish}\nEm português: ${portugues}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.669029" elapsed="0.002002"/>
+</kw>
+<var name="${index}">3</var>
+<var name="${english}">horse</var>
+<var name="${finnish}">hevonen</var>
+<var name="${portugues}">cavalo</var>
+<status status="PASS" start="2025-02-09T01:31:15.661029" elapsed="0.010002"/>
+</iter>
+<var>${index}</var>
+<var>${english}</var>
+<var>${finnish}</var>
+<var>${portugues}</var>
+<value>1</value>
+<value>cat</value>
+<value>kissa</value>
+<value>gato</value>
+<value>2</value>
+<value>dog</value>
+<value>koira</value>
+<value>cachorro</value>
+<value>3</value>
+<value>horse</value>
+<value>hevonen</value>
+<value>cavalo</value>
+<status status="PASS" start="2025-02-09T01:31:15.653162" elapsed="0.017869"/>
+</for>
+<status status="PASS" start="2025-02-09T01:31:15.652031" elapsed="0.019999"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.650032" elapsed="0.021998"/>
+</test>
+<test id="s1-s4-t4" name="Teste FOR com numeração da lista" line="12">
+<kw name="For com numeração">
+<for flavor="IN ENUMERATE">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.690031" level="INFO">Item da lista: P - Posição do item na lista: 0</msg>
+<arg>Item da lista: ${item} - Posição do item na lista: ${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.689029" elapsed="0.001002"/>
+</kw>
+<var name="${index}">0</var>
+<var name="${item}">P</var>
+<status status="PASS" start="2025-02-09T01:31:15.688029" elapsed="0.002002"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.692030" level="INFO">Item da lista: M - Posição do item na lista: 1</msg>
+<arg>Item da lista: ${item} - Posição do item na lista: ${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.691030" elapsed="0.001000"/>
+</kw>
+<var name="${index}">1</var>
+<var name="${item}">M</var>
+<status status="PASS" start="2025-02-09T01:31:15.691030" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.693030" level="INFO">Item da lista: G - Posição do item na lista: 2</msg>
+<arg>Item da lista: ${item} - Posição do item na lista: ${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.693030" elapsed="0.000999"/>
+</kw>
+<var name="${index}">2</var>
+<var name="${item}">G</var>
+<status status="PASS" start="2025-02-09T01:31:15.693030" elapsed="0.000999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.701030" level="INFO">Item da lista: GG - Posição do item na lista: 3</msg>
+<arg>Item da lista: ${item} - Posição do item na lista: ${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.699031" elapsed="0.001999"/>
+</kw>
+<var name="${index}">3</var>
+<var name="${item}">GG</var>
+<status status="PASS" start="2025-02-09T01:31:15.694029" elapsed="0.007001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.702031" level="INFO">Item da lista: XG - Posição do item na lista: 4</msg>
+<arg>Item da lista: ${item} - Posição do item na lista: ${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.702031" elapsed="0.001000"/>
+</kw>
+<var name="${index}">4</var>
+<var name="${item}">XG</var>
+<status status="PASS" start="2025-02-09T01:31:15.702031" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.704029" level="INFO">Item da lista: XXG - Posição do item na lista: 5</msg>
+<arg>Item da lista: ${item} - Posição do item na lista: ${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.704029" elapsed="0.000999"/>
+</kw>
+<var name="${index}">5</var>
+<var name="${item}">XXG</var>
+<status status="PASS" start="2025-02-09T01:31:15.704029" elapsed="0.000999"/>
+</iter>
+<var>${index}</var>
+<var>${item}</var>
+<value>P</value>
+<value>M</value>
+<value>G</value>
+<value>GG</value>
+<value>XG</value>
+<value>XXG</value>
+<status status="PASS" start="2025-02-09T01:31:15.688029" elapsed="0.016999"/>
+</for>
+<status status="PASS" start="2025-02-09T01:31:15.687033" elapsed="0.018995"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.684030" elapsed="0.023999"/>
+</test>
+<test id="s1-s4-t5" name="Teste mais opções IN RANGE" line="15">
+<kw name="Tradicional">
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.721031" level="INFO">1</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.720028" elapsed="0.002998"/>
+</kw>
+<var name="${index}">1</var>
+<status status="PASS" start="2025-02-09T01:31:15.720028" elapsed="0.002998"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.740027" level="INFO">2</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.739027" elapsed="0.001000"/>
+</kw>
+<var name="${index}">2</var>
+<status status="PASS" start="2025-02-09T01:31:15.724027" elapsed="0.017001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.747029" level="INFO">3</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.747029" elapsed="0.000000"/>
+</kw>
+<var name="${index}">3</var>
+<status status="PASS" start="2025-02-09T01:31:15.741028" elapsed="0.007002"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.750030" level="INFO">4</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.749030" elapsed="0.001000"/>
+</kw>
+<var name="${index}">4</var>
+<status status="PASS" start="2025-02-09T01:31:15.749030" elapsed="0.002001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.752030" level="INFO">5</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.751031" elapsed="0.000999"/>
+</kw>
+<var name="${index}">5</var>
+<status status="PASS" start="2025-02-09T01:31:15.751031" elapsed="0.000999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.753031" level="INFO">6</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.753031" elapsed="0.002996"/>
+</kw>
+<var name="${index}">6</var>
+<status status="PASS" start="2025-02-09T01:31:15.752030" elapsed="0.007995"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.764036" level="INFO">7</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.763035" elapsed="0.001995"/>
+</kw>
+<var name="${index}">7</var>
+<status status="PASS" start="2025-02-09T01:31:15.760025" elapsed="0.005005"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.773023" level="INFO">8</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.771025" elapsed="0.001998"/>
+</kw>
+<var name="${index}">8</var>
+<status status="PASS" start="2025-02-09T01:31:15.770024" elapsed="0.002999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.831023" level="INFO">9</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.825022" elapsed="0.007002"/>
+</kw>
+<var name="${index}">9</var>
+<status status="PASS" start="2025-02-09T01:31:15.825022" elapsed="0.008005"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.834029" level="INFO">10</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.834029" elapsed="0.000996"/>
+</kw>
+<var name="${index}">10</var>
+<status status="PASS" start="2025-02-09T01:31:15.833027" elapsed="0.001998"/>
+</iter>
+<var>${index}</var>
+<value>1</value>
+<value>11</value>
+<status status="PASS" start="2025-02-09T01:31:15.718030" elapsed="0.116995"/>
+</for>
+<doc>Percorre de 1 até 10</doc>
+<status status="PASS" start="2025-02-09T01:31:15.717031" elapsed="0.118990"/>
+</kw>
+<kw name="Apenas quantidade de laços informada (limite superior)">
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.865018" level="INFO">0</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.865018" elapsed="0.001001"/>
+</kw>
+<var name="${index}">0</var>
+<status status="PASS" start="2025-02-09T01:31:15.865018" elapsed="0.001001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.869017" level="INFO">1</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.868018" elapsed="0.000999"/>
+</kw>
+<var name="${index}">1</var>
+<status status="PASS" start="2025-02-09T01:31:15.867019" elapsed="0.001998"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.871020" level="INFO">2</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.870021" elapsed="0.000999"/>
+</kw>
+<var name="${index}">2</var>
+<status status="PASS" start="2025-02-09T01:31:15.870021" elapsed="0.001999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.873021" level="INFO">3</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.873021" elapsed="0.001000"/>
+</kw>
+<var name="${index}">3</var>
+<status status="PASS" start="2025-02-09T01:31:15.873021" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.875020" level="INFO">4</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.875020" elapsed="0.000999"/>
+</kw>
+<var name="${index}">4</var>
+<status status="PASS" start="2025-02-09T01:31:15.874021" elapsed="0.001998"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.881017" level="INFO">5</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.877023" elapsed="0.003994"/>
+</kw>
+<var name="${index}">5</var>
+<status status="PASS" start="2025-02-09T01:31:15.876019" elapsed="0.004998"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.884023" level="INFO">6</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.882016" elapsed="0.003010"/>
+</kw>
+<var name="${index}">6</var>
+<status status="PASS" start="2025-02-09T01:31:15.881017" elapsed="0.005008"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.888017" level="INFO">7</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.887017" elapsed="0.001000"/>
+</kw>
+<var name="${index}">7</var>
+<status status="PASS" start="2025-02-09T01:31:15.887017" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.890018" level="INFO">8</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.889018" elapsed="0.001000"/>
+</kw>
+<var name="${index}">8</var>
+<status status="PASS" start="2025-02-09T01:31:15.889018" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.891017" level="INFO">9</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.891017" elapsed="0.000999"/>
+</kw>
+<var name="${index}">9</var>
+<status status="PASS" start="2025-02-09T01:31:15.890018" elapsed="0.001998"/>
+</iter>
+<var>${index}</var>
+<value>10</value>
+<status status="PASS" start="2025-02-09T01:31:15.864018" elapsed="0.027998"/>
+</for>
+<doc>Percorre de 0 até 9</doc>
+<status status="PASS" start="2025-02-09T01:31:15.863018" elapsed="0.028998"/>
+</kw>
+<kw name="Aritmético">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.918016" level="INFO">${var} = 5</msg>
+<var>${var}</var>
+<arg>${5}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.916016" elapsed="0.002000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.926017" level="INFO">0</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.925016" elapsed="0.002001"/>
+</kw>
+<var name="${index}">0</var>
+<status status="PASS" start="2025-02-09T01:31:15.925016" elapsed="0.002001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.933013" level="INFO">1</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.932014" elapsed="0.000999"/>
+</kw>
+<var name="${index}">1</var>
+<status status="PASS" start="2025-02-09T01:31:15.932014" elapsed="0.002003"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.935019" level="INFO">2</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.934017" elapsed="0.001002"/>
+</kw>
+<var name="${index}">2</var>
+<status status="PASS" start="2025-02-09T01:31:15.934017" elapsed="0.001002"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.937015" level="INFO">3</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.936018" elapsed="0.000997"/>
+</kw>
+<var name="${index}">3</var>
+<status status="PASS" start="2025-02-09T01:31:15.936018" elapsed="0.000997"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.941012" level="INFO">4</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.938016" elapsed="0.003997"/>
+</kw>
+<var name="${index}">4</var>
+<status status="PASS" start="2025-02-09T01:31:15.938016" elapsed="0.003997"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.944014" level="INFO">5</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.943015" elapsed="0.000999"/>
+</kw>
+<var name="${index}">5</var>
+<status status="PASS" start="2025-02-09T01:31:15.943015" elapsed="0.000999"/>
+</iter>
+<var>${index}</var>
+<value>${var} + 1</value>
+<status status="PASS" start="2025-02-09T01:31:15.919017" elapsed="0.029003"/>
+</for>
+<doc>Percorre de 0 até 5</doc>
+<status status="PASS" start="2025-02-09T01:31:15.915015" elapsed="0.034999"/>
+</kw>
+<kw name="Intervalos específicos">
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.985010" level="INFO">0</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.984012" elapsed="0.000998"/>
+</kw>
+<var name="${index}">0</var>
+<status status="PASS" start="2025-02-09T01:31:15.984012" elapsed="0.000998"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.988011" level="INFO">5</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.987011" elapsed="0.001000"/>
+</kw>
+<var name="${index}">5</var>
+<status status="PASS" start="2025-02-09T01:31:15.986010" elapsed="0.002001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.990011" level="INFO">10</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.989014" elapsed="0.000997"/>
+</kw>
+<var name="${index}">10</var>
+<status status="PASS" start="2025-02-09T01:31:15.989014" elapsed="0.000997"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.992010" level="INFO">15</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.991013" elapsed="0.000997"/>
+</kw>
+<var name="${index}">15</var>
+<status status="PASS" start="2025-02-09T01:31:15.991013" elapsed="0.001998"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:15.999013" level="INFO">20</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:15.998011" elapsed="0.001002"/>
+</kw>
+<var name="${index}">20</var>
+<status status="PASS" start="2025-02-09T01:31:15.998011" elapsed="0.001999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.001009" level="INFO">25</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.000010" elapsed="0.000999"/>
+</kw>
+<var name="${index}">25</var>
+<status status="PASS" start="2025-02-09T01:31:16.000010" elapsed="0.000999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.003009" level="INFO">30</msg>
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.002014" elapsed="0.000995"/>
+</kw>
+<var name="${index}">30</var>
+<status status="PASS" start="2025-02-09T01:31:16.002014" elapsed="0.000995"/>
+</iter>
+<var>${index}</var>
+<value>0</value>
+<value>31</value>
+<value>5</value>
+<status status="PASS" start="2025-02-09T01:31:15.982011" elapsed="0.020998"/>
+</for>
+<doc>Percorre de 0 até 30, pulando de 5 em 5</doc>
+<status status="PASS" start="2025-02-09T01:31:15.981018" elapsed="0.022991"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:15.715028" elapsed="0.303979"/>
+</test>
+<status status="FAIL" start="2025-02-09T01:31:15.504042" elapsed="0.526966"/>
+</suite>
+<suite id="s1-s5" name="Teardowns" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\teardowns.robot">
+<test id="s1-s5-t1" name="Exemplo 01: Teste lidando com Suite e Test Teardowns" line="7">
+<kw name="Essa keyword fará o teste passar, não executando as keywords abaixo!">
+<kw name="Pass Execution" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.096013" level="INFO">Execution passed with message:
+Estou forçando meu teste a passar com sucesso!</msg>
+<arg>message=Estou forçando meu teste a passar com sucesso!</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.094003" elapsed="0.003010">Estou forçando meu teste a passar com sucesso!</status>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.093004" elapsed="0.004999">Estou forçando meu teste a passar com sucesso!</status>
+</kw>
+<kw name="Esse keyword vai passar sozinha!">
+<status status="NOT RUN" start="2025-02-09T01:31:16.117002" elapsed="0.000000"/>
+</kw>
+<kw name="Essa keyword fará o teste falhar, não executando as keywords abaixo!">
+<status status="NOT RUN" start="2025-02-09T01:31:16.123001" elapsed="0.000000"/>
+</kw>
+<kw name="Controlando o teardown do teste" type="TEARDOWN">
+<kw name="Run Keyword If Test Passed" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.130001" level="INFO">Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</msg>
+<arg>Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.130001" elapsed="0.001000"/>
+</kw>
+<arg>Log</arg>
+<arg>Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if the test passed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.126005" elapsed="0.004996"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Log</arg>
+<arg>Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.131001" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.125004" elapsed="0.006998"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.090003" elapsed="0.042997">Estou forçando meu teste a passar com sucesso!</status>
+</test>
+<test id="s1-s5-t2" name="Exemplo 02: Teste lidando com Suite e Test Teardowns" line="12">
+<kw name="Esse keyword vai passar sozinha!">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>"May" == "May"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.146000" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.143004" elapsed="0.003996"/>
+</kw>
+<kw name="Esse keyword vai passar sozinha!">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>"May" == "May"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.149000" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.147999" elapsed="0.002002"/>
+</kw>
+<kw name="Esse aqui também vai passar com uma condição e vai parar de executar as keywords abaixo!">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>"May" == "May"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.154001" elapsed="0.009004"/>
+</kw>
+<msg time="2025-02-09T01:31:16.163005" level="INFO">${STATUS} = True</msg>
+<var>${STATUS}</var>
+<arg>Should Be True</arg>
+<arg>"May" == "May"</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.152000" elapsed="0.011005"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.165015" level="INFO">True</msg>
+<arg>${STATUS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.164011" elapsed="0.001998"/>
+</kw>
+<kw name="Pass Execution If" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.169999" level="INFO">Execution passed with message:
+message=May é igual a May, então passou!!</msg>
+<arg>${STATUS}</arg>
+<arg>message=May é igual a May, então passou!!</arg>
+<doc>Conditionally skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.166009" elapsed="0.004996">message=May é igual a May, então passou!!</status>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.151001" elapsed="0.020004">message=May é igual a May, então passou!!</status>
+</kw>
+<kw name="Esse keyword vai passar sozinha!">
+<status status="NOT RUN" start="2025-02-09T01:31:16.174999" elapsed="0.000000"/>
+</kw>
+<kw name="Esse keyword vai passar sozinha!">
+<status status="NOT RUN" start="2025-02-09T01:31:16.175999" elapsed="0.001005"/>
+</kw>
+<kw name="Controlando o teardown do teste" type="TEARDOWN">
+<kw name="Run Keyword If Test Passed" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.181998" level="INFO">Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</msg>
+<arg>Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.181998" elapsed="0.000000"/>
+</kw>
+<arg>Log</arg>
+<arg>Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if the test passed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.181003" elapsed="0.000995"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Log</arg>
+<arg>Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.201999" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.179999" elapsed="0.022000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.140004" elapsed="0.071992">message=May é igual a May, então passou!!</status>
+</test>
+<test id="s1-s5-t3" name="Exemplo 03: Teste lidando com Suite e Test Teardowns" line="20">
+<kw name="Esse keyword vai passar sozinha!">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>"May" == "May"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.258992" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.256994" elapsed="0.014999"/>
+</kw>
+<kw name="Essa keyword fará o teste falhar, não executando as keywords abaixo!">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.275992" level="FAIL">Estou forçando meu teste a falhar!</msg>
+<arg>msg=Estou forçando meu teste a falhar!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-02-09T01:31:16.274992" elapsed="0.001000">Estou forçando meu teste a falhar!</status>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:16.273992" elapsed="0.003003">Estou forçando meu teste a falhar!</status>
+</kw>
+<kw name="Esse keyword vai passar sozinha!">
+<status status="NOT RUN" start="2025-02-09T01:31:16.277993" elapsed="0.005003"/>
+</kw>
+<kw name="Esse keyword vai falhar sozinha!">
+<status status="NOT RUN" start="2025-02-09T01:31:16.288993" elapsed="0.000000"/>
+</kw>
+<kw name="Controlando o teardown do teste" type="TEARDOWN">
+<kw name="Run Keyword If Test Passed" owner="BuiltIn">
+<arg>Log</arg>
+<arg>Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if the test passed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.293992" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.300991" level="INFO">Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</msg>
+<arg>Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.299992" elapsed="0.000999"/>
+</kw>
+<arg>Log</arg>
+<arg>Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.297991" elapsed="0.004000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.291991" elapsed="0.010000"/>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:16.251995" elapsed="0.051996">Estou forçando meu teste a falhar!</status>
+</test>
+<test id="s1-s5-t4" name="Exemplo 04: Teste lidando com Suite e Test Teardowns" line="26">
+<kw name="Esse keyword vai falhar sozinha!">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.317994" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-02-09T01:31:16.314990" elapsed="0.003999">'"May" == "João"' should be true.</status>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:16.310990" elapsed="0.007999">'"May" == "João"' should be true.</status>
+</kw>
+<kw name="Controlando o teardown do teste" type="TEARDOWN">
+<kw name="Run Keyword If Test Passed" owner="BuiltIn">
+<arg>Log</arg>
+<arg>Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if the test passed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.322989" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.334991" level="INFO">Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</msg>
+<arg>Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.324991" elapsed="0.010000"/>
+</kw>
+<arg>Log</arg>
+<arg>Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.323988" elapsed="0.011003"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.320990" elapsed="0.015001"/>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:16.307990" elapsed="0.028001">'"May" == "João"' should be true.</status>
+</test>
+<kw name="Controlando o teardown da suite" type="TEARDOWN">
+<kw name="Run Keyword If All Tests Passed" owner="BuiltIn">
+<arg>Log</arg>
+<arg>Todos os testes passaram, posso enviar um e-mail, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.351987" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If Any Tests Failed" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:31:16.353984" level="INFO">Alguns testes falharam, posso enviar um e-mail, por exemplo!</msg>
+<arg>Alguns testes falharam, posso enviar um e-mail, por exemplo!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.352990" elapsed="0.000994"/>
+</kw>
+<arg>Log</arg>
+<arg>Alguns testes falharam, posso enviar um e-mail, por exemplo!</arg>
+<doc>Runs the given keyword with the given arguments, if one or more tests failed.</doc>
+<status status="PASS" start="2025-02-09T01:31:16.352990" elapsed="0.000994"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:31:16.350997" elapsed="0.002987"/>
+</kw>
+<status status="FAIL" start="2025-02-09T01:31:16.057006" elapsed="0.296978"/>
+</suite>
+<status status="FAIL" start="2025-02-09T01:31:13.641365" elapsed="2.723622"/>
+</suite>
+<statistics>
+<total>
+<stat pass="12" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="12" fail="5" skip="0">Tests</stat>
+<stat name="Argumentos" id="s1-s1" pass="3" fail="0" skip="0">Tests.Argumentos</stat>
+<stat name="Esperas" id="s1-s2" pass="1" fail="1" skip="0">Tests.Esperas</stat>
+<stat name="Falhas Previstas" id="s1-s3" pass="2" fail="1" skip="0">Tests.Falhas Previstas</stat>
+<stat name="For" id="s1-s4" pass="4" fail="1" skip="0">Tests.For</stat>
+<stat name="Teardowns" id="s1-s5" pass="2" fail="2" skip="0">Tests.Teardowns</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

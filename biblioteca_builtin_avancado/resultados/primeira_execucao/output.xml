@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.12.0 on win32)" generated="2025-02-09T01:29:10.426902" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests">
+<suite id="s1-s1" name="Argumentos" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\argumentos.robot">
+<test id="s1-s1-t1" name="Relembrando argumentos posicionais x nomeados" line="2">
+<kw name="Teste de Argumentos Básico">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:10.542898" level="INFO">1 - 2 - 3 - 4</msg>
+<arg>${arg1} - ${arg2} - ${arg3} - ${arg4}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:10.541900" elapsed="0.001998"/>
+</kw>
+<arg>1</arg>
+<arg>2</arg>
+<arg>3</arg>
+<arg>4</arg>
+<status status="PASS" start="2025-02-09T01:29:10.539899" elapsed="0.003999"/>
+</kw>
+<kw name="Teste de Argumentos Básico">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:10.546900" level="INFO">4 - 3 - 2 - 1</msg>
+<arg>${arg1} - ${arg2} - ${arg3} - ${arg4}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:10.546900" elapsed="0.000996"/>
+</kw>
+<arg>arg4=1</arg>
+<arg>arg3=2</arg>
+<arg>arg2=3</arg>
+<arg>arg1=4</arg>
+<status status="PASS" start="2025-02-09T01:29:10.544899" elapsed="0.002997"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:29:10.535895" elapsed="0.012001"/>
+</test>
+<test id="s1-s1-t2" name="Teste de Argumentos Opcionais" line="6">
+<kw name="Passando argumentos opcionais como parâmetro">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:10.562896" level="INFO">Nome completo: Mayara silva Fernandes</msg>
+<arg>Nome completo: ${nome} ${nome_do_meio} ${ultimo_nome}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:10.561896" elapsed="0.001000"/>
+</kw>
+<arg>nome=Mayara</arg>
+<arg>ultimo_nome=Fernandes</arg>
+<status status="PASS" start="2025-02-09T01:29:10.560895" elapsed="0.002001"/>
+</kw>
+<kw name="Passando argumentos opcionais como parâmetro">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:10.566897" level="INFO">Nome completo: Mayara Ribeiro Fernandes</msg>
+<arg>Nome completo: ${nome} ${nome_do_meio} ${ultimo_nome}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:10.565896" elapsed="0.001001"/>
+</kw>
+<arg>nome=Mayara</arg>
+<arg>nome_do_meio=Ribeiro</arg>
+<arg>ultimo_nome=Fernandes</arg>
+<status status="PASS" start="2025-02-09T01:29:10.563895" elapsed="0.003002"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:29:10.558900" elapsed="0.010998"/>
+</test>
+<test id="s1-s1-t3" name="Criando lista e dicionário via parâmetro" line="10">
+<kw name="Teste Criando um Dicionário">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:10.578899" level="INFO">{'cwd': '/home/user', 'shell': 'True', 'env': 'False'}</msg>
+<arg>${meu_dicionario}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:10.577894" elapsed="0.001005"/>
+</kw>
+<arg>cwd=/home/user</arg>
+<arg>shell=True</arg>
+<arg>env=False</arg>
+<status status="PASS" start="2025-02-09T01:29:10.575899" elapsed="0.003000"/>
+</kw>
+<kw name="Teste Criando uma Lista">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:10.586895" level="INFO">['may', 'ribeiro', 'fernandes']</msg>
+<arg>${minha_lista}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:10.585901" elapsed="0.000994"/>
+</kw>
+<arg>may</arg>
+<arg>ribeiro</arg>
+<arg>fernandes</arg>
+<status status="PASS" start="2025-02-09T01:29:10.581894" elapsed="0.005001"/>
+</kw>
+<kw name="Teste Criando os dois">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:10.589897" level="INFO">['may', 'ribeiro', 'fernandes']
+{'shell': 'True', 'env': 'False'}</msg>
+<arg>${minha_lista}\n${meu_dicionario}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:10.588895" elapsed="0.001002"/>
+</kw>
+<arg>may</arg>
+<arg>ribeiro</arg>
+<arg>fernandes</arg>
+<arg>shell=True</arg>
+<arg>env=False</arg>
+<status status="PASS" start="2025-02-09T01:29:10.587894" elapsed="0.002003"/>
+</kw>
+<doc>No Python é conhecido como "kwargs"</doc>
+<status status="PASS" start="2025-02-09T01:29:10.574895" elapsed="0.015999"/>
+</test>
+<status status="PASS" start="2025-02-09T01:29:10.528899" elapsed="0.074995"/>
+</suite>
+<suite id="s1-s2" name="Esperas" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\esperas.robot">
+<test id="s1-s2-t1" name="Exemplo 01: Teste lidando com o timeout do teste" line="8">
+<kw name="Simular espera do teste">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-09T01:29:11.646365" level="FAIL">Test timeout 1 second exceeded.</msg>
+<arg>${TEMPO}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="FAIL" start="2025-02-09T01:29:10.643894" elapsed="1.002471">Test timeout 1 second exceeded.</status>
+</kw>
+<arg>2s</arg>
+<status status="FAIL" start="2025-02-09T01:29:10.640893" elapsed="1.006478">Test timeout 1 second exceeded.</status>
+</kw>
+<kw name="Teardown do meu teste" type="TEARDOWN">
+<kw name="Run Keyword If Timeout Occurred" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:11.654364" level="INFO">Esse teste demorou demais, possível problema de performance!</msg>
+<arg>Esse teste demorou demais, possível problema de performance!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:11.653365" elapsed="0.000999"/>
+</kw>
+<arg>Log</arg>
+<arg>Esse teste demorou demais, possível problema de performance!</arg>
+<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
+<status status="PASS" start="2025-02-09T01:29:11.652365" elapsed="0.001999"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:29:11.648367" elapsed="0.006998"/>
+</kw>
+<timeout value="1 second"/>
+<status status="FAIL" start="2025-02-09T01:29:10.638897" elapsed="1.017469">Test timeout 1 second exceeded.</status>
+</test>
+<test id="s1-s2-t2" name="Exemplo 02: Teste de espera" line="12">
+<kw name="Esperar uma keyword obter sucesso!">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T01:29:11.762358" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:11.762</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T01:29:11.744358" elapsed="0.018000"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-02-09T01:29:11.788360" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:11.762000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-02-09T01:29:11.763361" elapsed="0.025995"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:11.797359" level="INFO">Hora atual: 1
+Minuto atual: 29
+Segundo atual: 11</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:11.789356" elapsed="0.008003"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-02-09T01:29:11.804355" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-02-09T01:29:11.802361" elapsed="0.002994">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-02-09T01:29:11.798356" elapsed="0.006999">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-02-09T01:29:11.743359" elapsed="0.063000">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T01:29:12.810118" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:12.809</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T01:29:12.808120" elapsed="0.001998"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-02-09T01:29:12.812118" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:12.809000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-02-09T01:29:12.810118" elapsed="0.002000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:12.818117" level="INFO">Hora atual: 1
+Minuto atual: 29
+Segundo atual: 12</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:12.813118" elapsed="0.004999"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-02-09T01:29:12.822117" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-02-09T01:29:12.821117" elapsed="0.001000">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-02-09T01:29:12.818117" elapsed="0.005000">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-02-09T01:29:12.807117" elapsed="0.016000">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T01:29:13.826572" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:13.826</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T01:29:13.824571" elapsed="0.002001"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-02-09T01:29:13.829572" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:13.826000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-02-09T01:29:13.827573" elapsed="0.001999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:13.834574" level="INFO">Hora atual: 1
+Minuto atual: 29
+Segundo atual: 13</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:13.829572" elapsed="0.005999"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-02-09T01:29:13.839571" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-02-09T01:29:13.837573" elapsed="0.001998">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-02-09T01:29:13.835571" elapsed="0.004998">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-02-09T01:29:13.823575" elapsed="0.016994">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T01:29:14.843039" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:14.843</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T01:29:14.842039" elapsed="0.001000"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-02-09T01:29:14.845038" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:14.843000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-02-09T01:29:14.844039" elapsed="0.002002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:14.850038" level="INFO">Hora atual: 1
+Minuto atual: 29
+Segundo atual: 14</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:14.846041" elapsed="0.003997"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-02-09T01:29:14.854043" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-02-09T01:29:14.853039" elapsed="0.002002">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-02-09T01:29:14.851041" elapsed="0.004000">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-02-09T01:29:14.841039" elapsed="0.014002">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T01:29:15.858918" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:15.859</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.857918" elapsed="0.001000"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-02-09T01:29:15.861919" level="INFO">${HORA_ATUAL} = 2025-02-09 01:29:15.859000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.859918" elapsed="0.002001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.866921" level="INFO">Hora atual: 1
+Minuto atual: 29
+Segundo atual: 15</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.861919" elapsed="0.005002"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.866921" elapsed="0.001997"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:29:15.856918" elapsed="0.012000"/>
+</kw>
+<arg>60x</arg>
+<arg>1 seconds</arg>
+<arg>Essa keyword só passa se estivermos no segundo 15!</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-02-09T01:29:11.742358" elapsed="4.127560"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:29:11.741358" elapsed="4.128560"/>
+</kw>
+<kw name="Teardown do meu teste" type="TEARDOWN">
+<kw name="Run Keyword If Timeout Occurred" owner="BuiltIn">
+<arg>Log</arg>
+<arg>Esse teste demorou demais, possível problema de performance!</arg>
+<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.871921" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:29:15.870917" elapsed="0.002002"/>
+</kw>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2025-02-09T01:29:11.714363" elapsed="4.158556"/>
+</test>
+<status status="FAIL" start="2025-02-09T01:29:10.613894" elapsed="5.262025"/>
+</suite>
+<suite id="s1-s3" name="Falhas Previstas" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\falhas_previstas.robot">
+<test id="s1-s3-t1" name="Exemplo 01: Teste lidando com falhas previstas" line="3">
+<kw name="Essa keyword vai falhar, mas vou ignorar (a suíte irá passar)!">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.907919" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-02-09T01:29:15.906919" elapsed="0.001000">'"May" == "João"' should be true.</status>
+</kw>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.906919" elapsed="0.002000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.908919" level="INFO">Continuo a execução!!</msg>
+<arg>Continuo a execução!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.908919" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:29:15.905918" elapsed="0.004000"/>
+</kw>
+<kw name="Essa keyword encerra a execução da suíte!">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${STOP}"=="Para tudo!"</arg>
+<arg>Fatal Error</arg>
+<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.910918" elapsed="0.000999"/>
+</kw>
+<arg>Não pare, por favor!</arg>
+<status status="PASS" start="2025-02-09T01:29:15.909918" elapsed="0.001999"/>
+</kw>
+<kw name="Essa keyword vai falhar, mas é uma falha que deve acontecer para meu teste ser considerado OK!">
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.915918" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-02-09T01:29:15.915918" elapsed="0.003005">'"May" == "João"' should be true.</status>
+</kw>
+<arg>'"May" == "João"' should be true.</arg>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.913918" elapsed="0.005999"/>
+</kw>
+<status status="PASS" start="2025-02-09T01:29:15.912915" elapsed="0.008010"/>
+</kw>
+<kw name="Essa keyword vai falhar, não vou ignorar (a suíte irá falhar), mas vou continuar a execução!">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.924916" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-02-09T01:29:15.923917" elapsed="0.000999">'"May" == "João"' should be true.</status>
+</kw>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2025-02-09T01:29:15.923917" elapsed="0.000999">'"May" == "João"' should be true.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.925916" level="INFO">Continuo a execução 1!!</msg>
+<arg>Continuo a execução 1!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.925916" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.926915" level="INFO">Continuo a execução 2!!</msg>
+<arg>Continuo a execução 2!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.926915" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.928913" level="INFO">Continuo a execução 3!!</msg>
+<arg>Continuo a execução 3!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T01:29:15.927914" elapsed="0.000999"/>
+</kw>
+<status status="FAIL" start="2025-02-09T01:29:15.922914" elapsed="0.005999">'"May" == "João"' should be true.</status>
+</kw>
+<kw name="Essa keyword encerra a execução da suíte!">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fatal Error" owner="BuiltIn">
+<msg time="2025-02-09T01:29:15.940916" level="FAIL">Para tudo, não adianta continuar com essa falha aqui!!!</msg>
+<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
+<doc>Stops the whole test execution.</doc>
+<status status="FAIL" start="2025-02-09T01:29:15.940916" elapsed="0.000996">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+</kw>
+<arg>"${STOP}"=="Para tudo!"</arg>
+<arg>Fatal Error</arg>
+<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-02-09T01:29:15.939921" elapsed="0.001991">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+</kw>
+<arg>Para tudo!</arg>
+<status status="FAIL" start="2025-02-09T01:29:15.938919" elapsed="0.002993">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+</kw>
+<status status="FAIL" start="2025-02-09T01:29:15.892919" elapsed="0.049993">Several failures occurred:
+
+1) '"May" == "João"' should be true.
+
+2) Para tudo, não adianta continuar com essa falha aqui!!!</status>
+</test>
+<test id="s1-s3-t2" name="Exemplo 02: Teste de continuação da suíte" line="10">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:15.947915" elapsed="0.000998">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s3-t3" name="Exemplo 03: Teste de continuação da suíte" line="13">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:15.956914" elapsed="0.002002">Test execution stopped due to a fatal error.</status>
+</test>
+<status status="FAIL" start="2025-02-09T01:29:15.879918" elapsed="0.082998"/>
+</suite>
+<suite id="s1-s4" name="For" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\for.robot">
+<test id="s1-s4-t1" name="Teste do novo formato do FOR" line="2">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:15.978915" elapsed="0.001997">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s4-t2" name="Teste de FOR aninhado" line="6">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:15.982912" elapsed="0.002001">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s4-t3" name="Teste FOR usando várias váriaveis" line="9">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:15.996912" elapsed="0.002002">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s4-t4" name="Teste FOR com numeração da lista" line="12">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:16.003911" elapsed="0.004001">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s4-t5" name="Teste mais opções IN RANGE" line="15">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:16.017912" elapsed="0.001998">Test execution stopped due to a fatal error.</status>
+</test>
+<status status="FAIL" start="2025-02-09T01:29:15.974912" elapsed="0.052997"/>
+</suite>
+<suite id="s1-s5" name="Teardowns" source="C:\workspace\curso-robot-framework-avancado-may\biblioteca_builtin_avancado\tests\teardowns.robot">
+<test id="s1-s5-t1" name="Exemplo 01: Teste lidando com Suite e Test Teardowns" line="7">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:16.034911" elapsed="0.001997">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s5-t2" name="Exemplo 02: Teste lidando com Suite e Test Teardowns" line="12">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:16.042911" elapsed="0.001999">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s5-t3" name="Exemplo 03: Teste lidando com Suite e Test Teardowns" line="20">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:16.048908" elapsed="0.002001">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-s5-t4" name="Exemplo 04: Teste lidando com Suite e Test Teardowns" line="26">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-02-09T01:29:16.054909" elapsed="0.000999">Test execution stopped due to a fatal error.</status>
+</test>
+<status status="FAIL" start="2025-02-09T01:29:16.031909" elapsed="0.030999"/>
+</suite>
+<status status="FAIL" start="2025-02-09T01:29:10.433905" elapsed="5.636002"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="13" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat info="combined" combined="NOT robot:exit" pass="4" fail="2" skip="0">NOT robot:exit</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="4" fail="13" skip="0">Tests</stat>
+<stat name="Argumentos" id="s1-s1" pass="3" fail="0" skip="0">Tests.Argumentos</stat>
+<stat name="Esperas" id="s1-s2" pass="1" fail="1" skip="0">Tests.Esperas</stat>
+<stat name="Falhas Previstas" id="s1-s3" pass="0" fail="3" skip="0">Tests.Falhas Previstas</stat>
+<stat name="For" id="s1-s4" pass="0" fail="5" skip="0">Tests.For</stat>
+<stat name="Teardowns" id="s1-s5" pass="0" fail="4" skip="0">Tests.Teardowns</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
