@@ -63,6 +63,7 @@ Executar query no Banco de dados
 
 Confere se "${USER}" foi inserido com sucesso
   Check Row Count  select_statement=SELECT username FROM account WHERE username = '${USER}'  assertion_operator===  expected_value=1
+  Check Query Result  select_statement=SELECT username FROM account WHERE username = '${USER}'  assertion_operator=contains  expected_value=${USER}
 
 Limpar Tabela
   [Arguments]  ${TABELA}
