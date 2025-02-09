@@ -1,0 +1,1525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.12.0 on win32)" generated="2025-02-09T13:40:47.813660" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests">
+<suite id="s1-s1" name="DatabaseLibrary" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\DatabaseLibrary">
+<suite id="s1-s1-s1" name="Database" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\DatabaseLibrary\database.robot">
+<test id="s1-s1-s1-t1" name="Exemplo 01: Executando scripts SQL via Arquivos" line="15">
+<kw name="Conectar no Banco de Dados" type="SETUP">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:48.054647" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2025-02-09T13:40:48.054647" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-02-09T13:40:48.123641" level="INFO">Connect to DB using : psycopg2.connect(database='robot', user=***, password=***, host='localhost', port=5432)</msg>
+<arg>db_module=psycopg2</arg>
+<arg>db_name=robot</arg>
+<arg>db_user=postgres</arg>
+<arg>db_password=postgres</arg>
+<arg>db_host=localhost</arg>
+<arg>db_port=5432</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.052644" elapsed="0.269983"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:48.049646" elapsed="0.273985"/>
+</kw>
+<kw name="Executar script via ARQUIVO no Banco de Dados">
+<kw name="Execute Sql Script" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:48.326630" level="INFO">Splitting script file into statements...</msg>
+<msg time="2025-02-09T13:40:48.329630" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE account( user_id serial PRIMARY KEY, username VARCHAR (50) UNIQUE NOT NULL, password VARCHAR (50) NOT NULL, email VARCHAR (355) UNIQUE NOT NULL )&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:48.423621" level="INFO">Commit the transaction</msg>
+<arg>script_path=${FILE}</arg>
+<doc>Executes the content of the SQL script file loaded from `script_path` as SQL commands.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.325628" elapsed="0.185987"/>
+</kw>
+<arg>C:\\workspace\\curso-robot-framework-avancado-may\\bibliotecas_auxiliares\\tests\\DatabaseLibrary/my_sql_scripts/create_table_accounts.sql</arg>
+<status status="PASS" start="2025-02-09T13:40:48.324628" elapsed="0.187992"/>
+</kw>
+<kw name="Executar script via ARQUIVO no Banco de Dados">
+<kw name="Execute Sql Script" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:48.516621" level="INFO">Splitting script file into statements...</msg>
+<msg time="2025-02-09T13:40:48.516621" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO account (user_id, username, password, email) VALUES (1, 'May Fernandes', 'robot123', 'robotizando@robot.com')&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:48.525617" level="INFO">Commit the transaction</msg>
+<arg>script_path=${FILE}</arg>
+<doc>Executes the content of the SQL script file loaded from `script_path` as SQL commands.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.514615" elapsed="0.013002"/>
+</kw>
+<arg>C:\\workspace\\curso-robot-framework-avancado-may\\bibliotecas_auxiliares\\tests\\DatabaseLibrary/my_sql_scripts/insert_into_account.sql</arg>
+<status status="PASS" start="2025-02-09T13:40:48.513618" elapsed="0.013999"/>
+</kw>
+<kw name="Confere se &quot;May Fernandes&quot; foi inserido com sucesso" source_name="Confere se &quot;${USER}&quot; foi inserido com sucesso">
+<kw name="Check Row Count" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:48.531614" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT username FROM account WHERE username = 'May Fernandes'&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:48.535615" level="INFO">Retrieved 1 rows</msg>
+<msg time="2025-02-09T13:40:48.535615" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;username&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: #eee;"&gt;&lt;th scope="row" style="background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;May Fernandes&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<arg>select_statement=SELECT username FROM account WHERE username = '${USER}'</arg>
+<arg>assertion_operator===</arg>
+<arg>expected_value=1</arg>
+<doc>Check the number of rows returned from ``select_statement`` using ``assertion_operator``
+and ``expected_value``. See `Inline assertions` for more details.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.530616" elapsed="0.006003"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:48.528615" elapsed="0.008004"/>
+</kw>
+<kw name="Desconectar do Banco de Dados" type="TEARDOWN">
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.560612" elapsed="0.001002"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:48.559615" elapsed="0.001999"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:48.044651" elapsed="0.521965"/>
+</test>
+<test id="s1-s1-s1-t2" name="Exemplo 02: Executando scripts SQL via STRING" line="20">
+<kw name="Conectar no Banco de Dados" type="SETUP">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:48.575613" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2025-02-09T13:40:48.575613" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-02-09T13:40:48.576614" level="INFO">Connect to DB using : psycopg2.connect(database='robot', user=***, password=***, host='localhost', port=5432)</msg>
+<arg>db_module=psycopg2</arg>
+<arg>db_name=robot</arg>
+<arg>db_user=postgres</arg>
+<arg>db_password=postgres</arg>
+<arg>db_host=localhost</arg>
+<arg>db_port=5432</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.573617" elapsed="0.299977"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:48.572612" elapsed="0.300982"/>
+</kw>
+<kw name="Executar script via STRING no Banco de Dados">
+<kw name="Execute Sql String" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:48.878596" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO public.account(user_id, username, password, email) VALUES (2, 'Luiz Silva', 'robot987', 'robotizando2@robot.com')&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:48.893604" level="INFO">Commit the transaction</msg>
+<arg>sql_string=${SCRIPT}</arg>
+<doc>Executes the ``sql_string`` as a single SQL command.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.876592" elapsed="0.021000"/>
+</kw>
+<arg>INSERT INTO public.account(user_id, username, password, email) VALUES (2, 'Luiz Silva', 'robot987', 'robotizando2@robot.com')</arg>
+<status status="PASS" start="2025-02-09T13:40:48.874598" elapsed="0.023996"/>
+</kw>
+<kw name="Confere se &quot;Luiz Silva&quot; foi inserido com sucesso" source_name="Confere se &quot;${USER}&quot; foi inserido com sucesso">
+<kw name="Check Row Count" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:48.906591" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT username FROM account WHERE username = 'Luiz Silva'&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:48.919590" level="INFO">Retrieved 1 rows</msg>
+<msg time="2025-02-09T13:40:48.919590" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;username&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: #eee;"&gt;&lt;th scope="row" style="background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Luiz Silva&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<arg>select_statement=SELECT username FROM account WHERE username = '${USER}'</arg>
+<arg>assertion_operator===</arg>
+<arg>expected_value=1</arg>
+<doc>Check the number of rows returned from ``select_statement`` using ``assertion_operator``
+and ``expected_value``. See `Inline assertions` for more details.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.905591" elapsed="0.013999"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:48.904593" elapsed="0.014997"/>
+</kw>
+<kw name="Desconectar do Banco de Dados" type="TEARDOWN">
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-02-09T13:40:48.973589" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:48.972589" elapsed="0.002996"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:48.571612" elapsed="0.404976"/>
+</test>
+<test id="s1-s1-s1-t3" name="Exemplo 03: Select Statement" line="24">
+<kw name="Conectar no Banco de Dados" type="SETUP">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:49.405560" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2025-02-09T13:40:49.406559" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-02-09T13:40:49.407560" level="INFO">Connect to DB using : psycopg2.connect(database='robot', user=***, password=***, host='localhost', port=5432)</msg>
+<arg>db_module=psycopg2</arg>
+<arg>db_name=robot</arg>
+<arg>db_user=postgres</arg>
+<arg>db_password=postgres</arg>
+<arg>db_host=localhost</arg>
+<arg>db_port=5432</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2025-02-09T13:40:49.404560" elapsed="0.219986"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:49.403557" elapsed="0.221989"/>
+</kw>
+<kw name="Executar query no Banco de dados">
+<kw name="Query" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:49.628541" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * from account&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:49.638542" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 2 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;user_id&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;username&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;password&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;email&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: #eee;"&gt;&lt;th scope="row" style="background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;May Fernandes&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;robot123&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;robotizando@robot.com&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope="row" style="background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;2&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Luiz Silva&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;robot987&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;robotizando2@robot.com&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-02-09T13:40:49.639545" level="INFO">${RESPONSE_QUERY} = [(1, 'May Fernandes', 'robot123', 'robotizando@robot.com'), (2, 'Luiz Silva', 'robot987', 'robotizando2@robot.com')]</msg>
+<var>${RESPONSE_QUERY}</var>
+<arg>select_statement=${QUERY}</arg>
+<doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
+The type of row values depends on the database module -
+usually they are tuples or tuple-like objects.</doc>
+<status status="PASS" start="2025-02-09T13:40:49.627543" elapsed="0.012002"/>
+</kw>
+<return>
+<value>${RESPONSE_QUERY}</value>
+<status status="PASS" start="2025-02-09T13:40:49.639545" elapsed="0.000998"/>
+</return>
+<msg time="2025-02-09T13:40:49.640543" level="INFO">${RESPOSTA_SELECT} = [(1, 'May Fernandes', 'robot123', 'robotizando@robot.com'), (2, 'Luiz Silva', 'robot987', 'robotizando2@robot.com')]</msg>
+<var>${RESPOSTA_SELECT}</var>
+<arg>SELECT * from account</arg>
+<status status="PASS" start="2025-02-09T13:40:49.626545" elapsed="0.015000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:49.644544" level="INFO">[(1, 'May Fernandes', 'robot123', 'robotizando@robot.com'), (2, 'Luiz Silva', 'robot987', 'robotizando2@robot.com')]</msg>
+<arg>${RESPOSTA_SELECT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:49.643546" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:49.653543" level="INFO">Usuário 1 - Nome: May Fernandes - E-mail: robotizando@robot.com</msg>
+<arg>Usuário ${RESPOSTA_SELECT[0][0]} - Nome: ${RESPOSTA_SELECT[0][1]} - E-mail: ${RESPOSTA_SELECT[0][3]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:49.647543" elapsed="0.006999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:49.665541" level="INFO">Usuário 2 - Nome: Luiz Silva - E-mail: robotizando2@robot.com</msg>
+<arg>Usuário ${RESPOSTA_SELECT[1][0]} - Nome: ${RESPOSTA_SELECT[1][1]} - E-mail: ${RESPOSTA_SELECT[1][3]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:49.659544" elapsed="0.006998"/>
+</kw>
+<kw name="Desconectar do Banco de Dados" type="TEARDOWN">
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-02-09T13:40:49.669546" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:49.668543" elapsed="0.001999"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:49.273568" elapsed="0.400973"/>
+</test>
+<test id="s1-s1-s1-t4" name="Exemplo 04: Limpando Tabelas" line="31">
+<kw name="Conectar no Banco de Dados" type="SETUP">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:49.694544" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2025-02-09T13:40:49.695541" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-02-09T13:40:49.698541" level="INFO">Connect to DB using : psycopg2.connect(database='robot', user=***, password=***, host='localhost', port=5432)</msg>
+<arg>db_module=psycopg2</arg>
+<arg>db_name=robot</arg>
+<arg>db_user=postgres</arg>
+<arg>db_password=postgres</arg>
+<arg>db_host=localhost</arg>
+<arg>db_port=5432</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2025-02-09T13:40:49.693543" elapsed="0.342974"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:49.692540" elapsed="0.343977"/>
+</kw>
+<kw name="Limpar Tabela">
+<kw name="Row Count" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:50.039518" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM account&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:50.048518" level="INFO">Retrieved 2 rows</msg>
+<msg time="2025-02-09T13:40:50.048518" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 2 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;user_id&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;username&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;password&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;email&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: #eee;"&gt;&lt;th scope="row" style="background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;May Fernandes&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;robot123&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;robotizando@robot.com&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope="row" style="background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;2&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Luiz Silva&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;robot987&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;robotizando2@robot.com&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-02-09T13:40:50.049518" level="INFO">${REGISTROS} = 2</msg>
+<var>${REGISTROS}</var>
+<arg>select_statement=SELECT * FROM ${TABELA}</arg>
+<doc>Runs a query with the ``select_statement`` and returns the number of rows in the result.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.038519" elapsed="0.010999"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Delete All Rows From Table" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:50.051518" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM account&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:50.053518" level="INFO">Commit the transaction</msg>
+<arg>${TABELA}</arg>
+<doc>Deletes all rows from table with ``table_name``.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.050518" elapsed="0.004998"/>
+</kw>
+<arg>${REGISTROS} &gt; 0</arg>
+<arg>Delete All Rows From Table</arg>
+<arg>${TABELA}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.049518" elapsed="0.005998"/>
+</kw>
+<arg>account</arg>
+<status status="PASS" start="2025-02-09T13:40:50.037517" elapsed="0.019000"/>
+</kw>
+<kw name="Executar script via STRING no Banco de Dados">
+<kw name="Execute Sql String" owner="DatabaseLibrary">
+<msg time="2025-02-09T13:40:50.059520" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DROP table account&lt;/code&gt;</msg>
+<msg time="2025-02-09T13:40:50.074517" level="INFO">Commit the transaction</msg>
+<arg>sql_string=${SCRIPT}</arg>
+<doc>Executes the ``sql_string`` as a single SQL command.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.058521" elapsed="0.042995"/>
+</kw>
+<arg>DROP table account</arg>
+<status status="PASS" start="2025-02-09T13:40:50.057519" elapsed="0.043997"/>
+</kw>
+<kw name="Desconectar do Banco de Dados" type="TEARDOWN">
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.109514" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.107514" elapsed="0.003999"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:49.691540" elapsed="0.428973"/>
+</test>
+<doc>[14/10/2019] https://franz-see.github.io/Robotframework-Database-Library/api/1.2.2/DatabaseLibrary.html
+Instale: "pip install -U robotframework-databaselibrary"
+Para acessar o BD o Robot precisa conhecer o DRIVER de cada banco, então precisamos instalar esse DRIVER também (instale apenas para o BD que você utiliza!) ...
+Para PostgreSQL: "pip install psycopg2"
+Para SQLite 3: não precisa instalar nada!
+Para MySQL: "pip install pymysql"
+Para SQL Server: "pip install pymssql"
+Para Oracle: "pip install cx-Oracle"</doc>
+<status status="PASS" start="2025-02-09T13:40:47.938654" elapsed="2.188860"/>
+</suite>
+<status status="PASS" start="2025-02-09T13:40:47.929653" elapsed="2.206859"/>
+</suite>
+<suite id="s1-s2" name="DateTime" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\DateTime">
+<suite id="s1-s2-s1" name="Date Time" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\DateTime\date_time.robot">
+<test id="s1-s2-s1-t1" name="Exemplo 01: Pegando data e hora atuais" line="6">
+<kw name="Teste pegando data atual">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.191510" level="INFO">${AGORA} = 09-02-25</msg>
+<var>${AGORA}</var>
+<arg>result_format=%d-%m-%y</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.190510" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.194520" level="INFO">09-02-25</msg>
+<arg>${AGORA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.193508" elapsed="0.001012"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.189509" elapsed="0.005999"/>
+</kw>
+<kw name="Teste pegando data e hora atuais">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.205509" level="INFO">${AGORA} = 2025-02-09T13:40:50</msg>
+<var>${AGORA}</var>
+<arg>result_format=%Y-%m-%dT%H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.203509" elapsed="0.002000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.206506" level="INFO">2025-02-09T13:40:50</msg>
+<arg>${AGORA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.205509" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.202508" elapsed="0.004998"/>
+</kw>
+<kw name="Teste pegando ano - mês - dia separadamente">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.212507" level="INFO">${HOJE} = 2025-02-09 13:40:50.213</msg>
+<var>${HOJE}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.212507" elapsed="0.000000"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.251503" level="INFO">${HOJE} = 2025-02-09 13:40:50.213000</msg>
+<var>${HOJE}</var>
+<arg>${HOJE}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.220506" elapsed="0.030997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.256505" level="INFO">9-2-2025</msg>
+<arg>${HOJE.day}-${HOJE.month}-${HOJE.year}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.252503" elapsed="0.004002"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.211510" elapsed="0.045993"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.183511" elapsed="0.074994"/>
+</test>
+<test id="s1-s2-s1-t2" name="Exemplo 02: Manipulando o tempo" line="11">
+<kw name="Trabalhando com tempo">
+<kw name="Convert Time" owner="DateTime">
+<msg time="2025-02-09T13:40:50.267502" level="INFO">${HORA} = 90.0</msg>
+<var>${HORA}</var>
+<arg>1 minute 30 seconds</arg>
+<doc>Converts between supported `time formats`.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.266504" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.268507" level="INFO">São 90.0 segundos em 1 minuto e 30 segundos!</msg>
+<arg>São ${HORA} segundos em 1 minuto e 30 segundos!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.267502" elapsed="0.001005"/>
+</kw>
+<kw name="Convert Time" owner="DateTime">
+<msg time="2025-02-09T13:40:50.270505" level="INFO">${HORA} = 1 hour 30 minutes</msg>
+<var>${HORA}</var>
+<arg>5400</arg>
+<arg>verbose</arg>
+<doc>Converts between supported `time formats`.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.269504" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.272503" level="INFO">5400 segundos é 1 hour 30 minutes!</msg>
+<arg>5400 segundos é ${HORA}!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.270505" elapsed="0.001998"/>
+</kw>
+<kw name="Convert Time" owner="DateTime">
+<msg time="2025-02-09T13:40:50.274504" level="INFO">${HORA} = 01:31:40</msg>
+<var>${HORA}</var>
+<arg>5500</arg>
+<arg>timer</arg>
+<arg>exclude_millis=yes</arg>
+<doc>Converts between supported `time formats`.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.273507" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.275504" level="INFO">5500 segundos é 01:31:40!</msg>
+<arg>5500 segundos é ${HORA}!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.275504" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.264503" elapsed="0.012001"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.261503" elapsed="0.016000"/>
+</test>
+<test id="s1-s2-s1-t3" name="Exemplo 03: Cálculos com data" line="14">
+<kw name="Adicionando tempo de data">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.290502" level="INFO">${ANTES} = 2025-02-09 13:40:50.291</msg>
+<var>${ANTES}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.289503" elapsed="0.000999"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.305501" level="INFO">${DEPOIS} = 09-02-2025 17:40:50</msg>
+<var>${DEPOIS}</var>
+<arg>${ANTES}</arg>
+<arg>4 hours</arg>
+<arg>result_format=%d-%m-%Y %H:%M:%S</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.291505" elapsed="0.013996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.306501" level="INFO">Antes: 2025-02-09 13:40:50.291 - Depois: 09-02-2025 17:40:50</msg>
+<arg>Antes: ${ANTES} - Depois: ${DEPOIS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.306501" elapsed="0.000000"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.308500" level="INFO">${ANTES} = 2025-02-09 13:40:50.308</msg>
+<var>${ANTES}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.307501" elapsed="0.000999"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.310500" level="INFO">${DEPOIS} = 16-02-2025 13:40:50</msg>
+<var>${DEPOIS}</var>
+<arg>${ANTES}</arg>
+<arg>7 days</arg>
+<arg>result_format=%d-%m-%Y %H:%M:%S</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.308500" elapsed="0.002000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.311501" level="INFO">Antes: 2025-02-09 13:40:50.308 - Depois: 16-02-2025 13:40:50</msg>
+<arg>Antes: ${ANTES} - Depois: ${DEPOIS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.310500" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.288502" elapsed="0.024001"/>
+</kw>
+<kw name="Subtraindo tempo de data">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.320500" level="INFO">${ANTES} = 2025-02-09 13:40:50.320</msg>
+<var>${ANTES}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.319501" elapsed="0.000999"/>
+</kw>
+<kw name="Subtract Time From Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.322503" level="INFO">${DEPOIS} = 09-02-2025 13:15:50</msg>
+<var>${DEPOIS}</var>
+<arg>${ANTES}</arg>
+<arg>25 minutes</arg>
+<arg>result_format=%d-%m-%Y %H:%M:%S</arg>
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.321503" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.324499" level="INFO">Antes: 2025-02-09 13:40:50.320 - Depois: 09-02-2025 13:15:50</msg>
+<arg>Antes: ${ANTES} - Depois: ${DEPOIS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.323501" elapsed="0.000998"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.337499" level="INFO">${ANTES} = 2025-02-09 13:40:50.335</msg>
+<var>${ANTES}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.333507" elapsed="0.003992"/>
+</kw>
+<kw name="Subtract Time From Date" owner="DateTime">
+<msg time="2025-02-09T13:40:50.339499" level="INFO">${DEPOIS} = 07-02-2025 13:40:50</msg>
+<var>${DEPOIS}</var>
+<arg>${ANTES}</arg>
+<arg>2 days</arg>
+<arg>result_format=%d-%m-%Y %H:%M:%S</arg>
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.338500" elapsed="0.001999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.341498" level="INFO">Antes: 2025-02-09 13:40:50.335 - Depois: 07-02-2025 13:40:50</msg>
+<arg>Antes: ${ANTES} - Depois: ${DEPOIS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.340499" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.316504" elapsed="0.024994"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.282502" elapsed="0.073996"/>
+</test>
+<doc>http://robotframework.org/robotframework/latest/libraries/DateTime.html</doc>
+<status status="PASS" start="2025-02-09T13:40:50.151512" elapsed="0.225984"/>
+</suite>
+<status status="PASS" start="2025-02-09T13:40:50.140512" elapsed="0.277981"/>
+</suite>
+<suite id="s1-s3" name="OperatingSystem" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem">
+<suite id="s1-s3-s1" name="Operating System" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\operating_system.robot">
+<test id="s1-s3-s1-t1" name="Exemplo 01: Criando arquivos" line="6">
+<kw name="Criando um arquivo texto">
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.600482" level="INFO" html="true">Created file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO.txt&lt;/a&gt;'.</msg>
+<arg>./tests/OperatingSystem/my_files/arquivo_TEXTO.txt</arg>
+<arg>Esse curso vai me tornar um ninja em Robot Framework!!!!</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.593481" elapsed="0.007001"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.591482" elapsed="0.009000"/>
+</kw>
+<kw name="Criando um arquivo JSON">
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.625484" level="INFO" html="true">Created file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_JSON.json"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_JSON.json&lt;/a&gt;'.</msg>
+<arg>./tests/OperatingSystem/my_files/arquivo_JSON.json</arg>
+<arg>{"teste01": "valor01", "teste02": 2, "teste03": [1, 2, 3]}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.617481" elapsed="0.008003"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.611486" elapsed="0.014998"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.582481" elapsed="0.054000"/>
+</test>
+<test id="s1-s3-s1-t2" name="Exemplo 02: Copiando arquivos" line="10">
+<kw name="Copiando meu arquivo">
+<kw name="Copy File" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.703475" level="INFO" html="true">Copied file from '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO.txt&lt;/a&gt;' to '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO_COPIA.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO_COPIA.txt&lt;/a&gt;'.</msg>
+<arg>./tests/OperatingSystem/my_files/arquivo_TEXTO.txt</arg>
+<arg>./tests/OperatingSystem/my_files/arquivo_TEXTO_COPIA.txt</arg>
+<doc>Copies the source file into the destination.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.659478" elapsed="0.043997"/>
+</kw>
+<kw name="Copy File" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.755471" level="INFO" html="true">Copied file from '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_JSON.json"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_JSON.json&lt;/a&gt;' to '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_JSON_COPIA.json"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_JSON_COPIA.json&lt;/a&gt;'.</msg>
+<arg>./tests/OperatingSystem/my_files/arquivo_JSON.json</arg>
+<arg>./tests/OperatingSystem/my_files/arquivo_JSON_COPIA.json</arg>
+<doc>Copies the source file into the destination.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.704475" elapsed="0.050996"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.658479" elapsed="0.096992"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.655479" elapsed="0.101993"/>
+</test>
+<test id="s1-s3-s1-t3" name="Exemplo 03: Lendo meu arquivo" line="13">
+<kw name="Lendo o conteúdo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.777471" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO.txt&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:40:50.779472" level="INFO">${MEU_ARQUIVO} = Esse curso vai me tornar um ninja em Robot Framework!!!!</msg>
+<var>${MEU_ARQUIVO}</var>
+<arg>./tests/OperatingSystem/my_files/arquivo_TEXTO.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.777471" elapsed="0.012000"/>
+</kw>
+<kw name="Get File Size" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.791471" level="INFO" html="true">Size of file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO.txt&lt;/a&gt;' is 56 bytes.</msg>
+<msg time="2025-02-09T13:40:50.792470" level="INFO">${SIZE} = 56</msg>
+<var>${SIZE}</var>
+<arg>./tests/OperatingSystem/my_files/arquivo_TEXTO.txt</arg>
+<doc>Returns and logs file size as an integer in bytes.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.789471" elapsed="0.002999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.793471" level="INFO">Esse curso vai me tornar um ninja em Robot Framework!!!!</msg>
+<arg>${MEU_ARQUIVO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.792470" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.776471" elapsed="0.017000"/>
+</kw>
+<kw name="Lendo o binário">
+<kw name="Should Exist" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.813468" level="INFO" html="true">Path '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_PDF.pdf"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_PDF.pdf&lt;/a&gt;' exists.</msg>
+<arg>./tests/OperatingSystem/my_files/arquivo_PDF.pdf</arg>
+<arg>msg=O arquivo não existe!! Verifique!</arg>
+<doc>Fails unless the given path (file or directory) exists.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.812469" elapsed="0.006999"/>
+</kw>
+<kw name="Get Binary File" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.821467" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_PDF.pdf"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_PDF.pdf&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:40:50.825467" level="INFO">${MEU_ARQUIVO} = %PDF-1.4
+%Ã¤Ã¼Ã¶Ã
+2 0 obj
+&lt;&lt;/Length 3 0 R/Filter/FlateDecode&gt;&gt;
+stream
+xÏ=Â@àý~EfÁóMî£W(«Up«8à ØÅ¿o¤ H{áB ð$ez' U(Jm¢þb3z=ýÖE3M6B¹'±ñóT`'6P(¼Ï´Ø0%P¾+pÍ^s@Ô§¼3m6Ý¿x]Ëã...</msg>
+<var>${MEU_ARQUIVO}</var>
+<arg>./tests/OperatingSystem/my_files/arquivo_PDF.pdf</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.820475" elapsed="0.004992"/>
+</kw>
+<kw name="Get File Size" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.827466" level="INFO" html="true">Size of file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_PDF.pdf"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_PDF.pdf&lt;/a&gt;' is 8055 bytes.</msg>
+<msg time="2025-02-09T13:40:50.827466" level="INFO">${SIZE} = 8055</msg>
+<var>${SIZE}</var>
+<arg>./tests/OperatingSystem/my_files/arquivo_PDF.pdf</arg>
+<doc>Returns and logs file size as an integer in bytes.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.826467" elapsed="0.002001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:50.829468" level="INFO">%PDF-1.4
+%Ã¤Ã¼Ã¶Ã
+2 0 obj
+&lt;&lt;/Length 3 0 R/Filter/FlateDecode&gt;&gt;
+stream
+xÏ=Â@àý~EfÁóMî£W(«Up«8à ØÅ¿o¤ H{áB ð$ez' U(Jm¢þb3z=ýÖE3M6B¹'±ñóT`'6P(¼Ï´Ø0%P¾+pÍ^s@Ô§¼3m6Ý¿x]ËãÊz®h&amp;ËÉ©ì$ÙâG®°Bµ~_çûQA&amp;½sh±a@mY¾pGoóR`
+endstream
+endobj
+
+3 0 obj
+178
+endobj
+
+5 0 obj
+&lt;&lt;/Length 6 0 R/Filter/FlateDecode/Length1 9628&gt;&gt;
+stream
+xåZ{|Õ½?ó}dwg³»IxÎ²&amp;		Ù$`L
+'´H"A#ÙìNÕ$»ÝÝÑ{!Ö,ØøªOD±Z7µ6h
+ý R+j­OD©ÞFiµ¢ÝÜß93`oïý÷ÎæÌüÎ9¿ó{|¿ó;3h4Ü­ #êEòø:½!ÏÜL7Bè(BÕwMT¶è«@¿í¶ÖP[çEÕ/@	!DÛ:zZkâq½v·+^¿þ¥ßæí0°ýìïDè7CÿöÎè[Ä×VCÿFè_ÒôyOd±Cÿôçtz7î*è}¹ËÛ©üqê¯g#dMGÈr2D[ÑQfÅó¡°^y{!×4°l@üð6P&lt;îÓËñ¨Ó)&amp;³E²¢ÿ_2¸Ã(7vGÿí~&amp;ºGÿó(ñ&amp;Dôç£m¥k{ã7ú%ócddïGôIA5¢DÝè:ÈÐ´íDýè	ôúFGÐ«èô:.C~tp÷Zà¼ð=E^îß£_ ÓèÚ^i&gt;´J×¤ýý2ÂÈ´4mC] ïû®ÿ@Ãü6àÍÞu¢3£=(cô½ª£ÐWÄwëaü&lt;ý³ÑÑD-¦øZÐ½Å&lt;¾¾«ÎTèßTmrû*zBO¢Eh%j5ö£¥ô^téçùÑÔDÿû=}=³Ú
+Vh×w°Z2öÙR­eÙb4ìÓëDßÇ±MÅPNSÕ×·9FeÇ¸*cK®=&gt;/GÄ&lt;ÞÚ*Ðûn=`A-ÍÙF¿Ëï½bMñ6ÎËq:qwëjN¬wåµ/£©O!Ý£ñÌÁä½Ïô&amp;gÆ7»órP¬Ú ªQ ««. 2/§Ê%\ÈföÕ®ñnÚ|kc«ÒÛ+åÕ,WÅª¯iï«j®Ñ¹Ì? pY®ì&gt;ËÅßP´%®%.¯&lt; ð0*÷yö¶ÄØ,Y¶ô],WËà©ï²æ§s9Éb½-Þ¾ïr&amp;õ_dÞ(µõ&lt;ÓÕ®êæ¾¾j\Ý×¬Îºd«o`ùò¾PU³CµkbÜ:5æ¹µ±5T¯	~^ÎòUkª*§:ª*yå0XYÞ¾­S³ûnmh(\Já9`ÐW¸ð2([¸`qð
+, FñÂÕ]!P)Hdh(a,ZÉÓ)+-Y¥bk1Z$PÐÍO59%§	7
+±è¬é=ÛË¡"Û5Ê  ¹*g ¨.¨É3i6S¦òâCMhñâxiþ|Uä´;%zfüö¯ñ/¸ìþþoÅ(8zù½IÈ¶z~t©ÀTiò+«tíÛÌ÷80?î1û§LÏ9^daÓÇ1Ýë¦c¶7è&gt;6}`ûãkÇ´2«½ÌJTÌe´ÁLß¾=MuK²Ñc7·ï3&gt;i4¾bÔ­)âòFFÞiKG^Yl-ÉÁdò®Y¨¨¸­à´:Ý)§Å5ùàÐOþx2~¯Î¦j¯Ûo¦Þ;ñ¡«Z8C&amp;N%¥ÿ,§SyV?ø·m@NäõTòS+Ó×	âÚ©½oêîÇ¯O9iüxÊ·ºj#bÊD]ÆÖ$¬­Ì$4»z]tZ¾ÁÊ»­û¦SÓ-À¾ÓTVæVüù¨ia£À½ ¨0Ê**\PàIÙ³\³x»m&amp;5²ÛÀ£þ¶×ú#£G¼üæ¹·4´Ý¶îOÄ6gío¾¢J)Ï¿êwÛÊwå/_Üø9wþhû|VA%ü%ç@6´Ø3g[Ìî¥·7óeF·àfe3Ý6®q4[úRq¼4[¹x¨gäØU$¹
+ÚqBØ
+Üé=WÜñè-ÃÔ´ÄÉ³/ÊxünzãÎáÔ7wÆwOQs­ÅgN»gÅiÖ*k½mgïïJ}B|4õvÐò[úPú[öÏ-£¯S­JÇ(é#
+N¡é;hÚn436q&amp;[¡·ð4ðNS¼´çêÈbÈbÎ"°.²XÜiRÄ$-`.³qÃß&gt;=öÂ¦Cî¾eóÎ³»ú~DÍø2SËvÒo3%O¼¸a/X&gt;{¥öÙÇÃsv.Ï\j^a^úcîn7÷+ñ©r½Ü/H¦QÒ!ÅPòFÜïà§dät;Òvrº2(é¬ljÚñËçKW$&amp;N6Õ?wôg¯ç×¬Ûõ×Äñ}ô=~ïa¤Z
+±%é¨ÎSI³ãu´ÞÂÚ9»Î¢Í.³,µ­bë¹:ýµº&gt;ÝNv·=,¾ÎÙÓË):¥ÖAî	§NHÁ¾Ó4£;fæ,Ïº2òÂev.üëÛÙ×Àøf8ñ!BÉ®ßtéëo&lt;Áné~6q,±çxwkÿ=S»ýò
+q`-ó-X«CzÒÅr-ç&lt;&lt;ïà³x§9PñÀÈ(Üø4ý	Ë=ñf,sbñØZíYÄ2¬ÅÁØ%KX ÜÁì°ìf´¼nü^íªÄ	¯Gbo*epÏ7ÛEFd,n
+×[H7øºKöüùà~¶Ã.¹¤BÈAþùm/Yµÿ~vÑÑ{ï&lt;û%}´§m$^¦Õ=ö:°ÆÒÐOu¹éRË¥¶rÇ]¦;-wÚîrì1í¶ì¶íq|c:c9cûÆa±ñ±Û3hs!ÒÉºù:î&gt;Ý ×ÙÍ¡Ê¤.,&amp;$0|MòÝýyâ*íóÏ©´Ä'ïxðÁ;x rS&lt;üò¯$¾ßË;ß&gt;|øÏ&gt;|øm-XÈäë&lt;óÉÐgñyú"¾X¿B¥~]ª"øÅÓ-öè{Å[ô;Ù{ô°¿Ð?#&gt;§ÿá¨þOú·¦ôE:Q'Rr½ÜaÕÒ:kh0r&amp;£V¼	_tKÕØJÅ¹ÜøÁ±MµL Tr8]ÔÁãöo£&gt;K$U¾øûÄ¾¹Ã¿Þû·KâËép|c¾÷®±ÃûÏÆkI©uu½oåwèoOÝ¥$õWü^ËKìÑ´7ì',§-_¥JRÂ 86BZàJb+BFÇÄÓ"'¦0æI¡eÆÄZ$Õn¡]³f©¤LÃi"÷¨µ¤7=ý®¾-;Ï&gt;ÜoäÆLø:ñ÷Äþ)ó_¦6îÕ29=Ê¸§C§ß¨f,Íæf1º"%â³:¯é%(mØ°%SBËÓ4»£ÝïÍpÌ~n#NQîôn¼£Ô(¦éh6êõ\idKÆX¬2ÖBëk½PëÜ$l~mxÁú&amp;ûáõÎ¿°'­'iðfB¦
+³±L¤%!Í3ÍUA¶Ï¥L:4Ãm6¡)ôÓ&amp;;ew¹µ#4x](ÖNr¿6g-;á@»ÀYPTF©Ûi0ÃH³IN¸éìÚüTôÜá»÷ÿ.¶ÿñöSÅÊ¾Å»øk®ë{hÏõOÞð|óC+~&lt;aÛÃvÊÊ ¯U´¨èòð&amp;2]æ)ayVoãmáYúü}^'UêôJAÚd°§[¦çM´MBªÛÎL,èìp¼ÿH$P·cû±:C =o;ñÖ[ßß~ß¡w?zèÛÃ9ùÑ»Î~JyöOñ9ôçÞÏÁy_Tü4ø3¢&lt;suYÆÜ2}±ÛnænÖÝA?BÿÝcx~ÝÏ^äÞÐ½i8Å"|¤;eHç7,iÈ0ÊÌ_hÏÌç«ø á?_ÒgÑð[aY7ÇÏ×óÚ(êz&gt;¢ÞÀ å£x£^Ç qÒ»gêòttÎßý:3pHIÉ¢G¬Ô&amp;J/0iÅy#yd¤Â¼Âlæâ7Ãß,æÆ¹cT|³8²Y&lt;Q£*H%¡¨Ä&gt;£¨á(iOâÞC'Î²ÎþYÛ?_ÄÏdµ¿	ö¹vyµÌeòùÜ¾+çËU\ßÂGøøò¿`÷óÃüi^âá½ØþñÜ0¼Ñs,' Y¿ÎÓÛRqÕR«ZÀjQ+MU £\D:úZb)m= øì³,mNpñçéyñ?â¯MòNo2óÇÖKÿ2DòúÈ+×_5þI:zÄ_ÔpRÚ&lt;ÅCg¯ðÝJ¡ÉW*CYÙndm¨N *z¨ÓA¿r	4È.v³¢ ðÂÜ0Sý«Q°¾/oõ'0ÈÑØQWÃï0BûémôqfóSæsöö^öî&amp;îÄT4r_4²À»ü	7òë &amp;âÙlZ?fëÚ1»)XµV£iøèÔhå£¨F³Àó°Fsñ4s|H£Tkt
+5D°V2éW	Ía«èw	ÍñÏ-ño	-bÑZö1S4BYÌËM#ó¥F3¨¥5EY¬_£9Îöi4f±j´ÂìFë¹nF§0[ô-ÖcÛR&gt;%´Ûò¡xÜÄÚDh+¡-ØÓB§m5åÚFxÚåÚAÆ×:¬m%ôTÂ%ôtÂs#¡gú6B_@øNèy8Ö¦Ç0-5Zÿ4¦êøVí¹"ê	ÚÚ£ò9¿¸¸@.´)Áõr\ìèT"òÒ._®\ÖÑ!¶V"JøÅ+×z£¹r¥ÉÝçºç!èÖ*]þÜKº}¿W^ííÈõ]_Ð¯¬RÚº;¼áóÌÈÚT\US"Â9¿(ØTrJ8vÉE¹óóÕi&lt;«MjüìsÛ¨Vür4ìõ+ÞðÕr°õü~^ð`kTtBXÔì/Ýr§·Gî(r´ãa9}aÅUrd êðöäÈÞ.¿ÖÃ¬Xxz#rH	w¢Q×Òë¹#àSº°,ÈÁphÅrðs
+ýÝ¾h±µ9xMRA K^ßðµO°l=(tù:ºý8PIë]=òÀ\YélÁx±e-a÷ºÚpð£á/
+Ð+ÀËÇdæ@KTéÃ^eì®ïêzýÑóªP)aìNTÁ½;êÊ~»yÚÐdD!»z4vø´Z`s.ú!ù÷ÉNäE@µ *)è*Ô&gt;6&gt;·*Füp#?ó3fyöó,ó8ªÞê¹jCíÀ-£=Ðò¡¶£ ÊÉBô¬~´ ;@"Ð[
+ò}(¨2íç¸´éa&gt;×ÀÝO8kÁ(¡*É,¦Üè"Ð
+?+¢Ñ
+ñ#]ºA_ø$Ø?¬§	ÂVAkÎâù¿·FþÎªâø[B¼Ï:&gt;E`é8N%ÿ¦CF0.\ð5ÒêäÚÉ+'ËÙ^Ý6ÒÙaè0ÌâuÄ«a,ZÿWñ¬z&amp;[Õm á{@Va6Ý4V(c±Çø`íWÃHa«£Å^âGhUQrW³£s­Xnõ$°V]FPP$/¬y×­ñÉD§äuoR?¦°vìOøys^IkÔ~«¶"Çà¯B8[aÍ±Änâ:Ò®ù\½×"ò¢Z&gt;äÿ»HìüçÉÁI(,ùªïÄ§$"e¿±X'¡(Ã;R&gt;ì*U'^§îË áë$OÍ%6D@C=&gt;b³`¢é&amp;yÑJ4+ÐiÕÉµ8;¯Ñ,ñjH¨¢òãLBäØ¶}®Fr\»&gt; BD÷8Ê=ä¿é¨sÉu
+±¢slxÙ=ÁóV2ê'XGµÝè%¼ÿÊÜÿë	kóX&lt;÷D:À,WãNyä\YY5#öOÌm,irm(PsÎ-Ù0Ùû³î»õKÕ¬ÖÞÉsÕ$ï»vçsó.)[­5ê¼zõIäU-u$öj´BÚ¾P%¨ª«hö·h{²&gt;²Ã}Äóy¬Êx§vYÉ¸HöLæ_Jª¯ºÂGbÓ¢í;ø½Vwç¥¤*ÉÆÙÕöRD3 Y!ö¶QËÛN²ËÇó6
+(¨Õ=É-j%ù
+A]!&gt;O®QPÏ)u­O¢h}/­âÛI23ªY×BìjQè )Ä{E«zjELVÉ#ãÕ7g¬u&gt;tB¤ï'xGµ}£¾#¨zsÆô|×5Rë	N&gt;¸³õ§÷ÿ¼Øã5üsá©X'ÏÒs¥«6ü_±&gt;~6©û"J"ç°3Îõ ©ý\»J&amp;äöDõ%Jô^í¦äÞ]dwz¿×S5÷¼²JÝÉAí®z¥ÒxOÈ]&amp;Ö&amp;£ÓNvMè_æ¨Ze»´ÈKOî2ÎloAZíÄ÷âqÚK²ù|sLâÃUcâ3ygþÄÂ	}vÏ.g°?{ñ$¸b|Âý?~oÿ~®óÓö¯6±ó\Ñ'oÍz7eH6:¥å.©
+Z%´
+hhËgKåe.é`Ù±²÷ËN±·dJ9s¤Ð~;/½8%½mh8G=gª4gn4æ.6/7_ÊÉÍ²¡-(Ì @ËwçKóÝ³¥&lt;÷É]8_ªmJÖÕ9¤+ë*¥¦ºÒu&amp;éòº|imUj¬ÓIkêÒeÐ`¾¾.,­®1K« ­¬1Hµ5)ÒRé5Ò¥5³¥KjfIË^VÓ+-­Y!f\ô¶ì4²!»Åf±Ë6Ùþ¾í}»¨C6O/²ÓbIzIí«ÔÐ:¦!µÁÕPÐài¨màíEUõ¾HÀ,M]úÐRÆ·4²Ö¹êê+êW×³Å554SZóPC¤Ìeq8M"¦Ñ&amp;ZEh¢^E^dEZD"ª®Æ¨¥¦ÇÜËW­õNo\;èCË[äØW«](ýÊµ1ÎUNÅ¬ËÑòºòg%¼é'%´hç«bbseö9Wú@MMU æÙZ9PW§h÷+µ{sÅèªöX'4ÏÖæìªñ@wUµ7ÇfAA'¤M]ÔäÅ1ü?Äc+c.ì2C%=I%´ÿ7G~­m
+endstream
+endobj
+
+6 0 obj
+5771
+endobj
+
+7 0 obj
+&lt;&lt;/Type/FontDescriptor/FontName/BAAAAA+LucidaSansUnicode
+/Flags 4
+/FontBBox[-614 -439 1384 1145]/ItalicAngle 0
+/Ascent 1096
+/Descent -439
+/CapHeight 1144
+/StemV 80
+/FontFile2 5 0 R
+&gt;&gt;
+endobj
+
+8 0 obj
+&lt;&lt;/Length 304/Filter/FlateDecode&gt;&gt;
+stream
+x]Mo0ïù9v@?è$ÔB8ìCcû41]¤¢ø÷Kìnv=¶ß7qì¤jëÖh¼ºIvàù r0O7'_àªK3®´ô÷ÿrì-K·[fck©(Xòj³w_Õt¼8N+_}T]»µ_0ñ\°²ä
+pÎSoût­[ÊÚ/ë`ù¼/xqJ­ÈIÁl{	®7W`%/¦d`Ô¿Zz Ëe½Ò4HØmËÀò~yo"oQ³CÎDä=é1Ó9? o1ÿH¼|$ý9ò¸\7\SùL÷"7O§¸Lýçyä{ÿ'|øýqqG?£åòæ\+.ç'©ðßeÛÉF~ßKÜr
+endstream
+endobj
+
+9 0 obj
+&lt;&lt;/Type/Font/Subtype/TrueType/BaseFont/BAAAAA+LucidaSansUnicode
+/FirstChar 0
+/LastChar 18
+/Widths[750 632 557 509 374 316 629 552 749 536 620 614 632 629 409 552
+933 770 584 ]
+/FontDescriptor 7 0 R
+/ToUnicode 8 0 R
+&gt;&gt;
+endobj
+
+10 0 obj
+&lt;&lt;/F1 9 0 R
+&gt;&gt;
+endobj
+
+11 0 obj
+&lt;&lt;/Font 10 0 R
+/ProcSet[/PDF/Text]
+&gt;&gt;
+endobj
+
+1 0 obj
+&lt;&lt;/Type/Page/Parent 4 0 R/Resources 11 0 R/MediaBox[0 0 595 842]/Group&lt;&lt;/S/Transparency/CS/DeviceRGB/I true&gt;&gt;/Contents 2 0 R&gt;&gt;
+endobj
+
+4 0 obj
+&lt;&lt;/Type/Pages
+/Resources 11 0 R
+/MediaBox[ 0 0 595 842 ]
+/Kids[ 1 0 R ]
+/Count 1&gt;&gt;
+endobj
+
+12 0 obj
+&lt;&lt;/Type/Catalog/Pages 4 0 R
+/OpenAction[1 0 R /XYZ null null 0]
+/Lang(pt-BR)
+&gt;&gt;
+endobj
+
+13 0 obj
+&lt;&lt;/Creator&lt;FEFF005700720069007400650072&gt;
+/Producer&lt;FEFF004C0069006200720065004F0066006600690063006500200035002E0033&gt;
+/CreationDate(D:20191007090647-03'00')&gt;&gt;
+endobj
+
+xref
+0 14
+0000000000 65535 f 
+0000007058 00000 n 
+0000000019 00000 n 
+0000000268 00000 n 
+0000007201 00000 n 
+0000000288 00000 n 
+0000006143 00000 n 
+0000006164 00000 n 
+0000006364 00000 n 
+0000006737 00000 n 
+0000006971 00000 n 
+0000007003 00000 n 
+0000007300 00000 n 
+0000007397 00000 n 
+trailer
+&lt;&lt;/Size 14/Root 12 0 R
+/Info 13 0 R
+/ID [ &lt;E59764C147A15057DA761D3373575E0D&gt;
+&lt;E59764C147A15057DA761D3373575E0D&gt; ]
+/DocChecksum /CB6DD99FDC9B45794651FA96865F0E48
+&gt;&gt;
+startxref
+7572
+%%EOF
+</msg>
+<arg>${MEU_ARQUIVO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.828468" elapsed="0.006005"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.794474" elapsed="0.041000"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.773470" elapsed="0.062996"/>
+</test>
+<test id="s1-s3-s1-t4" name="Exemplo 04: Excluindo arquivos" line="17">
+<kw name="Listando arquivos do meu diretório">
+<kw name="List Directory" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.856466" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:40:50.857467" level="INFO">5 items:
+arquivo_JSON.json
+arquivo_JSON_COPIA.json
+arquivo_PDF.pdf
+arquivo_TEXTO.txt
+arquivo_TEXTO_COPIA.txt</msg>
+<arg>./tests/OperatingSystem/my_files/</arg>
+<doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.855467" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.853472" elapsed="0.006002"/>
+</kw>
+<kw name="Excluir arquivo">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.873468" level="INFO" html="true">Removed file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO_COPIA.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_TEXTO_COPIA.txt&lt;/a&gt;'.</msg>
+<arg>./tests/OperatingSystem/my_files/${ARQUIVO}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.860469" elapsed="0.012999"/>
+</kw>
+<arg>arquivo_TEXTO_COPIA.txt</arg>
+<status status="PASS" start="2025-02-09T13:40:50.859474" elapsed="0.013994"/>
+</kw>
+<kw name="Excluir arquivo">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.926461" level="INFO" html="true">Removed file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_JSON_COPIA.json"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files\arquivo_JSON_COPIA.json&lt;/a&gt;'.</msg>
+<arg>./tests/OperatingSystem/my_files/${ARQUIVO}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.887463" elapsed="0.038998"/>
+</kw>
+<arg>arquivo_JSON_COPIA.json</arg>
+<status status="PASS" start="2025-02-09T13:40:50.883468" elapsed="0.047996"/>
+</kw>
+<kw name="Listando arquivos do meu diretório">
+<kw name="List Directory" owner="OperatingSystem">
+<msg time="2025-02-09T13:40:50.973458" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\OperatingSystem\my_files&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:40:50.975459" level="INFO">3 items:
+arquivo_JSON.json
+arquivo_PDF.pdf
+arquivo_TEXTO.txt</msg>
+<arg>./tests/OperatingSystem/my_files/</arg>
+<doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
+<status status="PASS" start="2025-02-09T13:40:50.971459" elapsed="0.004000"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.944462" elapsed="0.030997"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:50.840466" elapsed="0.165991"/>
+</test>
+<doc>http://robotframework.org/robotframework/latest/libraries/OperatingSystem.html</doc>
+<status status="PASS" start="2025-02-09T13:40:50.475490" elapsed="0.602961"/>
+</suite>
+<status status="PASS" start="2025-02-09T13:40:50.439493" elapsed="0.653960"/>
+</suite>
+<suite id="s1-s4" name="Process" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\Process">
+<suite id="s1-s4-s1" name="Process" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\Process\process.robot">
+<test id="s1-s4-s1-t1" name="Exemplo 01: Abrindo programas" line="6">
+<kw name="Abra e feche o Notepad">
+<kw name="Start Process" owner="Process">
+<msg time="2025-02-09T13:40:51.271441" level="INFO">Starting process:
+C:\WINDOWS\system32\notepad.exe</msg>
+<msg time="2025-02-09T13:40:51.342433" level="INFO">${MEU_PROCESSO} = &lt;Popen: returncode: None args: ['C:\\WINDOWS\\system32\\notepad.exe']&gt;</msg>
+<var>${MEU_PROCESSO}</var>
+<arg>C:\\WINDOWS\\system32\\notepad.exe</arg>
+<doc>Starts a new process on background.</doc>
+<status status="PASS" start="2025-02-09T13:40:51.270439" elapsed="0.072999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-09T13:40:54.357793" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-09T13:40:51.344436" elapsed="3.013357"/>
+</kw>
+<kw name="Terminate Process" owner="Process">
+<msg time="2025-02-09T13:40:54.362797" level="INFO">Forcefully killing process.</msg>
+<msg time="2025-02-09T13:40:54.468790" level="INFO">Process completed.</msg>
+<arg>${MEU_PROCESSO}</arg>
+<arg>kill=True</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<status status="PASS" start="2025-02-09T13:40:54.358795" elapsed="0.109995"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:51.255439" elapsed="3.214352"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:51.245441" elapsed="3.226353"/>
+</test>
+<test id="s1-s4-s1-t2" name="Exemplo 02: Executando e aguardando scripts/programas" line="9">
+<kw name="Execute um script e aguarde ele finalizar com sucesso">
+<kw name="Run Process" owner="Process">
+<msg time="2025-02-09T13:40:54.483798" level="INFO">Starting process:
+python ./tests/Process/scripts/hello_world.py</msg>
+<msg time="2025-02-09T13:40:54.509786" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-02-09T13:40:59.694897" level="INFO">Process completed.</msg>
+<msg time="2025-02-09T13:40:59.695900" level="INFO">${MEU_PROCESSO} = &lt;result object with rc 0&gt;</msg>
+<var>${MEU_PROCESSO}</var>
+<arg>python</arg>
+<arg>./tests/Process/scripts/hello_world.py</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-02-09T13:40:54.482792" elapsed="5.213108"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:59.700899" level="INFO">Resultado da execução (sucesso/falha): 0</msg>
+<arg>Resultado da execução (sucesso/falha): ${MEU_PROCESSO.rc}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.697899" elapsed="0.003000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:59.704897" level="INFO">Saída da execução: Hello Robotizador!!!
+Fechando em 5 segundos...
+1
+2
+3
+4
+5</msg>
+<arg>Saída da execução: ${MEU_PROCESSO.stdout}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.701899" elapsed="0.003999"/>
+</kw>
+<kw name="Verifica sucesso na execução do processo">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-02-09T13:40:59.709896" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${PROCESSO.rc}</arg>
+<arg>0</arg>
+<arg>msg=ATENÇÃO! O seu processo não executou com sucesso</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.707895" elapsed="0.002001"/>
+</kw>
+<arg>Should Be Equal As Integers</arg>
+<arg>${PROCESSO.rc}</arg>
+<arg>0</arg>
+<arg>msg=ATENÇÃO! O seu processo não executou com sucesso</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.707895" elapsed="0.002001"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${PROCESSO.rc}!=0</arg>
+<arg>Log</arg>
+<arg>FALHA OCORRIDA: "${PROCESSO.stderr}"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.710895" elapsed="0.002000"/>
+</kw>
+<arg>${MEU_PROCESSO}</arg>
+<status status="PASS" start="2025-02-09T13:40:59.706897" elapsed="0.005998"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:54.478786" elapsed="5.235112"/>
+</kw>
+<kw name="Execute um script e aguarde ele finalizar com falha">
+<kw name="Run Process" owner="Process">
+<msg time="2025-02-09T13:40:59.715897" level="INFO">Starting process:
+python ./tests/Process/scripts/hello_world_fail.py</msg>
+<msg time="2025-02-09T13:40:59.728898" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-02-09T13:40:59.827890" level="INFO">Process completed.</msg>
+<msg time="2025-02-09T13:40:59.828891" level="INFO">${MEU_PROCESSO} = &lt;result object with rc 1&gt;</msg>
+<var>${MEU_PROCESSO}</var>
+<arg>python</arg>
+<arg>./tests/Process/scripts/hello_world_fail.py</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.715897" elapsed="0.112994"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:59.830892" level="INFO">Resultado da execução (sucesso/falha): 1</msg>
+<arg>Resultado da execução (sucesso/falha): ${MEU_PROCESSO.rc}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.828891" elapsed="0.002001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:59.832891" level="INFO">Saída da execução: Hello Robotizador!!!
+Teste de execução de processo com erro!!!!</msg>
+<arg>Saída da execução: ${MEU_PROCESSO.stdout}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.830892" elapsed="0.001999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:59.834888" level="INFO">Falha da execução: FAIL: Erro proposital!!!</msg>
+<arg>Falha da execução: ${MEU_PROCESSO.stderr}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.832891" elapsed="0.001997"/>
+</kw>
+<kw name="Verifica sucesso na execução do processo">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-02-09T13:40:59.837889" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-02-09T13:40:59.838889" level="FAIL">ATENÇÃO! O seu processo não executou com sucesso: 1 != 0</msg>
+<arg>${PROCESSO.rc}</arg>
+<arg>0</arg>
+<arg>msg=ATENÇÃO! O seu processo não executou com sucesso</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="FAIL" start="2025-02-09T13:40:59.836887" elapsed="0.002002">ATENÇÃO! O seu processo não executou com sucesso: 1 != 0</status>
+</kw>
+<arg>Should Be Equal As Integers</arg>
+<arg>${PROCESSO.rc}</arg>
+<arg>0</arg>
+<arg>msg=ATENÇÃO! O seu processo não executou com sucesso</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2025-02-09T13:40:59.835888" elapsed="0.003001">ATENÇÃO! O seu processo não executou com sucesso: 1 != 0</status>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:40:59.842887" level="INFO">FALHA OCORRIDA: "FAIL: Erro proposital!!!"</msg>
+<arg>FALHA OCORRIDA: "${PROCESSO.stderr}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.841887" elapsed="0.002001"/>
+</kw>
+<arg>${PROCESSO.rc}!=0</arg>
+<arg>Log</arg>
+<arg>FALHA OCORRIDA: "${PROCESSO.stderr}"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.839888" elapsed="0.004000"/>
+</kw>
+<arg>${MEU_PROCESSO}</arg>
+<status status="FAIL" start="2025-02-09T13:40:59.834888" elapsed="0.009000">ATENÇÃO! O seu processo não executou com sucesso: 1 != 0</status>
+</kw>
+<status status="FAIL" start="2025-02-09T13:40:59.714897" elapsed="0.129990">ATENÇÃO! O seu processo não executou com sucesso: 1 != 0</status>
+</kw>
+<status status="FAIL" start="2025-02-09T13:40:54.474790" elapsed="5.370097">ATENÇÃO! O seu processo não executou com sucesso: 1 != 0</status>
+</test>
+<test id="s1-s4-s1-t3" name="Exemplo 03: Execute comandos de prompt" line="13">
+<kw name="Executando comandos diversos de prompt">
+<kw name="Run Process" owner="Process">
+<msg time="2025-02-09T13:40:59.850890" level="INFO">Starting process:
+mkdir robot_teste</msg>
+<msg time="2025-02-09T13:40:59.870887" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-02-09T13:40:59.965879" level="INFO">Process completed.</msg>
+<arg>mkdir robot_teste</arg>
+<arg>cwd=C:\\workspace\\curso-robot-framework-avancado-may\\bibliotecas_auxiliares\\tests\\Process</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-02-09T13:40:59.849890" elapsed="0.115989"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:59.849890" elapsed="0.115989"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:40:59.847890" elapsed="0.118990"/>
+</test>
+<doc>http://robotframework.org/robotframework/latest/libraries/Process.html</doc>
+<status status="FAIL" start="2025-02-09T13:40:51.187444" elapsed="8.781439"/>
+</suite>
+<status status="FAIL" start="2025-02-09T13:40:51.105452" elapsed="8.868430"/>
+</suite>
+<suite id="s1-s5" name="String" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String">
+<suite id="s1-s5-s1" name="String" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\string.robot">
+<test id="s1-s5-s1-t1" name="Exemplo 01: Lidando com linhas de um texto String" line="7">
+<kw name="Contando as linhas">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-09T13:41:00.042876" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:41:00.044877" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./tests/String/my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.042876" elapsed="0.002001"/>
+</kw>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-02-09T13:41:00.044877" elapsed="0.000000"/>
+</return>
+<msg time="2025-02-09T13:41:00.045879" level="INFO">${STRING} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${STRING}</var>
+<status status="PASS" start="2025-02-09T13:41:00.040878" elapsed="0.005001"/>
+</kw>
+<kw name="Get Line Count" owner="String">
+<msg time="2025-02-09T13:41:00.046875" level="INFO">6 lines.</msg>
+<msg time="2025-02-09T13:41:00.047878" level="INFO">${LINHAS} = 6</msg>
+<var>${LINHAS}</var>
+<arg>${STRING}</arg>
+<doc>Returns and logs the number of lines in the given string.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.045879" elapsed="0.001999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.048875" level="INFO">Meu arquivo tem: 6 linhas!!</msg>
+<arg>Meu arquivo tem: ${LINHAS} linhas!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.047878" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:41:00.039878" elapsed="0.008997"/>
+</kw>
+<kw name="Pegando uma linha específica">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-09T13:41:00.051874" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:41:00.052873" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./tests/String/my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.051874" elapsed="0.000999"/>
+</kw>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-02-09T13:41:00.052873" elapsed="0.001004"/>
+</return>
+<msg time="2025-02-09T13:41:00.053877" level="INFO">${STRING} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${STRING}</var>
+<status status="PASS" start="2025-02-09T13:41:00.050876" elapsed="0.003001"/>
+</kw>
+<kw name="Get Line" owner="String">
+<msg time="2025-02-09T13:41:00.054875" level="INFO">${LINHA_3} = Minha linha 03!</msg>
+<var>${LINHA_3}</var>
+<arg>${STRING}</arg>
+<arg>3</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.054875" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.057876" level="INFO">Conteúdo da linha 03 do arquivo:
+"Minha linha 03!"</msg>
+<arg>Conteúdo da linha 03 do arquivo:\n"${LINHA_3}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.055873" elapsed="0.002003"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Line" owner="String">
+<msg time="2025-02-09T13:41:00.059875" level="INFO">${CONTEUDO_LINHA} = Minha linha 00!</msg>
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.058879" elapsed="0.000996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.060873" level="INFO">Conteúdo da linha 0 do arquivo:
+"Minha linha 00!"</msg>
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.060873" elapsed="0.001001"/>
+</kw>
+<var name="${NUMERO_LINHA}">0</var>
+<status status="PASS" start="2025-02-09T13:41:00.058879" elapsed="0.002995"/>
+</iter>
+<iter>
+<kw name="Get Line" owner="String">
+<msg time="2025-02-09T13:41:00.063877" level="INFO">${CONTEUDO_LINHA} = Minha linha 01!</msg>
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.062872" elapsed="0.002003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.065876" level="INFO">Conteúdo da linha 1 do arquivo:
+"Minha linha 01!"</msg>
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.064875" elapsed="0.002001"/>
+</kw>
+<var name="${NUMERO_LINHA}">1</var>
+<status status="PASS" start="2025-02-09T13:41:00.061874" elapsed="0.005002"/>
+</iter>
+<iter>
+<kw name="Get Line" owner="String">
+<msg time="2025-02-09T13:41:00.069877" level="INFO">${CONTEUDO_LINHA} = Minha linha 02!</msg>
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.068875" elapsed="0.001002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.070875" level="INFO">Conteúdo da linha 2 do arquivo:
+"Minha linha 02!"</msg>
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.070875" elapsed="0.001001"/>
+</kw>
+<var name="${NUMERO_LINHA}">2</var>
+<status status="PASS" start="2025-02-09T13:41:00.067877" elapsed="0.005000"/>
+</iter>
+<iter>
+<kw name="Get Line" owner="String">
+<msg time="2025-02-09T13:41:00.073879" level="INFO">${CONTEUDO_LINHA} = Minha linha 03!</msg>
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.073879" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.075878" level="INFO">Conteúdo da linha 3 do arquivo:
+"Minha linha 03!"</msg>
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.074873" elapsed="0.001005"/>
+</kw>
+<var name="${NUMERO_LINHA}">3</var>
+<status status="PASS" start="2025-02-09T13:41:00.072877" elapsed="0.003001"/>
+</iter>
+<iter>
+<kw name="Get Line" owner="String">
+<msg time="2025-02-09T13:41:00.077880" level="INFO">${CONTEUDO_LINHA} = Minha linha 04!</msg>
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.076876" elapsed="0.001004"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.080878" level="INFO">Conteúdo da linha 4 do arquivo:
+"Minha linha 04!"</msg>
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.078879" elapsed="0.001999"/>
+</kw>
+<var name="${NUMERO_LINHA}">4</var>
+<status status="PASS" start="2025-02-09T13:41:00.076876" elapsed="0.004002"/>
+</iter>
+<iter>
+<kw name="Get Line" owner="String">
+<msg time="2025-02-09T13:41:00.082878" level="INFO">${CONTEUDO_LINHA} = Minha linha 05!</msg>
+<var>${CONTEUDO_LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${NUMERO_LINHA}</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.081876" elapsed="0.001002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.084880" level="INFO">Conteúdo da linha 5 do arquivo:
+"Minha linha 05!"</msg>
+<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.083874" elapsed="0.001006"/>
+</kw>
+<var name="${NUMERO_LINHA}">5</var>
+<status status="PASS" start="2025-02-09T13:41:00.081876" elapsed="0.003004"/>
+</iter>
+<var>${NUMERO_LINHA}</var>
+<value>0</value>
+<value>6</value>
+<status status="PASS" start="2025-02-09T13:41:00.057876" elapsed="0.027004"/>
+</for>
+<status status="PASS" start="2025-02-09T13:41:00.049876" elapsed="0.035004"/>
+</kw>
+<kw name="Pegando uma linha específica com a palavra &quot;linha 01&quot;" source_name="Pegando uma linha específica com a palavra &quot;${PALAVRA}&quot;">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-09T13:41:00.088878" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:41:00.090876" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./tests/String/my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.088878" elapsed="0.001998"/>
+</kw>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-02-09T13:41:00.090876" elapsed="0.000000"/>
+</return>
+<msg time="2025-02-09T13:41:00.091876" level="INFO">${STRING} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${STRING}</var>
+<status status="PASS" start="2025-02-09T13:41:00.087882" elapsed="0.003994"/>
+</kw>
+<kw name="Get Lines Containing String" owner="String">
+<msg time="2025-02-09T13:41:00.092876" level="INFO">1 out of 6 lines matched.</msg>
+<msg time="2025-02-09T13:41:00.093879" level="INFO">${LINHA} = Minha linha 01!</msg>
+<var>${LINHA}</var>
+<arg>${STRING}</arg>
+<arg>${PALAVRA}</arg>
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.091876" elapsed="0.002003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.095877" level="INFO">Linha com linha 01:
+"Minha linha 01!"</msg>
+<arg>Linha com ${PALAVRA}:\n"${LINHA}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.094877" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:41:00.086876" elapsed="0.010003"/>
+</kw>
+<kw name="Pegando até um marcador">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-09T13:41:00.101878" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:41:00.102873" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./tests/String/my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.100873" elapsed="0.002000"/>
+</kw>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-02-09T13:41:00.102873" elapsed="0.000000"/>
+</return>
+<msg time="2025-02-09T13:41:00.104876" level="INFO">${STRING} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${STRING}</var>
+<status status="PASS" start="2025-02-09T13:41:00.099873" elapsed="0.005003"/>
+</kw>
+<kw name="Get Line" owner="String">
+<msg time="2025-02-09T13:41:00.105876" level="INFO">${LINHA} = Minha linha 00!</msg>
+<var>${LINHA}</var>
+<arg>${STRING}</arg>
+<arg>0</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.104876" elapsed="0.001000"/>
+</kw>
+<kw name="Fetch From Left" owner="String">
+<msg time="2025-02-09T13:41:00.106874" level="INFO">${COMECO} = Minha linha </msg>
+<var>${COMECO}</var>
+<arg>${LINHA}</arg>
+<arg>0</arg>
+<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.105876" elapsed="0.000998"/>
+</kw>
+<kw name="Fetch From Right" owner="String">
+<msg time="2025-02-09T13:41:00.108874" level="INFO">${FIM} = 00!</msg>
+<var>${FIM}</var>
+<arg>${LINHA}</arg>
+<arg>linha${SPACE}</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.107873" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.109872" level="INFO">Começo: "Minha linha "
+Fim:"00!"
+
+Tudo junto: "Minha linha 00!"</msg>
+<arg>Começo: "${COMECO}"\nFim:"${FIM}"\n\nTudo junto: "${COMECO}${FIM}"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.108874" elapsed="0.001997"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:41:00.097878" elapsed="0.012993"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:41:00.037879" elapsed="0.073992"/>
+</test>
+<test id="s1-s5-s1-t2" name="Exemplo 02: Manipulando a String" line="13">
+<kw name="Substituindo valores no texto">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-09T13:41:00.123873" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:41:00.124872" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./tests/String/my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.123873" elapsed="0.002002"/>
+</kw>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-02-09T13:41:00.125875" elapsed="0.000000"/>
+</return>
+<msg time="2025-02-09T13:41:00.126874" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${TEXTO}</var>
+<status status="PASS" start="2025-02-09T13:41:00.121873" elapsed="0.005001"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-02-09T13:41:00.128876" level="INFO">${NOVO_TEXTO} = Conteúdo da minha linha 00!
+Conteúdo da minha linha 01!
+Conteúdo da minha linha 02!
+Conteúdo da minha linha 03!
+Conteúdo da minha linha 04!
+Conteúdo da minha linha 05!
+</msg>
+<var>${NOVO_TEXTO}</var>
+<arg>string=${TEXTO}</arg>
+<arg>search_for=Minha linha</arg>
+<arg>replace_with=Conteúdo da minha linha</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.127880" elapsed="0.000996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.129870" level="INFO">O velho texto era assim:
+Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+
+O novo texto ficou assim:
+Conteúdo da minha linha 00!
+Conteúdo da minha linha 01!
+Conteúdo da minha linha 02!
+Conteúdo da minha linha 03!
+Conteúdo da minha linha 04!
+Conteúdo da minha linha 05!
+</msg>
+<arg>O velho texto era assim:\n${TEXTO}\nO novo texto ficou assim:\n${NOVO_TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.128876" elapsed="0.001999"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-02-09T13:41:00.133871" level="INFO" html="true">Created file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\meu_novo_arquivo.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\meu_novo_arquivo.txt&lt;/a&gt;'.</msg>
+<arg>./tests/String/my_files/meu_novo_arquivo.txt</arg>
+<arg>${NOVO_TEXTO}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.130875" elapsed="0.002996"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:41:00.119873" elapsed="0.014999"/>
+</kw>
+<kw name="Quero tudo minúsculo!">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-09T13:41:00.139873" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:41:00.140874" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./tests/String/my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.139873" elapsed="0.001001"/>
+</kw>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-02-09T13:41:00.141871" elapsed="0.001001"/>
+</return>
+<msg time="2025-02-09T13:41:00.143872" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${TEXTO}</var>
+<status status="PASS" start="2025-02-09T13:41:00.138873" elapsed="0.004999"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2025-02-09T13:41:00.145878" level="INFO">${TEXTO} = minha linha 00!
+minha linha 01!
+minha linha 02!
+minha linha 03!
+minha linha 04!
+minha linha 05!
+</msg>
+<var>${TEXTO}</var>
+<arg>${TEXTO}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.144871" elapsed="0.001007"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.146871" level="INFO">Meu texto todo minúsculo:
+minha linha 00!
+minha linha 01!
+minha linha 02!
+minha linha 03!
+minha linha 04!
+minha linha 05!
+</msg>
+<arg>Meu texto todo minúsculo:\n${TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.146871" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:41:00.137872" elapsed="0.010002"/>
+</kw>
+<kw name="Quero tudo maiúsculo!">
+<kw name="Pega arquivo">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-09T13:41:00.151869" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt"&gt;C:\workspace\curso-robot-framework-avancado-may\bibliotecas_auxiliares\tests\String\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg time="2025-02-09T13:41:00.152869" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${CONTEUDO_ARQUIVO}</var>
+<arg>./tests/String/my_files/arquivo_texto_linhas.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.150871" elapsed="0.001998"/>
+</kw>
+<return>
+<value>${CONTEUDO_ARQUIVO}</value>
+<status status="PASS" start="2025-02-09T13:41:00.152869" elapsed="0.000999"/>
+</return>
+<msg time="2025-02-09T13:41:00.153868" level="INFO">${TEXTO} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<var>${TEXTO}</var>
+<status status="PASS" start="2025-02-09T13:41:00.149873" elapsed="0.003995"/>
+</kw>
+<kw name="Convert To Upper Case" owner="String">
+<msg time="2025-02-09T13:41:00.154867" level="INFO">${TEXTO} = MINHA LINHA 00!
+MINHA LINHA 01!
+MINHA LINHA 02!
+MINHA LINHA 03!
+MINHA LINHA 04!
+MINHA LINHA 05!
+</msg>
+<var>${TEXTO}</var>
+<arg>${TEXTO}</arg>
+<doc>Converts string to upper case.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.154867" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-09T13:41:00.155868" level="INFO">Meu texto todo maiúsculo:
+MINHA LINHA 00!
+MINHA LINHA 01!
+MINHA LINHA 02!
+MINHA LINHA 03!
+MINHA LINHA 04!
+MINHA LINHA 05!
+</msg>
+<arg>Meu texto todo maiúsculo:\n${TEXTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-09T13:41:00.155868" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:41:00.148873" elapsed="0.007994"/>
+</kw>
+<status status="PASS" start="2025-02-09T13:41:00.117872" elapsed="0.038995"/>
+</test>
+<doc>http://robotframework.org/robotframework/latest/libraries/String.html</doc>
+<status status="PASS" start="2025-02-09T13:40:59.988880" elapsed="0.174994"/>
+</suite>
+<status status="PASS" start="2025-02-09T13:40:59.977881" elapsed="0.191989"/>
+</suite>
+<status status="FAIL" start="2025-02-09T13:40:47.821665" elapsed="12.351204"/>
+</suite>
+<statistics>
+<total>
+<stat pass="15" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="15" fail="1" skip="0">Tests</stat>
+<stat name="DatabaseLibrary" id="s1-s1" pass="4" fail="0" skip="0">Tests.DatabaseLibrary</stat>
+<stat name="Database" id="s1-s1-s1" pass="4" fail="0" skip="0">Tests.DatabaseLibrary.Database</stat>
+<stat name="DateTime" id="s1-s2" pass="3" fail="0" skip="0">Tests.DateTime</stat>
+<stat name="Date Time" id="s1-s2-s1" pass="3" fail="0" skip="0">Tests.DateTime.Date Time</stat>
+<stat name="OperatingSystem" id="s1-s3" pass="4" fail="0" skip="0">Tests.OperatingSystem</stat>
+<stat name="Operating System" id="s1-s3-s1" pass="4" fail="0" skip="0">Tests.OperatingSystem.Operating System</stat>
+<stat name="Process" id="s1-s4" pass="2" fail="1" skip="0">Tests.Process</stat>
+<stat name="Process" id="s1-s4-s1" pass="2" fail="1" skip="0">Tests.Process.Process</stat>
+<stat name="String" id="s1-s5" pass="2" fail="0" skip="0">Tests.String</stat>
+<stat name="String" id="s1-s5-s1" pass="2" fail="0" skip="0">Tests.String.String</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
