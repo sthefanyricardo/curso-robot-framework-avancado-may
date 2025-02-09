@@ -9,6 +9,7 @@ interactive_console_output.xml
 launch.json
 .zip
 .html 
+.pyc
 
 # Ignorar arquivos de compilação
 *.exe
