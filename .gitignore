@@ -1,0 +1,16 @@
+# Ignorar pastas comuns
+results/
+arquivos_curso
+
+# Ignorar arquivos específicos
+*.log
+interactive_console_output.xml
+.vscode
+launch.json
+.zip
+.html 
+
+# Ignorar arquivos de compilação
+*.exe
+*.dll
+*.class
