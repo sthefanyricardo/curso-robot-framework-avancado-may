@@ -35,7 +35,7 @@ Exemplo 04: Limpando Tabelas
 *** Keywords ***
 Conectar no Banco de Dados
   ## PostgreSQL
-  Connect To Database  dbapiModuleName=psycopg2  dbName=robot  dbUsername=postgres  dbPassword=postgres  dbHost=localhost  dbPort=5432
+  Connect To Database  db_module=psycopg2  db_name=robot  db_user=postgres  db_password=postgres  db_host=localhost  db_port=5432  
   ## SQLite 3
   # Connect To Database Using Custom Params  dbapiModuleName=sqlite3  db_connect_string=database="./${DBName}.db", isolation_level=None
   ## MySQL
@@ -50,19 +50,19 @@ Desconectar do Banco de Dados
 
 Executar script via STRING no Banco de Dados
   [Arguments]  ${SCRIPT}
-  Execute SQL String  sql_string=${SCRIPT}  sqlString=${SCRIPT}
+  Execute SQL String  sql_string=${SCRIPT}
 
 Executar script via ARQUIVO no Banco de Dados
   [Arguments]  ${FILE}
-  Execute SQL Script  script_path=${FILE}  sqlScriptFileName=${FILE}
+  Execute SQL Script  script_path=${FILE}
 
 Executar query no Banco de dados
   [Arguments]  ${QUERY}
-  ${RESPONSE_QUERY}  Query  select_statement=${QUERY}  selectStatement=${QUERY}
-  [Return]  ${RESPONSE_QUERY}
+  ${RESPONSE_QUERY}  Query  select_statement=${QUERY}
+  RETURN  ${RESPONSE_QUERY}
 
 Confere se "${USER}" foi inserido com sucesso
-  Check If Exists In Database  selectStatement=SELECT username FROM account WHERE username = '${USER}'
+  Check Row Count  select_statement=SELECT username FROM account WHERE username = '${USER}'  assertion_operator===  expected_value=1
 
 Limpar Tabela
   [Arguments]  ${TABELA}

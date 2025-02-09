@@ -22,31 +22,31 @@ Exemplo 04: Excluindo arquivos
 
 *** Keywords ***
 Criando um arquivo texto
-  Create File  ./my_files/arquivo_TEXTO.txt  Esse curso vai me tornar um ninja em Robot Framework!!!!
+  Create File  ./tests/OperatingSystem/my_files/arquivo_TEXTO.txt  Esse curso vai me tornar um ninja em Robot Framework!!!!
 
 Criando um arquivo JSON
-  Create File  ./my_files/arquivo_JSON.json  {"teste01": "valor01", "teste02": 2, "teste03": [1, 2, 3]}
+  Create File  ./tests/OperatingSystem/my_files/arquivo_JSON.json  {"teste01": "valor01", "teste02": 2, "teste03": [1, 2, 3]}
 
 Copiando meu arquivo
-  Copy File  ./my_files/arquivo_TEXTO.txt  ./my_files/arquivo_TEXTO_COPIA.txt
-  Copy File  ./my_files/arquivo_JSON.json  ./my_files/arquivo_JSON_COPIA.json
+  Copy File  ./tests/OperatingSystem/my_files/arquivo_TEXTO.txt  ./tests/OperatingSystem/my_files/arquivo_TEXTO_COPIA.txt
+  Copy File  ./tests/OperatingSystem/my_files/arquivo_JSON.json  ./tests/OperatingSystem/my_files/arquivo_JSON_COPIA.json
 
 Lendo o conteúdo
   ## O conteúdo é retornado em STRING
-  ${MEU_ARQUIVO}  Get File  ./my_files/arquivo_TEXTO.txt
-  ${SIZE}  Get File Size  ./my_files/arquivo_TEXTO.txt
+  ${MEU_ARQUIVO}  Get File  ./tests/OperatingSystem/my_files/arquivo_TEXTO.txt
+  ${SIZE}  Get File Size  ./tests/OperatingSystem/my_files/arquivo_TEXTO.txt
   Log  ${MEU_ARQUIVO}
 
 Lendo o binário
   ## O binário é retornado
-  Should Exist  ./my_files/arquivo_PDF.pdf  msg=O arquivo não existe!! Verifique!
-  ${MEU_ARQUIVO}  Get Binary File  ./my_files/arquivo_PDF.pdf
-  ${SIZE}  Get File Size  ./my_files/arquivo_PDF.pdf
+  Should Exist  ./tests/OperatingSystem/my_files/arquivo_PDF.pdf  msg=O arquivo não existe!! Verifique!
+  ${MEU_ARQUIVO}  Get Binary File  ./tests/OperatingSystem/my_files/arquivo_PDF.pdf
+  ${SIZE}  Get File Size  ./tests/OperatingSystem/my_files/arquivo_PDF.pdf
   Log  ${MEU_ARQUIVO}
 
 Listando arquivos do meu diretório
-  List Directory  ./my_files
+  List Directory  ./tests/OperatingSystem/my_files/
 
 Excluir arquivo
   [Arguments]  ${ARQUIVO}
-  Remove File  ./my_files/${ARQUIVO}
+  Remove File  ./tests/OperatingSystem/my_files/${ARQUIVO}
