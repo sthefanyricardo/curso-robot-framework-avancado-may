@@ -1,6 +1,7 @@
 # Ignorar pastas comuns
 results/
 arquivos_curso
+__pycache__/
 
 # Ignorar arquivos específicos
 *.log
@@ -9,6 +10,7 @@ interactive_console_output.xml
 launch.json
 .zip
 .html 
+.pyc
 
 # Ignorar arquivos de compilação
 *.exe

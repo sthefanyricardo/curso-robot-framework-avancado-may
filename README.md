@@ -4,15 +4,16 @@ Este repositório contém os arquivos de exemplos e desafio de exercícios, dese
 
 ## 📚 Sobre o Curso
 
-O objetivo do curso é introduzir os participantes ao mundo da automação de testes utilizando o Robot Framework, uma ferramenta de automação de testes open-source, modular e extensível. Durante as aulas, são abordados conceitos básicos, boas práticas e exemplos práticos para automação de testes web.
+Este curso é destinado a profissionais que já possuem conhecimentos básicos em Robot Framework e desejam aprimorar suas habilidades na automação de testes. Durante as aulas, são abordados técnicas avançadas para potencializar os testes automatizados, incluindo fluxos avançados de execução, libraries auxiliares, criação de libraries customizadas, testes web e API avançados, execução headless, execução em Docker e integração contínua (CI/CD).
 
 ### Conteúdo do Curso:
-- Introdução ao Robot Framework
-- Configuração do ambiente de desenvolvimento
-- Automação de testes web com SeleniumLibrary
-- Trabalhando com variáveis no Robot Framework
-- Estrutura do Robot Framework
-- Automação de testes de API com RequestsLibrary
-- Exemplos práticos e exercícios
+- Preparação (atualização do ambiente de desenvolvimento)
+- Biblioteca BuiltIn
+- Bibliotecas auxiliares (DateTime, OperatingSystem, String, Process, DataBase Library e Banco de Dados PostgreSQL e DiffLibrary)
+- Bibliotecas customizadas
+- Web Testing avançado
+- API Testing avançado
+- Execução com Docker
+- Integração Contínua
 
 ---
