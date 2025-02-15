@@ -1,6 +1,6 @@
 # Automação de Testes com Robot Framework - Nível Avançado
 
-Este repositório contém os arquivos de exemplos e desafio de exercícios, desenvolvidos durante o curso de [Automação de Testes com Robot Framework - Nível Avançado da Udemy]([https://www.udemy.com/course/automacao-de-testes-com-robot-framework-basico/](https://www.udemy.com/course/automacao-de-testes-com-robot-framework-avancado)), ministrado por Mayara "May" Fernandes. 
+Este repositório contém os arquivos de exemplos e desafio de exercícios, desenvolvidos durante o curso de [Automação de Testes com Robot Framework - Nível Avançado da Udemy](https://www.udemy.com/course/automacao-de-testes-com-robot-framework-basico/](https://www.udemy.com/course/automacao-de-testes-com-robot-framework-avancado), ministrado por Mayara "May" Fernandes. 
 
 ## 📚 Sobre o Curso
 
