@@ -1,12 +1,15 @@
 *** Settings ***
 Library  ./Libraries/HashLibrary/geradorHash.py
 
+*** Variables ***
+${ARQUIVO}  ./tests/my_custom_libraries_hash/arquivo_PDF.pdf
+
 *** Test Cases ***
 Teste de conversão de string para HASH sha256
   Converter "Estou ficando ninja em Robot Framework!!" para sha256
 
 Teste de conversão de arquivo para HASH sha256
-  Converter o arquivo "arquivo_PDF.pdf" para sha256
+  Converter o arquivo "${ARQUIVO}" para sha256
 
 *** Keywords ***
 Converter "${CONTEUDO}" para sha256
@@ -14,5 +17,5 @@ Converter "${CONTEUDO}" para sha256
   Log  ${CONTEUDO_HASH}
 
 Converter o arquivo "${FILE}" para sha256
-  ${CONTEUDO_HASH}  Gerar Hash Arquivo  ./${FILE}
+  ${CONTEUDO_HASH}  Gerar Hash Arquivo  ${FILE}
   Log  ${CONTEUDO_HASH}
