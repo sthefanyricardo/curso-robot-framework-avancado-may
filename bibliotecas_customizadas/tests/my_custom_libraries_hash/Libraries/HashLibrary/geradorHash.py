@@ -1,6 +1,5 @@
 import hashlib
 
-
 def gerar_hash(conteudo):
 
     hash_conteudo = hashlib.sha256(str.encode(conteudo)).hexdigest()
@@ -8,7 +7,6 @@ def gerar_hash(conteudo):
     print("Hash gerado: {}".format(hash_conteudo))
 
     return hash_conteudo
-
 
 def gerar_hash_arquivo(filename):
 
