@@ -1,396 +1,407 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.0 on win32)" generated="2025-02-20T06:46:02.026658" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.12.0 on win32)" generated="2025-02-20T06:56:23.220713" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="C:\workspace\curso-robot-framework-avancado-may\testes_web_avancado\tests">
-<suite id="s1-s1" name="TestSitePractice" source="C:\workspace\curso-robot-framework-avancado-may\testes_web_avancado\tests\TestSitePractice.robot">
+<suite id="s1-s1" name="Test Site Practice" source="C:\workspace\curso-robot-framework-avancado-may\testes_web_avancado\tests\test_site_practice.robot">
 <test id="s1-s1-t1" name="Caso de Teste com PO 01: Remover Produtos do Carrinho" line="8">
 <kw name="Abrir navegador" owner="setup" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:05.797416" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<msg time="2025-02-20T06:56:27.297636" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-20T06:46:05.796416" elapsed="3.900734"/>
+<status status="PASS" start="2025-02-20T06:56:27.296636" elapsed="3.552502"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-20T06:46:09.698154" elapsed="0.196986"/>
+<status status="PASS" start="2025-02-20T06:56:30.850140" elapsed="0.067993"/>
 </kw>
 <doc>Abre o navegador</doc>
-<status status="PASS" start="2025-02-20T06:46:05.792417" elapsed="4.102723"/>
+<status status="PASS" start="2025-02-20T06:56:27.292637" elapsed="3.626496"/>
 </kw>
 <kw name="Acessar a página home do site" owner="kws_home">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:09.903146" level="INFO">Opening url 'https://automationexercise.com'</msg>
+<msg time="2025-02-20T06:56:30.932135" level="INFO">Opening url 'https://automationexercise.com'</msg>
 <arg>${HOME_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-02-20T06:46:09.902142" elapsed="3.232366"/>
+<status status="PASS" start="2025-02-20T06:56:30.931138" elapsed="5.814180"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${HOME_TOPMENU}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-20T06:46:13.135509" elapsed="4.093971"/>
+<status status="PASS" start="2025-02-20T06:56:36.746314" elapsed="0.072992"/>
 </kw>
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:17.252477" level="INFO">Page title is 'Automation Exercise'.</msg>
+<msg time="2025-02-20T06:56:36.833305" level="INFO">Page title is 'Automation Exercise'.</msg>
 <arg>${HOME_TITLE}</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-20T06:46:17.229480" elapsed="0.023997"/>
+<status status="PASS" start="2025-02-20T06:56:36.820303" elapsed="0.013002"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:09.900141" elapsed="7.353336"/>
+<status status="PASS" start="2025-02-20T06:56:30.920131" elapsed="5.914172"/>
 </kw>
 <kw name="Adicionar o produto &quot;t-shirt&quot; no carrinho" owner="kws_home" source_name="Adicionar o produto &quot;${PRODUTO}&quot; no carrinho">
 <kw name="Digitar o nome do produto &quot;${PRODUTO}&quot; no campo de pesquisa" owner="kws_home" source_name="Digitar o nome do produto &quot;${PRODUTO}&quot; no campo de pesquisa">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:17.258478" level="INFO">Typing text 't-shirt' into text field 'name=search_query'.</msg>
-<msg time="2025-02-20T06:46:17.596467" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-02-20T06:46:17.596467" level="FAIL">Element with locator 'name=search_query' not found.</msg>
+<msg time="2025-02-20T06:56:36.838302" level="INFO">Typing text 't-shirt' into text field 'name=search_query'.</msg>
+<msg time="2025-02-20T06:56:37.159313" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-20T06:56:37.159313" level="FAIL">Element with locator 'name=search_query' not found.</msg>
 <arg>${HOME_FIELD_PESQUISAR}</arg>
 <arg>${PRODUTO}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="FAIL" start="2025-02-20T06:46:17.257474" elapsed="0.351989">Element with locator 'name=search_query' not found.</status>
+<status status="FAIL" start="2025-02-20T06:56:36.837303" elapsed="0.333006">Element with locator 'name=search_query' not found.</status>
 </kw>
-<status status="FAIL" start="2025-02-20T06:46:17.256472" elapsed="0.352991">Element with locator 'name=search_query' not found.</status>
+<status status="FAIL" start="2025-02-20T06:56:36.836303" elapsed="0.334006">Element with locator 'name=search_query' not found.</status>
 </kw>
 <kw name="Clicar no botão pesquisar" owner="kws_home">
-<status status="NOT RUN" start="2025-02-20T06:46:17.610462" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:37.171308" elapsed="0.000000"/>
 </kw>
 <kw name="Clicar no botão &quot;Add to Cart&quot; do produto" owner="kws_home">
-<status status="NOT RUN" start="2025-02-20T06:46:17.611462" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:37.172309" elapsed="0.000000"/>
 </kw>
 <kw name="Clicar no botão &quot;Proceed to checkout&quot;" owner="kws_home">
-<status status="NOT RUN" start="2025-02-20T06:46:17.612464" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:37.173311" elapsed="0.000998"/>
 </kw>
-<status status="FAIL" start="2025-02-20T06:46:17.254476" elapsed="0.358987">Element with locator 'name=search_query' not found.</status>
+<status status="FAIL" start="2025-02-20T06:56:36.835302" elapsed="0.339007">Element with locator 'name=search_query' not found.</status>
 </kw>
 <kw name="Excluir o produto do carrinho" owner="kws_carrinho">
-<status status="NOT RUN" start="2025-02-20T06:46:17.614465" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:37.175309" elapsed="0.001001"/>
 </kw>
 <kw name="Conferir se o carrinho fica vazio" owner="kws_carrinho">
-<status status="NOT RUN" start="2025-02-20T06:46:17.615466" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:37.177310" elapsed="0.000000"/>
 </kw>
 <kw name="Fechar navegador" owner="teardown" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-20T06:46:17.618463" elapsed="2.719207"/>
+<status status="PASS" start="2025-02-20T06:56:37.180309" elapsed="2.502667"/>
 </kw>
 <doc>Fecha o navegador</doc>
-<status status="PASS" start="2025-02-20T06:46:17.617466" elapsed="2.720204"/>
+<status status="PASS" start="2025-02-20T06:56:37.178312" elapsed="2.505665"/>
 </kw>
 <doc>Teste para adicionar e remover um produto do carrinho</doc>
-<status status="FAIL" start="2025-02-20T06:46:05.788417" elapsed="14.550252">Element with locator 'name=search_query' not found.</status>
+<status status="FAIL" start="2025-02-20T06:56:27.288640" elapsed="12.396466">Element with locator 'name=search_query' not found.</status>
 </test>
 <test id="s1-s1-t2" name="Caso de Teste com PO 02: Adicionar Cliente" line="16">
 <kw name="Abrir navegador" owner="setup" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:20.345671" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<msg time="2025-02-20T06:56:39.700117" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-20T06:46:20.344669" elapsed="4.009149"/>
+<status status="PASS" start="2025-02-20T06:56:39.699113" elapsed="3.350964"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-20T06:46:24.354817" elapsed="0.066001"/>
+<status status="PASS" start="2025-02-20T06:56:43.051078" elapsed="0.074996"/>
 </kw>
 <doc>Abre o navegador</doc>
-<status status="PASS" start="2025-02-20T06:46:20.343669" elapsed="4.077149"/>
+<status status="PASS" start="2025-02-20T06:56:39.698113" elapsed="3.427961"/>
 </kw>
 <kw name="Acessar a página home do site" owner="kws_home">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:24.424814" level="INFO">Opening url 'https://automationexercise.com'</msg>
+<msg time="2025-02-20T06:56:43.135079" level="INFO">Opening url 'https://automationexercise.com'</msg>
 <arg>${HOME_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-02-20T06:46:24.424814" elapsed="7.058722"/>
+<status status="PASS" start="2025-02-20T06:56:43.134079" elapsed="6.012492"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${HOME_TOPMENU}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-20T06:46:31.484538" elapsed="0.102993"/>
+<status status="PASS" start="2025-02-20T06:56:49.147570" elapsed="0.083994"/>
 </kw>
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:31.603525" level="INFO">Page title is 'Automation Exercise'.</msg>
+<msg time="2025-02-20T06:56:49.245563" level="INFO">Page title is 'Automation Exercise'.</msg>
 <arg>${HOME_TITLE}</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-20T06:46:31.587531" elapsed="0.015994"/>
+<status status="PASS" start="2025-02-20T06:56:49.232561" elapsed="0.013002"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:24.421812" elapsed="7.182714"/>
+<status status="PASS" start="2025-02-20T06:56:43.133075" elapsed="6.113485"/>
 </kw>
-<kw name="Clicar no campo &quot;Signup / Login&quot;" owner="kws_login" source_name="Clicar no campo &quot;${NOME_CAMPO}&quot;">
+<kw name="Clicar no campo &quot;Signup / Login&quot;" owner="kws_home" source_name="Clicar no campo &quot;${NOME_CAMPO}&quot;">
 <kw name="Format String" owner="String">
-<msg time="2025-02-20T06:46:31.607524" level="INFO">${LOGIN_SIGN_UP_CAMPO} = xpath=//a[normalize-space()='Signup / Login']</msg>
-<var>${LOGIN_SIGN_UP_CAMPO}</var>
-<arg>${LOGIN_SIGN_UP_CAMPO}</arg>
+<msg time="2025-02-20T06:56:49.249561" level="INFO">${HOME_TOP_MENU_CAMPO_SIGN_UP_LOGIN} = xpath=//a[normalize-space()='Signup / Login']</msg>
+<var>${HOME_TOP_MENU_CAMPO_SIGN_UP_LOGIN}</var>
+<arg>${HOME_TOP_MENU_CAMPO_SIGN_UP_LOGIN}</arg>
 <arg>NOME_CAMPO=${NOME_CAMPO}</arg>
 <doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
-<status status="PASS" start="2025-02-20T06:46:31.606523" elapsed="0.001001"/>
+<status status="PASS" start="2025-02-20T06:56:49.248562" elapsed="0.000999"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:31.608523" level="INFO">Clicking element 'xpath=//a[normalize-space()='Signup / Login']'.</msg>
-<arg>${LOGIN_SIGN_UP_CAMPO}</arg>
+<msg time="2025-02-20T06:56:49.250559" level="INFO">Clicking element 'xpath=//a[normalize-space()='Signup / Login']'.</msg>
+<arg>${HOME_TOP_MENU_CAMPO_SIGN_UP_LOGIN}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:31.608523" elapsed="2.333999"/>
+<status status="PASS" start="2025-02-20T06:56:49.250559" elapsed="1.761469"/>
 </kw>
+<status status="PASS" start="2025-02-20T06:56:49.247561" elapsed="1.764467"/>
+</kw>
+<kw name="Preencher campo &quot;name&quot; com um &quot;nome válido&quot;" owner="kws_login" source_name="Preencher campo &quot;${NOME_CAMPO}&quot; com um &quot;${VALOR_CAMPO}&quot;">
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:33.963517" level="INFO">Page title is 'Automation Exercise - Signup / Login'.</msg>
+<msg time="2025-02-20T06:56:51.031031" level="INFO">Page title is 'Automation Exercise - Signup / Login'.</msg>
 <arg>title=${LOGIN_TITLE_HEAD}</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-20T06:46:33.943520" elapsed="0.019997"/>
+<status status="PASS" start="2025-02-20T06:56:51.017025" elapsed="0.015000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOGIN_TITLE_PAGE}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-20T06:46:33.964518" elapsed="0.058997"/>
+<status status="PASS" start="2025-02-20T06:56:51.032025" elapsed="0.069996"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:31.605526" elapsed="2.417989"/>
-</kw>
-<kw name="Preencher campo &quot;name&quot; com um &quot;nome válido&quot;" owner="kws_login" source_name="Preencher campo &quot;${NOME_CAMPO}&quot; com um &quot;${VALOR_CAMPO}&quot;">
 <if>
 <branch type="IF" condition="&quot;${NOME_CAMPO}&quot; in [&quot;name&quot;, &quot;NAME&quot;]">
 <kw name="First Name Female" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:34.028515" level="INFO">${NOME} = Lara</msg>
+<msg time="2025-02-20T06:56:51.106020" level="INFO">${NOME} = Stephany</msg>
 <var>${NOME}</var>
-<status status="PASS" start="2025-02-20T06:46:34.027512" elapsed="0.001003"/>
+<status status="PASS" start="2025-02-20T06:56:51.104021" elapsed="0.003001"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-20T06:46:34.029514" level="INFO">${VALOR_CAMPO} = Lara</msg>
+<msg time="2025-02-20T06:56:51.109021" level="INFO">${VALOR_CAMPO} = Stephany</msg>
 <var>${VALOR_CAMPO}</var>
 <arg>${NOME}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.028515" elapsed="0.000999"/>
+<status status="PASS" start="2025-02-20T06:56:51.108021" elapsed="0.001000"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-02-20T06:46:34.037514" level="INFO">${first_name} = Lara</msg>
+<msg time="2025-02-20T06:56:51.118022" level="INFO">${first_name} = Stephany</msg>
 <arg>${first_name}</arg>
 <arg>${NOME}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.030514" elapsed="0.007000"/>
+<status status="PASS" start="2025-02-20T06:56:51.110020" elapsed="0.008002"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:34.026515" elapsed="0.011999"/>
+<status status="PASS" start="2025-02-20T06:56:51.103021" elapsed="0.015999"/>
 </branch>
 <branch type="ELSE IF" condition="&quot;${NOME_CAMPO}&quot; in [&quot;email&quot;, &quot;EMAIL&quot;]">
 <kw name="Catenate" owner="BuiltIn">
 <var>${EMAIL}</var>
 <arg>${first_name}Teste@robotautomacao.com</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="NOT RUN" start="2025-02-20T06:46:34.039516" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:51.120023" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${VALOR_CAMPO}</var>
 <arg>${EMAIL}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-20T06:46:34.040515" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:51.121020" elapsed="0.001000"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
 <arg>${email}</arg>
 <arg>${EMAIL}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-02-20T06:46:34.041515" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:51.124020" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-02-20T06:46:34.038514" elapsed="0.004000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:51.119020" elapsed="0.006000"/>
 </branch>
-<status status="PASS" start="2025-02-20T06:46:34.026515" elapsed="0.015999"/>
+<status status="PASS" start="2025-02-20T06:56:51.103021" elapsed="0.021999"/>
 </if>
 <kw name="Format String" owner="String">
-<msg time="2025-02-20T06:46:34.044514" level="INFO">${SIGN_UP_FORM} = xpath=//input[@data-qa='signup-name']</msg>
+<msg time="2025-02-20T06:56:51.129020" level="INFO">${SIGN_UP_FORM} = xpath=//input[@data-qa='signup-name']</msg>
 <var>${SIGN_UP_FORM}</var>
 <arg>${SIGN_UP_FORM}</arg>
 <arg>NOME_CAMPO=${NOME_CAMPO}</arg>
 <doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.042514" elapsed="0.002000"/>
+<status status="PASS" start="2025-02-20T06:56:51.128019" elapsed="0.002006"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:34.046514" level="INFO">Typing text 'Lara' into text field 'xpath=//input[@data-qa='signup-name']'.</msg>
+<msg time="2025-02-20T06:56:51.132023" level="INFO">Typing text 'Stephany' into text field 'xpath=//input[@data-qa='signup-name']'.</msg>
 <arg>${SIGN_UP_FORM}</arg>
 <arg>${VALOR_CAMPO}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.045514" elapsed="0.452970"/>
+<status status="PASS" start="2025-02-20T06:56:51.131022" elapsed="0.708954"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:34.025516" elapsed="0.473971"/>
+<status status="PASS" start="2025-02-20T06:56:51.015035" elapsed="0.824941"/>
 </kw>
 <kw name="Preencher campo &quot;email&quot; com um &quot;e-mail válido&quot;" owner="kws_login" source_name="Preencher campo &quot;${NOME_CAMPO}&quot; com um &quot;${VALOR_CAMPO}&quot;">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-02-20T06:56:51.860972" level="INFO">Page title is 'Automation Exercise - Signup / Login'.</msg>
+<arg>title=${LOGIN_TITLE_HEAD}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-02-20T06:56:51.843974" elapsed="0.017999"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_TITLE_PAGE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-20T06:56:51.861973" elapsed="0.045999"/>
+</kw>
 <if>
 <branch type="IF" condition="&quot;${NOME_CAMPO}&quot; in [&quot;name&quot;, &quot;NAME&quot;]">
 <kw name="First Name Female" owner="FakerLibrary">
 <var>${NOME}</var>
-<status status="NOT RUN" start="2025-02-20T06:46:34.504485" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:51.908970" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
 <var>${VALOR_CAMPO}</var>
 <arg>${NOME}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2025-02-20T06:46:34.505483" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:51.909969" elapsed="0.000000"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
 <arg>${first_name}</arg>
 <arg>${NOME}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-02-20T06:46:34.506482" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:51.910969" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-02-20T06:46:34.503486" elapsed="0.002996"/>
+<status status="NOT RUN" start="2025-02-20T06:56:51.907972" elapsed="0.002997"/>
 </branch>
 <branch type="ELSE IF" condition="&quot;${NOME_CAMPO}&quot; in [&quot;email&quot;, &quot;EMAIL&quot;]">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2025-02-20T06:46:34.508484" level="INFO">${EMAIL} = LaraTeste@robotautomacao.com</msg>
+<msg time="2025-02-20T06:56:51.912968" level="INFO">${EMAIL} = StephanyTeste@robotautomacao.com</msg>
 <var>${EMAIL}</var>
 <arg>${first_name}Teste@robotautomacao.com</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.507482" elapsed="0.001002"/>
+<status status="PASS" start="2025-02-20T06:56:51.911968" elapsed="0.001000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-20T06:46:34.509485" level="INFO">${VALOR_CAMPO} = LaraTeste@robotautomacao.com</msg>
+<msg time="2025-02-20T06:56:51.913970" level="INFO">${VALOR_CAMPO} = StephanyTeste@robotautomacao.com</msg>
 <var>${VALOR_CAMPO}</var>
 <arg>${EMAIL}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.509485" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-20T06:56:51.913970" elapsed="0.000000"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-02-20T06:46:34.511485" level="INFO">${email} = LaraTeste@robotautomacao.com</msg>
+<msg time="2025-02-20T06:56:51.915968" level="INFO">${email} = StephanyTeste@robotautomacao.com</msg>
 <arg>${email}</arg>
 <arg>${EMAIL}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.510484" elapsed="0.001001"/>
+<status status="PASS" start="2025-02-20T06:56:51.914967" elapsed="0.001001"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:34.506482" elapsed="0.005003"/>
+<status status="PASS" start="2025-02-20T06:56:51.910969" elapsed="0.004999"/>
 </branch>
-<status status="PASS" start="2025-02-20T06:46:34.503486" elapsed="0.008998"/>
+<status status="PASS" start="2025-02-20T06:56:51.907972" elapsed="0.007996"/>
 </if>
 <kw name="Format String" owner="String">
-<msg time="2025-02-20T06:46:34.513485" level="INFO">${SIGN_UP_FORM} = xpath=//input[@data-qa='signup-email']</msg>
+<msg time="2025-02-20T06:56:51.917969" level="INFO">${SIGN_UP_FORM} = xpath=//input[@data-qa='signup-email']</msg>
 <var>${SIGN_UP_FORM}</var>
 <arg>${SIGN_UP_FORM}</arg>
 <arg>NOME_CAMPO=${NOME_CAMPO}</arg>
 <doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.513485" elapsed="0.000999"/>
+<status status="PASS" start="2025-02-20T06:56:51.916972" elapsed="0.000997"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:34.515483" level="INFO">Typing text 'LaraTeste@robotautomacao.com' into text field 'xpath=//input[@data-qa='signup-email']'.</msg>
+<msg time="2025-02-20T06:56:51.918967" level="INFO">Typing text 'StephanyTeste@robotautomacao.com' into text field 'xpath=//input[@data-qa='signup-email']'.</msg>
 <arg>${SIGN_UP_FORM}</arg>
 <arg>${VALOR_CAMPO}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.514484" elapsed="0.307980"/>
+<status status="PASS" start="2025-02-20T06:56:51.917969" elapsed="0.320980"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:34.502485" elapsed="0.319979"/>
+<status status="PASS" start="2025-02-20T06:56:51.841974" elapsed="0.396975"/>
 </kw>
 <kw name="Clicar no botão &quot;Signup&quot;" owner="kws_login" source_name="Clicar no botão &quot;${NOME_BOTAO}&quot;">
 <kw name="Format String" owner="String">
-<msg time="2025-02-20T06:46:34.826461" level="INFO">${SIGN_UP_BUTTON} = xpath=//button[normalize-space()='Signup']</msg>
+<msg time="2025-02-20T06:56:52.242950" level="INFO">${SIGN_UP_BUTTON} = xpath=//button[normalize-space()='Signup']</msg>
 <var>${SIGN_UP_BUTTON}</var>
 <arg>${SIGN_UP_BUTTON}</arg>
 <arg>NOME_BOTAO=${NOME_BOTAO}</arg>
 <doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.825465" elapsed="0.000996"/>
+<status status="PASS" start="2025-02-20T06:56:52.241952" elapsed="0.001998"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:34.827461" level="INFO">Clicking button 'xpath=//button[normalize-space()='Signup']'.</msg>
+<msg time="2025-02-20T06:56:52.249947" level="INFO">Clicking button 'xpath=//button[normalize-space()='Signup']'.</msg>
 <arg>${SIGN_UP_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:34.826461" elapsed="3.569710"/>
+<status status="PASS" start="2025-02-20T06:56:52.243950" elapsed="3.769693"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:34.823465" elapsed="3.573707"/>
+<status status="PASS" start="2025-02-20T06:56:52.240950" elapsed="3.772693"/>
 </kw>
 <kw name="Preencher os dados obrigatórios no formulário de cadastro" owner="kws_sign_up">
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:38.416171" level="INFO">Page title is 'Automation Exercise - Signup'.</msg>
+<msg time="2025-02-20T06:56:56.048636" level="INFO">Page title is 'Automation Exercise - Signup'.</msg>
 <arg>${SIGN_UP_TITLE_HEAD}</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.401172" elapsed="0.014999"/>
+<status status="PASS" start="2025-02-20T06:56:56.017647" elapsed="0.031988"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${SIGN_UP_TITLE_PAGE}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.417178" elapsed="0.077989"/>
+<status status="PASS" start="2025-02-20T06:56:56.050635" elapsed="0.512968"/>
 </kw>
 <kw name="Gerar os dados do formulário de cadastro" owner="kws_sign_up">
 <kw name="Password" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.501167" level="INFO">${password} = nV$4vjLoku</msg>
+<msg time="2025-02-20T06:56:56.567606" level="INFO">${password} = y9fDiHoe%J</msg>
 <var>${password}</var>
 <doc>Generate a random password of the specified ``length``.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.499165" elapsed="0.003001"/>
+<status status="PASS" start="2025-02-20T06:56:56.566605" elapsed="0.002000"/>
 </kw>
 <kw name="Year" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.504165" level="INFO">${ano} = 1998</msg>
+<msg time="2025-02-20T06:56:56.570602" level="INFO">${ano} = 2014</msg>
 <var>${ano}</var>
 <doc>:sample:</doc>
-<status status="PASS" start="2025-02-20T06:46:38.503166" elapsed="0.000999"/>
+<status status="PASS" start="2025-02-20T06:56:56.569604" elapsed="0.000998"/>
 </kw>
 <kw name="Last Name Female" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.505166" level="INFO">${last_name} = da Rosa</msg>
+<msg time="2025-02-20T06:56:56.572606" level="INFO">${last_name} = Mendes</msg>
 <var>${last_name}</var>
-<status status="PASS" start="2025-02-20T06:46:38.505166" elapsed="0.001002"/>
+<status status="PASS" start="2025-02-20T06:56:56.571602" elapsed="0.001999"/>
 </kw>
 <kw name="Company" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.507167" level="INFO">${company} = Rios Câmara Ltda.</msg>
+<msg time="2025-02-20T06:56:56.575605" level="INFO">${company} = Jesus Ribeiro S/A</msg>
 <var>${company}</var>
 <doc>:example: 'Acme Ltd'</doc>
-<status status="PASS" start="2025-02-20T06:46:38.506168" elapsed="0.000999"/>
+<status status="PASS" start="2025-02-20T06:56:56.574605" elapsed="0.001000"/>
 </kw>
 <kw name="Address" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.509165" level="INFO">${address} = Setor de Cunha, 78
-Calafate
-07542013 Fernandes do Sul / AL</msg>
+<msg time="2025-02-20T06:56:56.578605" level="INFO">${address} = Praça de Vasconcelos, 5
+Marilandia
+93035023 Macedo de da Costa / SP</msg>
 <var>${address}</var>
 <doc>:example: '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
-<status status="PASS" start="2025-02-20T06:46:38.508166" elapsed="0.001999"/>
+<status status="PASS" start="2025-02-20T06:56:56.576605" elapsed="0.002000"/>
 </kw>
 <kw name="Street Address" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.511166" level="INFO">${address_2} = Morro Lívia da Conceição, 167</msg>
+<msg time="2025-02-20T06:56:56.579605" level="INFO">${address_2} = Parque de Araújo, 50</msg>
 <var>${address_2}</var>
 <doc>:example: '791 Crist Parks'</doc>
-<status status="PASS" start="2025-02-20T06:46:38.510165" elapsed="0.001001"/>
+<status status="PASS" start="2025-02-20T06:56:56.578605" elapsed="0.001000"/>
 </kw>
 <kw name="State" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.513165" level="INFO">${state} = Santa Catarina</msg>
+<msg time="2025-02-20T06:56:56.581605" level="INFO">${state} = Paraná</msg>
 <var>${state}</var>
-<status status="PASS" start="2025-02-20T06:46:38.512165" elapsed="0.001000"/>
+<status status="PASS" start="2025-02-20T06:56:56.580605" elapsed="0.001000"/>
 </kw>
 <kw name="City" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.514165" level="INFO">${city} = Abreu da Serra</msg>
+<msg time="2025-02-20T06:56:56.582605" level="INFO">${city} = da Mota do Oeste</msg>
 <var>${city}</var>
 <doc>:example: 'Sashabury'</doc>
-<status status="PASS" start="2025-02-20T06:46:38.514165" elapsed="0.001002"/>
+<status status="PASS" start="2025-02-20T06:56:56.581605" elapsed="0.001000"/>
 </kw>
 <kw name="Postcode" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.517164" level="INFO">${postal_code} = 64040-391</msg>
+<msg time="2025-02-20T06:56:56.584605" level="INFO">${postal_code} = 59311740</msg>
 <var>${postal_code}</var>
 <doc>Randomly returns a postcode.
 :param formatted: True to allow formatted postcodes, else False (default True)
 :example formatted: '41224-212' '83992-291' '12324322'
 :example raw: '43920231' '34239530'</doc>
-<status status="PASS" start="2025-02-20T06:46:38.516166" elapsed="0.002000"/>
+<status status="PASS" start="2025-02-20T06:56:56.583605" elapsed="0.001000"/>
 </kw>
 <kw name="Phone Number" owner="FakerLibrary">
-<msg time="2025-02-20T06:46:38.520165" level="INFO">${mobile_number} = 51 1672 6949</msg>
+<msg time="2025-02-20T06:56:56.585605" level="INFO">${mobile_number} = (021) 8789-5786</msg>
 <var>${mobile_number}</var>
-<status status="PASS" start="2025-02-20T06:46:38.519164" elapsed="0.001001"/>
+<status status="PASS" start="2025-02-20T06:56:56.585605" elapsed="0.000999"/>
 </kw>
 <kw name="Gerar gênero aleatório" owner="kws_sign_up">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-02-20T06:46:38.523165" level="INFO">${gender_list} = ['Mrs.', 'Ms.', 'Miss']</msg>
+<msg time="2025-02-20T06:56:56.589604" level="INFO">${gender_list} = ['Mrs.', 'Ms.', 'Miss']</msg>
 <var>${gender_list}</var>
 <arg>Mrs.</arg>
 <arg>Ms.</arg>
 <arg>Miss</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.522166" elapsed="0.000999"/>
+<status status="PASS" start="2025-02-20T06:56:56.588604" elapsed="0.001000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-20T06:46:38.525166" level="INFO">${random_gender} = Ms.</msg>
+<msg time="2025-02-20T06:56:56.591603" level="INFO">${random_gender} = Mrs.</msg>
 <var>${random_gender}</var>
 <arg>random.choice(${gender_list})</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.524164" elapsed="0.002001"/>
+<status status="PASS" start="2025-02-20T06:56:56.589604" elapsed="0.001999"/>
 </kw>
 <return>
 <value>${random_gender}</value>
-<status status="PASS" start="2025-02-20T06:46:38.526165" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-20T06:56:56.591603" elapsed="0.000000"/>
 </return>
-<msg time="2025-02-20T06:46:38.527164" level="INFO">${genero} = Ms.</msg>
+<msg time="2025-02-20T06:56:56.592602" level="INFO">${genero} = Mrs.</msg>
 <var>${genero}</var>
-<status status="PASS" start="2025-02-20T06:46:38.521165" elapsed="0.007000"/>
+<status status="PASS" start="2025-02-20T06:56:56.586604" elapsed="0.005998"/>
 </kw>
 <kw name="Selecionar dia aleatório" owner="kws_sign_up">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-02-20T06:46:38.531165" level="INFO">${days_list} = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']</msg>
+<msg time="2025-02-20T06:56:56.596600" level="INFO">${days_list} = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']</msg>
 <var>${days_list}</var>
 <arg>1</arg>
 <arg>2</arg>
@@ -424,27 +435,27 @@ Calafate
 <arg>30</arg>
 <arg>31</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.530165" elapsed="0.001000"/>
+<status status="PASS" start="2025-02-20T06:56:56.594603" elapsed="0.001997"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-20T06:46:38.537164" level="INFO">${random_day} = 26</msg>
+<msg time="2025-02-20T06:56:56.598600" level="INFO">${random_day} = 5</msg>
 <var>${random_day}</var>
 <arg>random.choice(${days_list})</arg>
 <arg>modules=random</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.535165" elapsed="0.001999"/>
+<status status="PASS" start="2025-02-20T06:56:56.597600" elapsed="0.002000"/>
 </kw>
 <return>
 <value>${random_day}</value>
-<status status="PASS" start="2025-02-20T06:46:38.537164" elapsed="0.001000"/>
+<status status="PASS" start="2025-02-20T06:56:56.599600" elapsed="0.001000"/>
 </return>
-<msg time="2025-02-20T06:46:38.538164" level="INFO">${dia} = 26</msg>
+<msg time="2025-02-20T06:56:56.600600" level="INFO">${dia} = 5</msg>
 <var>${dia}</var>
-<status status="PASS" start="2025-02-20T06:46:38.528165" elapsed="0.010999"/>
+<status status="PASS" start="2025-02-20T06:56:56.593603" elapsed="0.007997"/>
 </kw>
 <kw name="Selecionar mês aleatório" owner="kws_sign_up">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-02-20T06:46:38.550166" level="INFO">${months_list} = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']</msg>
+<msg time="2025-02-20T06:56:56.605600" level="INFO">${months_list} = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']</msg>
 <var>${months_list}</var>
 <arg>1</arg>
 <arg>2</arg>
@@ -459,27 +470,27 @@ Calafate
 <arg>11</arg>
 <arg>12</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.547164" elapsed="0.003999"/>
+<status status="PASS" start="2025-02-20T06:56:56.604601" elapsed="0.000999"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-20T06:46:38.555164" level="INFO">${random_month} = 4</msg>
+<msg time="2025-02-20T06:56:56.607601" level="INFO">${random_month} = 12</msg>
 <var>${random_month}</var>
 <arg>random.choice(${months_list})</arg>
 <arg>modules=random</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.553163" elapsed="0.002001"/>
+<status status="PASS" start="2025-02-20T06:56:56.606601" elapsed="0.001000"/>
 </kw>
 <return>
 <value>${random_month}</value>
-<status status="PASS" start="2025-02-20T06:46:38.556165" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-20T06:56:56.608599" elapsed="0.000000"/>
 </return>
-<msg time="2025-02-20T06:46:38.557163" level="INFO">${mes} = 4</msg>
+<msg time="2025-02-20T06:56:56.609599" level="INFO">${mes} = 12</msg>
 <var>${mes}</var>
-<status status="PASS" start="2025-02-20T06:46:38.540163" elapsed="0.017000"/>
+<status status="PASS" start="2025-02-20T06:56:56.602602" elapsed="0.006997"/>
 </kw>
 <kw name="Selecionar país aleatório" owner="kws_sign_up">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-02-20T06:46:38.562163" level="INFO">${country_list} = ['India', 'United States', 'Canada', 'Australia', 'Israel', 'New Zealand', 'Singapore']</msg>
+<msg time="2025-02-20T06:56:56.613601" level="INFO">${country_list} = ['India', 'United States', 'Canada', 'Australia', 'Israel', 'New Zealand', 'Singapore']</msg>
 <var>${country_list}</var>
 <arg>India</arg>
 <arg>United States</arg>
@@ -489,22 +500,22 @@ Calafate
 <arg>New Zealand</arg>
 <arg>Singapore</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.560165" elapsed="0.001998"/>
+<status status="PASS" start="2025-02-20T06:56:56.612603" elapsed="0.000998"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-02-20T06:46:38.564159" level="INFO">${random_country} = Singapore</msg>
+<msg time="2025-02-20T06:56:56.615600" level="INFO">${random_country} = United States</msg>
 <var>${random_country}</var>
 <arg>random.choice(${country_list})</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.563163" elapsed="0.000996"/>
+<status status="PASS" start="2025-02-20T06:56:56.614602" elapsed="0.000998"/>
 </kw>
 <return>
 <value>${random_country}</value>
-<status status="PASS" start="2025-02-20T06:46:38.564159" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-20T06:56:56.615600" elapsed="0.000000"/>
 </return>
-<msg time="2025-02-20T06:46:38.565162" level="INFO">${country} = Singapore</msg>
+<msg time="2025-02-20T06:56:56.616602" level="INFO">${country} = United States</msg>
 <var>${country}</var>
-<status status="PASS" start="2025-02-20T06:46:38.558163" elapsed="0.006999"/>
+<status status="PASS" start="2025-02-20T06:56:56.610600" elapsed="0.006002"/>
 </kw>
 <return>
 <value>${password}</value>
@@ -521,24 +532,24 @@ Calafate
 <value>${dia}</value>
 <value>${mes}</value>
 <value>${country}</value>
-<status status="PASS" start="2025-02-20T06:46:38.566160" elapsed="0.001003"/>
+<status status="PASS" start="2025-02-20T06:56:56.617600" elapsed="0.000000"/>
 </return>
-<msg time="2025-02-20T06:46:38.570163" level="INFO">${password} = nV$4vjLoku</msg>
-<msg time="2025-02-20T06:46:38.570163" level="INFO">${ano} = 1998</msg>
-<msg time="2025-02-20T06:46:38.570163" level="INFO">${last_name} = da Rosa</msg>
-<msg time="2025-02-20T06:46:38.570163" level="INFO">${company} = Rios Câmara Ltda.</msg>
-<msg time="2025-02-20T06:46:38.570163" level="INFO">${address} = Setor de Cunha, 78
-Calafate
-07542013 Fernandes do Sul / AL</msg>
-<msg time="2025-02-20T06:46:38.571165" level="INFO">${address_2} = Morro Lívia da Conceição, 167</msg>
-<msg time="2025-02-20T06:46:38.571165" level="INFO">${state} = Santa Catarina</msg>
-<msg time="2025-02-20T06:46:38.571165" level="INFO">${city} = Abreu da Serra</msg>
-<msg time="2025-02-20T06:46:38.571165" level="INFO">${postal_code} = 64040-391</msg>
-<msg time="2025-02-20T06:46:38.571165" level="INFO">${mobile_number} = 51 1672 6949</msg>
-<msg time="2025-02-20T06:46:38.572165" level="INFO">${genero} = Ms.</msg>
-<msg time="2025-02-20T06:46:38.572165" level="INFO">${dia} = 26</msg>
-<msg time="2025-02-20T06:46:38.572165" level="INFO">${mes} = 4</msg>
-<msg time="2025-02-20T06:46:38.572165" level="INFO">${country} = Singapore</msg>
+<msg time="2025-02-20T06:56:56.619601" level="INFO">${password} = y9fDiHoe%J</msg>
+<msg time="2025-02-20T06:56:56.619601" level="INFO">${ano} = 2014</msg>
+<msg time="2025-02-20T06:56:56.619601" level="INFO">${last_name} = Mendes</msg>
+<msg time="2025-02-20T06:56:56.619601" level="INFO">${company} = Jesus Ribeiro S/A</msg>
+<msg time="2025-02-20T06:56:56.620600" level="INFO">${address} = Praça de Vasconcelos, 5
+Marilandia
+93035023 Macedo de da Costa / SP</msg>
+<msg time="2025-02-20T06:56:56.620600" level="INFO">${address_2} = Parque de Araújo, 50</msg>
+<msg time="2025-02-20T06:56:56.620600" level="INFO">${state} = Paraná</msg>
+<msg time="2025-02-20T06:56:56.620600" level="INFO">${city} = da Mota do Oeste</msg>
+<msg time="2025-02-20T06:56:56.620600" level="INFO">${postal_code} = 59311740</msg>
+<msg time="2025-02-20T06:56:56.620600" level="INFO">${mobile_number} = (021) 8789-5786</msg>
+<msg time="2025-02-20T06:56:56.621598" level="INFO">${genero} = Mrs.</msg>
+<msg time="2025-02-20T06:56:56.621598" level="INFO">${dia} = 5</msg>
+<msg time="2025-02-20T06:56:56.621598" level="INFO">${mes} = 12</msg>
+<msg time="2025-02-20T06:56:56.621598" level="INFO">${country} = United States</msg>
 <var>${password}</var>
 <var>${ano}</var>
 <var>${last_name}</var>
@@ -553,20 +564,20 @@ Calafate
 <var>${dia}</var>
 <var>${mes}</var>
 <var>${country}</var>
-<status status="PASS" start="2025-02-20T06:46:38.497167" elapsed="0.074998"/>
+<status status="PASS" start="2025-02-20T06:56:56.565601" elapsed="0.055997"/>
 </kw>
 <kw name="Clicar no radio button &quot;${genero}&quot;" owner="kws_sign_up" source_name="Clicar no radio button &quot;${VALOR_GENERO}&quot;">
 <if>
 <branch type="IF" condition="&quot;${VALOR_GENERO}&quot; in [&quot;Mrs.&quot;, &quot;Ms.&quot;, &quot;Miss&quot;]">
 <kw name="Format String" owner="String">
-<msg time="2025-02-20T06:46:38.577163" level="INFO">${CHECK_BTN_RADIO_TITLE} = id=id_gender2</msg>
+<msg time="2025-02-20T06:56:56.625596" level="INFO">${CHECK_BTN_RADIO_TITLE} = id=id_gender2</msg>
 <var>${CHECK_BTN_RADIO_TITLE}</var>
 <arg>${CHECK_BTN_RADIO_TITLE}</arg>
 <arg>NUMBER=2</arg>
 <doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.576164" elapsed="0.000999"/>
+<status status="PASS" start="2025-02-20T06:56:56.625596" elapsed="0.001003"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:38.575164" elapsed="0.001999"/>
+<status status="PASS" start="2025-02-20T06:56:56.623600" elapsed="0.002999"/>
 </branch>
 <branch type="ELSE IF" condition="&quot;${VALOR_GENERO}&quot; in [&quot;Mr.&quot;, &quot;Master&quot;]">
 <kw name="Format String" owner="String">
@@ -574,290 +585,290 @@ Calafate
 <arg>${CHECK_BTN_RADIO_TITLE}</arg>
 <arg>NUMBER=1</arg>
 <doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
-<status status="NOT RUN" start="2025-02-20T06:46:38.578162" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-02-20T06:56:56.627602" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-02-20T06:46:38.577163" elapsed="0.000999"/>
+<status status="NOT RUN" start="2025-02-20T06:56:56.626599" elapsed="0.001003"/>
 </branch>
-<status status="PASS" start="2025-02-20T06:46:38.575164" elapsed="0.002998"/>
+<status status="PASS" start="2025-02-20T06:56:56.623600" elapsed="0.004002"/>
 </if>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:38.580163" level="INFO">Clicking element 'id=id_gender2'.</msg>
+<msg time="2025-02-20T06:56:56.629601" level="INFO">Clicking element 'id=id_gender2'.</msg>
 <arg>${CHECK_BTN_RADIO_TITLE}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.579162" elapsed="0.314668"/>
+<status status="PASS" start="2025-02-20T06:56:56.628597" elapsed="0.331982"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:38.574165" elapsed="0.320663"/>
+<status status="PASS" start="2025-02-20T06:56:56.622598" elapsed="0.337981"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:38.897826" level="INFO">Typing text 'nV$4vjLoku' into text field 'name=password'.</msg>
+<msg time="2025-02-20T06:56:56.964581" level="INFO">Typing text 'y9fDiHoe%J' into text field 'name=password'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:38.897826" elapsed="0.375979"/>
+<status status="PASS" start="2025-02-20T06:56:56.963580" elapsed="0.502966"/>
 </kw>
 <arg>${INPUT_PASSWORD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-02-20T06:46:38.895831" elapsed="0.378976"/>
+<status status="PASS" start="2025-02-20T06:56:56.961580" elapsed="0.505966"/>
 </kw>
 <kw name="Selecionar data de nascimento" owner="kws_sign_up">
 <kw name="Selecionar no dropdown" owner="kws_sign_up">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:39.282804" level="INFO">Selecting options from selection list 'name=days' by value 26.</msg>
+<msg time="2025-02-20T06:56:57.474544" level="INFO">Selecting options from selection list 'name=days' by value 5.</msg>
 <arg>${DROPDOWN}</arg>
 <arg>${VALOR}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-02-20T06:46:39.280806" elapsed="0.364505"/>
+<status status="PASS" start="2025-02-20T06:56:57.473545" elapsed="0.294981"/>
 </kw>
 <arg>${DROPDOWN_DAYS}</arg>
 <arg>${dia}</arg>
-<status status="PASS" start="2025-02-20T06:46:39.277808" elapsed="0.367503"/>
+<status status="PASS" start="2025-02-20T06:56:57.470544" elapsed="0.297982"/>
 </kw>
 <kw name="Selecionar no dropdown" owner="kws_sign_up">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:39.649307" level="INFO">Selecting options from selection list 'name=months' by value 4.</msg>
+<msg time="2025-02-20T06:56:57.772530" level="INFO">Selecting options from selection list 'name=months' by value 12.</msg>
 <arg>${DROPDOWN}</arg>
 <arg>${VALOR}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-02-20T06:46:39.648308" elapsed="0.307978"/>
+<status status="PASS" start="2025-02-20T06:56:57.771528" elapsed="0.310979"/>
 </kw>
 <arg>${DROPDOWN_MONTHS}</arg>
 <arg>${mes}</arg>
-<status status="PASS" start="2025-02-20T06:46:39.646312" elapsed="0.310976"/>
+<status status="PASS" start="2025-02-20T06:56:57.769524" elapsed="0.313987"/>
 </kw>
 <kw name="Selecionar no dropdown" owner="kws_sign_up">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:39.961286" level="INFO">Selecting options from selection list 'name=years' by value 1998.</msg>
+<msg time="2025-02-20T06:56:58.086506" level="INFO">Selecting options from selection list 'name=years' by value 2014.</msg>
 <arg>${DROPDOWN}</arg>
 <arg>${VALOR}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-02-20T06:46:39.960286" elapsed="0.311982"/>
+<status status="PASS" start="2025-02-20T06:56:58.085506" elapsed="0.294984"/>
 </kw>
 <arg>${DROPDOWN_YEARS}</arg>
 <arg>${ano}</arg>
-<status status="PASS" start="2025-02-20T06:46:39.958287" elapsed="0.314985"/>
+<status status="PASS" start="2025-02-20T06:56:58.084507" elapsed="0.296983"/>
 </kw>
 <arg>${dia}</arg>
 <arg>${mes}</arg>
 <arg>${ano}</arg>
-<status status="PASS" start="2025-02-20T06:46:39.274807" elapsed="0.998465"/>
+<status status="PASS" start="2025-02-20T06:56:57.467546" elapsed="0.913944"/>
 </kw>
 <kw name="Marcar os checkboxes" owner="kws_sign_up">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:40.276270" level="INFO">Clicking element 'id=newsletter'.</msg>
+<msg time="2025-02-20T06:56:58.384494" level="INFO">Clicking element 'id=newsletter'.</msg>
 <arg>${CHECKBOX_NEWSLETTER}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:40.275268" elapsed="0.288983"/>
+<status status="PASS" start="2025-02-20T06:56:58.383490" elapsed="0.331980"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:40.567249" level="INFO">Clicking element 'id=optin'.</msg>
+<msg time="2025-02-20T06:56:58.717468" level="INFO">Clicking element 'id=optin'.</msg>
 <arg>${CHECKBOX_OPTIN}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:40.566249" elapsed="0.244982"/>
+<status status="PASS" start="2025-02-20T06:56:58.716468" elapsed="0.236982"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:40.274269" elapsed="0.537964"/>
+<status status="PASS" start="2025-02-20T06:56:58.382490" elapsed="0.571960"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:40.815233" level="INFO">Typing text 'Lara' into text field 'name=first_name'.</msg>
+<msg time="2025-02-20T06:56:58.958453" level="INFO">Typing text 'Stephany' into text field 'name=first_name'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:40.814234" elapsed="0.275985"/>
+<status status="PASS" start="2025-02-20T06:56:58.957454" elapsed="0.290979"/>
 </kw>
 <arg>${INPUT_FIRST_NAME}</arg>
 <arg>${first_name}</arg>
-<status status="PASS" start="2025-02-20T06:46:40.812233" elapsed="0.278981"/>
+<status status="PASS" start="2025-02-20T06:56:58.955454" elapsed="0.293981"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:41.094214" level="INFO">Typing text 'da Rosa' into text field 'name=last_name'.</msg>
+<msg time="2025-02-20T06:56:59.251430" level="INFO">Typing text 'Mendes' into text field 'name=last_name'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:41.093215" elapsed="0.284985"/>
+<status status="PASS" start="2025-02-20T06:56:59.251430" elapsed="0.263988"/>
 </kw>
 <arg>${INPUT_LAST_NAME}</arg>
 <arg>${last_name}</arg>
-<status status="PASS" start="2025-02-20T06:46:41.092215" elapsed="0.286983"/>
+<status status="PASS" start="2025-02-20T06:56:59.249435" elapsed="0.265983"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:41.382196" level="INFO">Typing text 'Rios Câmara Ltda.' into text field 'name=company'.</msg>
+<msg time="2025-02-20T06:56:59.518416" level="INFO">Typing text 'Jesus Ribeiro S/A' into text field 'name=company'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:41.381197" elapsed="0.338980"/>
+<status status="PASS" start="2025-02-20T06:56:59.518416" elapsed="0.349976"/>
 </kw>
 <arg>${INPUT_COMPANY}</arg>
 <arg>${company}</arg>
-<status status="PASS" start="2025-02-20T06:46:41.379198" elapsed="0.341985"/>
+<status status="PASS" start="2025-02-20T06:56:59.516414" elapsed="0.351978"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:41.725175" level="INFO">Typing text 'Setor de Cunha, 78
-Calafate
-07542013 Fernandes do Sul / AL' into text field 'name=address1'.</msg>
+<msg time="2025-02-20T06:56:59.874396" level="INFO">Typing text 'Praça de Vasconcelos, 5
+Marilandia
+93035023 Macedo de da Costa / SP' into text field 'name=address1'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:41.724174" elapsed="0.643961"/>
+<status status="PASS" start="2025-02-20T06:56:59.872398" elapsed="0.679958"/>
 </kw>
 <arg>${INPUT_ADDRESS}</arg>
 <arg>${address}</arg>
-<status status="PASS" start="2025-02-20T06:46:41.722174" elapsed="0.646964"/>
+<status status="PASS" start="2025-02-20T06:56:59.869396" elapsed="0.682960"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:42.373137" level="INFO">Typing text 'Morro Lívia da Conceição, 167' into text field 'name=address2'.</msg>
+<msg time="2025-02-20T06:57:00.558351" level="INFO">Typing text 'Parque de Araújo, 50' into text field 'name=address2'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:42.372138" elapsed="0.387971"/>
+<status status="PASS" start="2025-02-20T06:57:00.556354" elapsed="0.431967"/>
 </kw>
 <arg>${INPUT_ADDRESS_2}</arg>
 <arg>${address_2}</arg>
-<status status="PASS" start="2025-02-20T06:46:42.370138" elapsed="0.390971"/>
+<status status="PASS" start="2025-02-20T06:57:00.553350" elapsed="0.435977"/>
 </kw>
 <kw name="Selecionar no dropdown" owner="kws_sign_up">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:42.764108" level="INFO">Selecting options from selection list 'name=country' by value Singapore.</msg>
+<msg time="2025-02-20T06:57:00.994326" level="INFO">Selecting options from selection list 'name=country' by value United States.</msg>
 <arg>${DROPDOWN}</arg>
 <arg>${VALOR}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-02-20T06:46:42.763106" elapsed="0.209993"/>
+<status status="PASS" start="2025-02-20T06:57:00.992328" elapsed="0.250983"/>
 </kw>
 <arg>${DROPDOWN_COUNTRY}</arg>
 <arg>${country}</arg>
-<status status="PASS" start="2025-02-20T06:46:42.761109" elapsed="0.211990"/>
+<status status="PASS" start="2025-02-20T06:57:00.990329" elapsed="0.252982"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:42.977097" level="INFO">Typing text 'Santa Catarina' into text field 'name=state'.</msg>
+<msg time="2025-02-20T06:57:01.246306" level="INFO">Typing text 'Paraná' into text field 'name=state'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:42.976097" elapsed="0.358977"/>
+<status status="PASS" start="2025-02-20T06:57:01.246306" elapsed="0.361979"/>
 </kw>
 <arg>${DROPDOWN_STATE}</arg>
 <arg>${state}</arg>
-<status status="PASS" start="2025-02-20T06:46:42.974097" elapsed="0.360977"/>
+<status status="PASS" start="2025-02-20T06:57:01.244306" elapsed="0.364981"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:43.339076" level="INFO">Typing text 'Abreu da Serra' into text field 'name=city'.</msg>
+<msg time="2025-02-20T06:57:01.612283" level="INFO">Typing text 'da Mota do Oeste' into text field 'name=city'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:43.338073" elapsed="0.292984"/>
+<status status="PASS" start="2025-02-20T06:57:01.611284" elapsed="0.355977"/>
 </kw>
 <arg>${INPUT_CITY}</arg>
 <arg>${city}</arg>
-<status status="PASS" start="2025-02-20T06:46:43.336076" elapsed="0.294981"/>
+<status status="PASS" start="2025-02-20T06:57:01.609287" elapsed="0.357974"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:43.636053" level="INFO">Typing text '64040-391' into text field 'name=zipcode'.</msg>
+<msg time="2025-02-20T06:57:01.970263" level="INFO">Typing text '59311740' into text field 'name=zipcode'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:43.635056" elapsed="0.275111"/>
+<status status="PASS" start="2025-02-20T06:57:01.969263" elapsed="0.379973"/>
 </kw>
 <arg>${INPUT_POSTAL_CODE}</arg>
 <arg>${postal_code}</arg>
-<status status="PASS" start="2025-02-20T06:46:43.632055" elapsed="0.279111"/>
+<status status="PASS" start="2025-02-20T06:57:01.968264" elapsed="0.380972"/>
 </kw>
 <kw name="Preencher campo com valor" owner="kws_sign_up">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:43.914170" level="INFO">Typing text '51 1672 6949' into text field 'name=mobile_number'.</msg>
+<msg time="2025-02-20T06:57:02.352233" level="INFO">Typing text '(021) 8789-5786' into text field 'name=mobile_number'.</msg>
 <arg>${CAMPO}</arg>
 <arg>${VALOR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:43.913169" elapsed="0.283979"/>
+<status status="PASS" start="2025-02-20T06:57:02.352233" elapsed="0.327590"/>
 </kw>
 <arg>${INPUT_MOBILE_NUMBER}</arg>
 <arg>${mobile_number}</arg>
-<status status="PASS" start="2025-02-20T06:46:43.912169" elapsed="0.284979"/>
+<status status="PASS" start="2025-02-20T06:57:02.350237" elapsed="0.329586"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:38.398171" elapsed="5.799977"/>
+<status status="PASS" start="2025-02-20T06:56:56.015638" elapsed="6.665183"/>
 </kw>
 <kw name="Enviar o formulário de cadastro" owner="kws_sign_up">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:44.202148" level="INFO">Clicking button 'xpath=//button[normalize-space()='Create Account']'.</msg>
+<msg time="2025-02-20T06:57:02.683821" level="INFO">Clicking button 'xpath=//button[normalize-space()='Create Account']'.</msg>
 <arg>${BUTTON_SUBMIT}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:44.201153" elapsed="3.306805"/>
+<status status="PASS" start="2025-02-20T06:57:02.682819" elapsed="4.011653"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:44.200149" elapsed="3.308807"/>
+<status status="PASS" start="2025-02-20T06:57:02.681820" elapsed="4.012652"/>
 </kw>
 <kw name="Conferir se o cadastro foi efetuado com sucesso" owner="kws_account_created">
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:47.554955" level="INFO">Page title is 'Automation Exercise - Account Created'.</msg>
+<msg time="2025-02-20T06:57:06.715469" level="INFO">Page title is 'Automation Exercise - Account Created'.</msg>
 <arg>${ACCOUNT_CREATED_TITLE_HEAD}</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-20T06:46:47.510955" elapsed="0.045000"/>
+<status status="PASS" start="2025-02-20T06:57:06.697469" elapsed="0.019002"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${ACCOUNT_CREATED_TITLE_PAGE}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-20T06:46:47.556957" elapsed="0.057993"/>
+<status status="PASS" start="2025-02-20T06:57:06.716471" elapsed="0.104711"/>
 </kw>
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:47.616956" level="INFO">Verifying element '//div[@class='col-sm-9 col-sm-offset-1']//p' contains exact text 'Congratulations! Your new account has been successfully created!'.</msg>
+<msg time="2025-02-20T06:57:06.823179" level="INFO">Verifying element '//div[@class='col-sm-9 col-sm-offset-1']//p' contains exact text 'Congratulations! Your new account has been successfully created!'.</msg>
 <arg>${ACCOUNT_CREATED_DIV_TEXT}</arg>
 <arg>Congratulations! Your new account has been successfully created!</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2025-02-20T06:46:47.615953" elapsed="0.129990"/>
+<status status="PASS" start="2025-02-20T06:57:06.822180" elapsed="0.392978"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:47.852936" level="INFO">Element '//a[normalize-space()='Continue']' is displayed.</msg>
+<msg time="2025-02-20T06:57:07.276149" level="INFO">Element '//a[normalize-space()='Continue']' is displayed.</msg>
 <arg>${ACCOUNT_CREATED_LINK}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-20T06:46:47.746945" elapsed="0.106993"/>
+<status status="PASS" start="2025-02-20T06:57:07.216158" elapsed="0.060996"/>
 </kw>
 <kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:47.854937" level="INFO">Clicking link '//a[normalize-space()='Continue']'.</msg>
+<msg time="2025-02-20T06:57:07.278150" level="INFO">Clicking link '//a[normalize-space()='Continue']'.</msg>
 <arg>${ACCOUNT_CREATED_LINK}</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-20T06:46:47.853938" elapsed="2.402968"/>
+<status status="PASS" start="2025-02-20T06:57:07.278150" elapsed="2.329856"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:47.509957" elapsed="2.747952"/>
+<status status="PASS" start="2025-02-20T06:57:06.696469" elapsed="2.912536"/>
 </kw>
 <kw name="Verificar se o usuário está logado" owner="kws_home">
 <kw name="Title Should Be" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:50.278902" level="INFO">Page title is 'Automation Exercise'.</msg>
+<msg time="2025-02-20T06:57:09.630005" level="INFO">Page title is 'Automation Exercise'.</msg>
 <arg>${HOME_TITLE}</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<status status="PASS" start="2025-02-20T06:46:50.260908" elapsed="0.018996"/>
+<status status="PASS" start="2025-02-20T06:57:09.612008" elapsed="0.017997"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:50.341897" level="INFO">Element 'xpath=//a[normalize-space()='Logout']' is displayed.</msg>
+<msg time="2025-02-20T06:57:09.769992" level="INFO">Element 'xpath=//a[normalize-space()='Logout']' is displayed.</msg>
 <arg>${HOME_LINK_LOGOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-20T06:46:50.279904" elapsed="0.061993"/>
+<status status="PASS" start="2025-02-20T06:57:09.631003" elapsed="0.139992"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-02-20T06:46:50.734881" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-20T06:57:10.092972" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-02-20T06:46:50.342895" elapsed="0.392978"/>
+<status status="PASS" start="2025-02-20T06:57:09.771993" elapsed="0.320979"/>
 </kw>
-<status status="PASS" start="2025-02-20T06:46:50.259906" elapsed="0.475967"/>
+<status status="PASS" start="2025-02-20T06:57:09.611007" elapsed="0.482965"/>
 </kw>
 <kw name="Fechar navegador" owner="teardown" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-20T06:46:50.739870" elapsed="2.553158"/>
+<status status="PASS" start="2025-02-20T06:57:10.096975" elapsed="2.776136"/>
 </kw>
 <doc>Fecha o navegador</doc>
-<status status="PASS" start="2025-02-20T06:46:50.737872" elapsed="2.555993"/>
+<status status="PASS" start="2025-02-20T06:57:10.095974" elapsed="2.778138"/>
 </kw>
 <doc>Teste para cadastrar e validar o registro do novo cliente</doc>
-<status status="PASS" start="2025-02-20T06:46:20.341672" elapsed="32.952621"/>
+<status status="PASS" start="2025-02-20T06:56:39.693114" elapsed="33.180998"/>
 </test>
 <doc>Suíte de testes para o site http://automationpractice.com, utilizando o padrão Page Objects</doc>
-<status status="FAIL" start="2025-02-20T06:46:02.147650" elapsed="51.150829"/>
+<status status="FAIL" start="2025-02-20T06:56:23.323710" elapsed="49.554405"/>
 </suite>
-<status status="FAIL" start="2025-02-20T06:46:02.032657" elapsed="51.270823"/>
+<status status="FAIL" start="2025-02-20T06:56:23.229717" elapsed="49.653396"/>
 </suite>
 <statistics>
 <total>
@@ -867,10 +878,10 @@ Calafate
 </tag>
 <suite>
 <stat name="Tests" id="s1" pass="1" fail="1" skip="0">Tests</stat>
-<stat name="TestSitePractice" id="s1-s1" pass="1" fail="1" skip="0">Tests.TestSitePractice</stat>
+<stat name="Test Site Practice" id="s1-s1" pass="1" fail="1" skip="0">Tests.Test Site Practice</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-02-20T06:46:02.003659" level="WARN">Error in file 'C:\workspace\curso-robot-framework-avancado-may\testes_web_avancado\tests\TestSitePractice.robot' on line 7: Singular section headers like '*** Test Case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
+<msg time="2025-02-20T06:56:23.200713" level="WARN">Error in file 'C:\workspace\curso-robot-framework-avancado-may\testes_web_avancado\tests\test_site_practice.robot' on line 7: Singular section headers like '*** Test Case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
 </errors>
 </robot>
