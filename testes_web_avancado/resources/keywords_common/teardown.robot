@@ -5,5 +5,4 @@ Resource  ../main.robot
 *** Keywords ***
 Fechar navegador
   [Documentation]  Fecha o navegador
-  Capture Page Screenshot
   Close Browser
