@@ -34,3 +34,7 @@ Verificar se o usuário está logado
   Title Should Be  ${HOME_TITLE}
   Element Should Be Visible  ${HOME_LINK_LOGOUT}
   Capture Page Screenshot
+
+Clicar no campo "${NOME_CAMPO}"
+  ${HOME_TOP_MENU_CAMPO_SIGN_UP_LOGIN}  Format String  ${HOME_TOP_MENU_CAMPO_SIGN_UP_LOGIN}  NOME_CAMPO=${NOME_CAMPO}
+  Click Element  ${HOME_TOP_MENU_CAMPO_SIGN_UP_LOGIN}

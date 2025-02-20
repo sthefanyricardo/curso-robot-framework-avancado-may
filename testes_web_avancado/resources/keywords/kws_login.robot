@@ -3,13 +3,9 @@ Resource  ../main.robot
 
 *** Keywords ***
 ### Ações
-Clicar no campo "${NOME_CAMPO}"
-  ${LOGIN_SIGN_UP_CAMPO}  Format String  ${LOGIN_SIGN_UP_CAMPO}  NOME_CAMPO=${NOME_CAMPO}
-  Click Element  ${LOGIN_SIGN_UP_CAMPO}
+Preencher campo "${NOME_CAMPO}" com um "${VALOR_CAMPO}"
   Title Should Be  title=${LOGIN_TITLE_HEAD}
   Wait Until Element Is Visible  ${LOGIN_TITLE_PAGE}
-  
-Preencher campo "${NOME_CAMPO}" com um "${VALOR_CAMPO}"
   IF  "${NOME_CAMPO}" in ["name", "NAME"]
     ${NOME}  FakerLibrary.First Name Female
     ${VALOR_CAMPO}  Set Variable  ${NOME}
