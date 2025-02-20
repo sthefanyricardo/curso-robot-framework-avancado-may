@@ -15,7 +15,7 @@ Preencher os dados obrigatórios no formulário de cadastro
   Preencher campo com valor  ${INPUT_COMPANY}  ${company}
   Preencher campo com valor  ${INPUT_ADDRESS}  ${address}
   Preencher campo com valor  ${INPUT_ADDRESS_2}  ${address_2}
-  Preencher campo com valor  ${DROPDOWN_COUNTRY}  ${country}
+  Selecionar no dropdown  ${DROPDOWN_COUNTRY}  ${country}
   Preencher campo com valor  ${DROPDOWN_STATE}  ${state}
   Preencher campo com valor  ${INPUT_CITY}  ${city}
   Preencher campo com valor  ${INPUT_POSTAL_CODE}  ${postal_code}
