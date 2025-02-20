@@ -10,3 +10,4 @@ ${BROWSER}  chrome
 Abrir navegador
   [Documentation]  Abre o navegador
   Open Browser  about:blank  ${BROWSER}
+  Maximize Browser Window

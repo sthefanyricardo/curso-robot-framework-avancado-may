@@ -5,8 +5,7 @@ Resource  ../main.robot
 Preencher os dados obrigatórios no formulário de cadastro
   Title Should Be  ${SIGN_UP_TITLE_HEAD}
   Wait Until Element Is Visible  ${SIGN_UP_TITLE_PAGE}
-  ${password}  ${data_aniversario}  ${dia}  ${mes}  ${ano}  ${first_name}  ${last_name}  ${company}  ${address}  ${address_2}  ${country}  ${state}  ${city}  ${postal_code}  ${mobile_number}  Gerar os dados do formulário de cadastro
-  ${genero}  Gerar gênero aleatório
+  ${password}  ${ano}  ${last_name}  ${company}  ${address}  ${address_2}  ${state}  ${city}  ${postal_code}  ${mobile_number}  ${genero}  ${dia}  ${mes}  ${country}  Gerar os dados do formulário de cadastro
   Clicar no radio button "${genero}"
   Preencher campo com valor  ${INPUT_PASSWORD}  ${password}
   Selecionar data de nascimento  ${dia}  ${mes}  ${ano}
@@ -24,26 +23,40 @@ Preencher os dados obrigatórios no formulário de cadastro
 
 Gerar os dados do formulário de cadastro
   ${password}  FakerLibrary.Password
-  ${data_aniversario}  FakerLibrary.Date  pattern=%d-%m-%Y
-  ${dia}  FakerLibrary.Day Of Month
-  ${mes}  FakerLibrary.Month
   ${ano}  FakerLibrary.Year
-  ${first_name}  FakerLibrary.First_Name
-  ${last_name}  FakerLibrary.Last_Name
+  ${last_name}  FakerLibrary.Last Name Female
   ${company}  FakerLibrary.Company
-  ${address}  FakerLibrary.Street_Address
-  ${address_2}  FakerLibrary.Secondary_Address
-  ${country}  FakerLibrary.Country
+  ${address}  FakerLibrary.Address
+  ${address_2}  FakerLibrary.Street Address
   ${state}  FakerLibrary.State
   ${city}  FakerLibrary.City
-  ${postal_code}  FakerLibrary.Zip_Code
-  ${mobile_number}  FakerLibrary.Phone_Number
-  RETURN  ${password}  ${dia}  ${mes}  ${ano}  ${first_name}  ${last_name}  ${company}  ${address}  ${address_2}  ${country}  ${state}  ${city}  ${postal_code}  ${mobile_number} 
+  ${postal_code}  FakerLibrary.Postcode
+  ${mobile_number}  FakerLibrary.Phone Number
+  ${genero}  Gerar gênero aleatório
+  ${dia}  Selecionar dia aleatório
+  ${mes}  Selecionar mês aleatório
+  ${country}  Selecionar país aleatório
+  RETURN  ${password}  ${ano}  ${last_name}  ${company}  ${address}  ${address_2}  ${state}  ${city}  ${postal_code}  ${mobile_number}  ${genero}  ${dia}  ${mes}  ${country}
 
 Gerar gênero aleatório
-    ${gender_list}  Create List  Mrs.  Ms.  Miss  Mr.  Master
+    ${gender_list}  Create List  Mrs.  Ms.  Miss
     ${random_gender}  Evaluate  random.choice(${gender_list})
     RETURN  ${random_gender}
+
+Selecionar país aleatório
+  ${country_list}  Create List  India  United States  Canada  Australia  Israel  New Zealand  Singapore
+  ${random_country}  Evaluate  random.choice(${country_list})
+  RETURN  ${random_country}
+
+Selecionar dia aleatório
+  ${days_list}  Create List  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31
+  ${random_day}  Evaluate  random.choice(${days_list})  modules=random
+  RETURN  ${random_day}
+
+Selecionar mês aleatório
+  ${months_list}  Create List  1  2  3  4  5  6  7  8  9  10  11  12
+  ${random_month}  Evaluate  random.choice(${months_list})  modules=random
+  RETURN  ${random_month}
 
 Clicar no radio button "${VALOR_GENERO}"
   IF  "${VALOR_GENERO}" in ["Mrs.", "Ms.", "Miss"]
@@ -55,7 +68,7 @@ Clicar no radio button "${VALOR_GENERO}"
 
 Preencher campo com valor  
   [Arguments]  ${CAMPO}  ${VALOR}
-  Input Text  name=${CAMPO}  ${VALOR}
+  Input Text  ${CAMPO}  ${VALOR}
 
 Selecionar data de nascimento
   [Arguments]  ${dia}  ${mes}  ${ano}
@@ -69,7 +82,7 @@ Marcar os checkboxes
 
 Selecionar no dropdown
   [Arguments]  ${DROPDOWN}  ${VALOR}
-  Select From List By Value  name=${DROPDOWN}  ${VALOR}
+  Select From List By Value  ${DROPDOWN}  ${VALOR}
 
 Enviar o formulário de cadastro
   Click Button  ${BUTTON_SUBMIT}
