@@ -33,3 +33,4 @@ Clicar no botão "Proceed to checkout"
 Verificar se o usuário está logado
   Title Should Be  ${HOME_TITLE}
   Element Should Be Visible  ${HOME_LINK_LOGOUT}
+  Capture Page Screenshot
