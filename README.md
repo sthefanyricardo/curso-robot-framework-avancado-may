@@ -44,7 +44,7 @@ Este curso é destinado a profissionais que já possuem conhecimentos básicos e
 
 - **`integracao_continua/`** → Configuração e exemplos de integração contínua (CI/CD) para rodar testes automatizados em pipelines.  
 
-- **`testes_API_avancado/`** → Scripts avançados para automação de testes de API REST** utilizando RequestsLibrary e outras ferramentas.  
+- **`testes_API_avancado/`** → Scripts avançados para automação de testes de API REST utilizando RequestsLibrary e outras ferramentas.  
 
 - **`testes_web_avancado/`** → Automação avançada de testes web com SeleniumLibrary, incluindo execução headless e uso de Page Object Model.  
 
@@ -86,7 +86,7 @@ Este curso é destinado a profissionais que já possuem conhecimentos básicos e
    robot -d ../resultados -i CT01ORCT04 tests/
 ```
 ```bash
-   robot -d ../resultados nome_suite_teste.robot
+   robot -d ../resultados nome_arquivo_teste.robot
 ```
 ```bash
    robot -d ../resultados e- CT02ORCT03 tests/
