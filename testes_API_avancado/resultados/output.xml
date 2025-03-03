@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.0 on win32)" generated="2025-03-03T13:52:09.557012" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\tests">
+<suite id="s1-s1" name="API conferencia json" source="C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\tests\API_conferencia_json">
+<suite id="s1-s1-s1" name="Conferindo Json" source="C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\tests\API_conferencia_json\conferindo_json.robot">
+<test id="s1-s1-s1-t1" name="Exemplo: Conferindo JSON complexo" line="11">
+<kw name="Confere objetos e sub-objetos do JSON">
+<kw name="Pega JSON">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-03-03T13:52:13.696697" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\resources\data\output\json_complexo.json"&gt;C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\resources\data\output\json_complexo.json&lt;/a&gt;'.</msg>
+<msg time="2025-03-03T13:52:13.697698" level="INFO">${MEU_JSON_COMPLEXO} = {
+    "pessoa": {
+        "nome": {
+            "primeiro_nome": "mayara",
+            "nomes_do_meio": "ribeiro",
+            "ultimo_nome": "fernandes",
+            "apelido": "May"
+        },
+     ...</msg>
+<var>${MEU_JSON_COMPLEXO}</var>
+<arg>${EXECDIR}/resources/data/output/json_complexo.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.695697" elapsed="0.002001"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<msg time="2025-03-03T13:52:13.700699" level="INFO">${MEU_JSON_COMPLEXO} = {'pessoa': {'nome': {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}, 'hobbies': {'livros': [{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'},...</msg>
+<var>${MEU_JSON_COMPLEXO}</var>
+<arg>${MEU_JSON_COMPLEXO}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="PASS" start="2025-03-03T13:52:13.698699" elapsed="0.002000"/>
+</kw>
+<return>
+<value>${MEU_JSON_COMPLEXO}</value>
+<status status="PASS" start="2025-03-03T13:52:13.700699" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-03T13:52:13.701703" level="INFO">${MEU_JSON_COMPLEXO} = {'pessoa': {'nome': {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}, 'hobbies': {'livros': [{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'},...</msg>
+<var>${MEU_JSON_COMPLEXO}</var>
+<status status="PASS" start="2025-03-03T13:52:13.693698" elapsed="0.008005"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<msg time="2025-03-03T13:52:13.702698" level="INFO">${MEU_DICT_ESPERADO} = {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}</msg>
+<var>${MEU_DICT_ESPERADO}</var>
+<arg>${MEU_DICT_ESPERADO}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="PASS" start="2025-03-03T13:52:13.701703" elapsed="0.000995"/>
+</kw>
+<kw name="Dictionary Should Contain Sub Dictionary" owner="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["nome"]}</arg>
+<arg>${MEU_DICT_ESPERADO}</arg>
+<doc>Fails unless all items in ``dict2`` are found from ``dict1``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.703697" elapsed="0.001000"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["nome"]}</arg>
+<arg>apelido</arg>
+<arg>May</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.705697" elapsed="0.001005"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["livros"][0]}</arg>
+<arg>titulo</arg>
+<arg>O Símbolo Perdido</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.708701" elapsed="0.001997"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["livros"][1]}</arg>
+<arg>titulo</arg>
+<arg>Sócios no Crime</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.710698" elapsed="0.002001"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["livros"][2]}</arg>
+<arg>titulo</arg>
+<arg>Fortaleza Digital</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.712699" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:13.691699" elapsed="0.023000"/>
+</kw>
+<kw name="Confere listas no JSON">
+<kw name="Pega JSON">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-03-03T13:52:13.719700" level="INFO" html="true">Getting file '&lt;a href="file://C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\resources\data\output\json_complexo.json"&gt;C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\resources\data\output\json_complexo.json&lt;/a&gt;'.</msg>
+<msg time="2025-03-03T13:52:13.720698" level="INFO">${MEU_JSON_COMPLEXO} = {
+    "pessoa": {
+        "nome": {
+            "primeiro_nome": "mayara",
+            "nomes_do_meio": "ribeiro",
+            "ultimo_nome": "fernandes",
+            "apelido": "May"
+        },
+     ...</msg>
+<var>${MEU_JSON_COMPLEXO}</var>
+<arg>${EXECDIR}/resources/data/output/json_complexo.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.718704" elapsed="0.002997"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<msg time="2025-03-03T13:52:13.722698" level="INFO">${MEU_JSON_COMPLEXO} = {'pessoa': {'nome': {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}, 'hobbies': {'livros': [{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'},...</msg>
+<var>${MEU_JSON_COMPLEXO}</var>
+<arg>${MEU_JSON_COMPLEXO}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="PASS" start="2025-03-03T13:52:13.721701" elapsed="0.000997"/>
+</kw>
+<return>
+<value>${MEU_JSON_COMPLEXO}</value>
+<status status="PASS" start="2025-03-03T13:52:13.722698" elapsed="0.000999"/>
+</return>
+<msg time="2025-03-03T13:52:13.725698" level="INFO">${MEU_JSON_COMPLEXO} = {'pessoa': {'nome': {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}, 'hobbies': {'livros': [{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'},...</msg>
+<var>${MEU_JSON_COMPLEXO}</var>
+<status status="PASS" start="2025-03-03T13:52:13.717703" elapsed="0.008996"/>
+</kw>
+<kw name="List Should Contain Value" owner="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["games"]["PC"]}</arg>
+<arg>Aika</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.726699" elapsed="0.003004"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-03-03T13:52:13.732698" level="INFO">${GAME} = Diablo III</msg>
+<var>${GAME}</var>
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["games"]["Xbox"]}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.729703" elapsed="0.002995"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-03T13:52:13.733697" level="INFO">Game da posição 2 da lista: Diablo III</msg>
+<arg>Game da posição 2 da lista: ${GAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.732698" elapsed="0.002008"/>
+</kw>
+<kw name="List Should Not Contain Duplicates" owner="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["games"]["Xbox"]}</arg>
+<doc>Fails if any element in the ``list`` is found from it more than once.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.734706" elapsed="0.001998"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-03-03T13:52:13.740699" level="INFO">@{LISTA_DE_LIVROS} = [ {'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'} | {'titulo': 'Sócios no Crime', 'autor': 'Agatha Christie'} | {'titulo': 'Fortaleza Digital', 'autor': 'Dan Brown'} ]</msg>
+<var>@{LISTA_DE_LIVROS}</var>
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]}</arg>
+<arg>livros</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.737698" elapsed="0.003001"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-03T13:52:13.747697" level="INFO">Título: O Símbolo Perdido
+Autor: Dan Brown</msg>
+<arg>Título: ${LIVRO["titulo"]}\nAutor: ${LIVRO["autor"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.743700" elapsed="0.003997"/>
+</kw>
+<var name="${LIVRO}">{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'}</var>
+<status status="PASS" start="2025-03-03T13:52:13.743700" elapsed="0.003997"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-03T13:52:13.753699" level="INFO">Título: Sócios no Crime
+Autor: Agatha Christie</msg>
+<arg>Título: ${LIVRO["titulo"]}\nAutor: ${LIVRO["autor"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.749702" elapsed="0.003997"/>
+</kw>
+<var name="${LIVRO}">{'titulo': 'Sócios no Crime', 'autor': 'Agatha Christie'}</var>
+<status status="PASS" start="2025-03-03T13:52:13.748699" elapsed="0.005000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-03T13:52:13.757696" level="INFO">Título: Fortaleza Digital
+Autor: Dan Brown</msg>
+<arg>Título: ${LIVRO["titulo"]}\nAutor: ${LIVRO["autor"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.754697" elapsed="0.002999"/>
+</kw>
+<var name="${LIVRO}">{'titulo': 'Fortaleza Digital', 'autor': 'Dan Brown'}</var>
+<status status="PASS" start="2025-03-03T13:52:13.753699" elapsed="0.003997"/>
+</iter>
+<var>${LIVRO}</var>
+<value>@{LISTA_DE_LIVROS}</value>
+<status status="PASS" start="2025-03-03T13:52:13.741698" elapsed="0.017000"/>
+</for>
+<status status="PASS" start="2025-03-03T13:52:13.716703" elapsed="0.041995"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:13.689699" elapsed="0.071000"/>
+</test>
+<status status="PASS" start="2025-03-03T13:52:09.726003" elapsed="4.038694"/>
+</suite>
+<status status="PASS" start="2025-03-03T13:52:09.713004" elapsed="4.060692"/>
+</suite>
+<suite id="s1-s2" name="API headers params auth" source="C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\tests\API_headers_params_auth">
+<suite id="s1-s2-s1" name="Headers Params Auth" source="C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\tests\API_headers_params_auth\headers_params_auth.robot">
+<test id="s1-s2-s1-t1" name="Exemplo: Fazendo autenticação básica (Basic Authentication)" line="16">
+<kw name="Conectar com autenticação por token na API do GitHub">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-03T13:52:13.826693" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
+<var>${HEADERS}</var>
+<arg>Authorization=Bearer ${MY_GITHUB_TOKEN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.824695" elapsed="0.001998"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-03-03T13:52:13.830694" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=mygithubAuth</arg>
+<arg>url=${GITHUB_HOST}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-03-03T13:52:13.826693" elapsed="0.005000"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:13.823694" elapsed="0.007999"/>
+</kw>
+<kw name="Solicitar os dados do meu usuário">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-03T13:52:14.277431" level="INFO">GET Request : url=https://api.github.com/user 
+ path_url=/user 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer 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'} 
+ body=None 
+ </msg>
+<msg time="2025-03-03T13:52:14.278428" level="INFO">GET Response : url=https://api.github.com/user 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 03 Mar 2025 16:46:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'private, max-age=60, s-maxage=60', 'Vary': 'Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With', 'ETag': 'W/"43050f0c1642d7cfa481483278c1e088c88e95dccebe71d417d2f6c2cc6501bd"', 'Last-Modified': 'Tue, 25 Feb 2025 13:39:08 GMT', 'X-OAuth-Scopes': 'gist, manage_billing:copilot, manage_billing:enterprise, manage_runners:enterprise, manage_runners:org, notifications, read:audit_log, read:discussion, read:gpg_key, read:network_configurations, read:org, read:packages, read:project, read:public_key, read:repo_hook, read:ssh_signing_key, repo, user, workflow', 'X-Accepted-OAuth-Scopes': '', 'github-authentication-token-expiration': '2025-04-02 14:11:10 UTC', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'X-RateLimit-Limit': '5000', 'X-RateLimit-Remaining': '4986', 'X-RateLimit-Reset': '1741021977', 'X-RateLimit-Used': '14', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Content-Encoding': 'gzip', 'Transfer-Encoding': 'chunked', 'Server': 'github.com', 'X-GitHub-Request-Id': '7AF9:372A4B:4B9B70:6A894F:67C5DCFD'} 
+ body={"login":"sthefanyricardo","id":51008694,"node_id":"MDQ6VXNlcjUxMDA4Njk0","avatar_url":"https://avatars.githubusercontent.com/u/51008694?v=4","gravatar_id":"","url":"https://api.github.com/users/sthefanyricardo","html_url":"https://github.com/sthefanyricardo","followers_url":"https://api.github.com/users/sthefanyricardo/followers","following_url":"https://api.github.com/users/sthefanyricardo/following{/other_user}","gists_url":"https://api.github.com/users/sthefanyricardo/gists{/gist_id}","starred_url":"https://api.github.com/users/sthefanyricardo/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/sthefanyricardo/subscriptions","organizations_url":"https://api.github.com/users/sthefanyricardo/orgs","repos_url":"https://api.github.com/users/sthefanyricardo/repos","events_url":"https://api.github.com/users/sthefanyricardo/events{/privacy}","received_events_url":"https://api.github.com/users/sthefanyricardo/received_events","type":"User","user_view_type":"private","site_admin":false,"name":"Sthefany Albuquerque","company":null,"blog":"","location":"Brasil - São Paulo","email":"s.albuquerque@aluno.ifsp.edu.br","hireable":true,"bio":"Programando, porque me faz feliz (e às vezes louca). ","twitter_username":"sthefanyricardo","notification_email":"s.albuquerque@aluno.ifsp.edu.br","public_repos":9,"public_gists":0,"followers":49,"following":135,"created_at":"2019-05-24T23:31:46Z","updated_at":"2025-02-25T13:39:08Z","private_gists":0,"total_private_repos":4,"owned_private_repos":4,"disk_usage":19217,"collaborators":0,"two_factor_authentication":true,"plan":{"name":"pro","space":976562499,"collaborators":0,"private_repos":9999}} 
+ </msg>
+<msg time="2025-03-03T13:52:14.280425" level="INFO">${MY_USER_DATA} = &lt;Response [200]&gt;</msg>
+<var>${MY_USER_DATA}</var>
+<arg>mygithubAuth</arg>
+<arg>/user</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-03T13:52:13.834692" elapsed="0.445733"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-03T13:52:14.286426" level="INFO">Meus dados: {'login': 'sthefanyricardo', 'id': 51008694, 'node_id': 'MDQ6VXNlcjUxMDA4Njk0', 'avatar_url': 'https://avatars.githubusercontent.com/u/51008694?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/sthefanyricardo', 'html_url': 'https://github.com/sthefanyricardo', 'followers_url': 'https://api.github.com/users/sthefanyricardo/followers', 'following_url': 'https://api.github.com/users/sthefanyricardo/following{/other_user}', 'gists_url': 'https://api.github.com/users/sthefanyricardo/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/sthefanyricardo/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/sthefanyricardo/subscriptions', 'organizations_url': 'https://api.github.com/users/sthefanyricardo/orgs', 'repos_url': 'https://api.github.com/users/sthefanyricardo/repos', 'events_url': 'https://api.github.com/users/sthefanyricardo/events{/privacy}', 'received_events_url': 'https://api.github.com/users/sthefanyricardo/received_events', 'type': 'User', 'user_view_type': 'private', 'site_admin': False, 'name': 'Sthefany Albuquerque', 'company': None, 'blog': '', 'location': 'Brasil - São Paulo', 'email': 's.albuquerque@aluno.ifsp.edu.br', 'hireable': True, 'bio': 'Programando, porque me faz feliz (e às vezes louca). ', 'twitter_username': 'sthefanyricardo', 'notification_email': 's.albuquerque@aluno.ifsp.edu.br', 'public_repos': 9, 'public_gists': 0, 'followers': 49, 'following': 135, 'created_at': '2019-05-24T23:31:46Z', 'updated_at': '2025-02-25T13:39:08Z', 'private_gists': 0, 'total_private_repos': 4, 'owned_private_repos': 4, 'disk_usage': 19217, 'collaborators': 0, 'two_factor_authentication': True, 'plan': {'name': 'pro', 'space': 976562499, 'collaborators': 0, 'private_repos': 9999}}</msg>
+<arg>Meus dados: ${MY_USER_DATA.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.281429" elapsed="0.006003"/>
+</kw>
+<kw name="Confere sucesso na requisição">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
+<arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.290426" elapsed="0.012004"/>
+</kw>
+<arg>${MY_USER_DATA}</arg>
+<status status="PASS" start="2025-03-03T13:52:14.288423" elapsed="0.015002"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:13.832694" elapsed="0.470731"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:13.821693" elapsed="0.483735"/>
+</test>
+<test id="s1-s2-s1-t2" name="Exemplo: Usando parâmetros" line="21">
+<kw name="Conectar na API do GitHub sem autenticação">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-03-03T13:52:14.315426" level="INFO">Creating Session using : alias=mygithub, url=https://api.github.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=mygithub</arg>
+<arg>url=${GITHUB_HOST}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-03-03T13:52:14.314427" elapsed="0.001996"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:14.312422" elapsed="0.005001"/>
+</kw>
+<kw name="Pesquisar issues com o state &quot;open&quot; e com o label &quot;bug&quot;" source_name="Pesquisar issues com o state &quot;${STATE}&quot; e com o label &quot;${LABEL}&quot;">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-03T13:52:14.320419" level="INFO">&amp;{PARAMS} = { state=open | labels=bug }</msg>
+<var>&amp;{PARAMS}</var>
+<arg>state=${STATE}</arg>
+<arg>labels=${LABEL}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.319421" elapsed="0.002001"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-03T13:52:14.668713" level="INFO">GET Request : url=https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues?state=open&amp;labels=bug 
+ path_url=/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues?state=open&amp;labels=bug 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-03T13:52:14.670679" level="INFO">GET Response : url=https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues?state=open&amp;labels=bug 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 03 Mar 2025 16:46:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=60, s-maxage=60', 'Vary': 'Accept,Accept-Encoding, Accept, X-Requested-With', 'ETag': 'W/"9915a9f9e562e3ba1d8bb16361c306333b592720fd2e12ca1bf70f9d964c64a3"', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Content-Encoding': 'gzip', 'Server': 'github.com', 'Accept-Ranges': 'bytes', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '56', 'X-RateLimit-Reset': '1741023724', 'X-RateLimit-Resource': 'core', 'X-RateLimit-Used': '4', 'Content-Length': '1435', 'X-GitHub-Request-Id': '7B68:372A4B:4B9B98:6A8983:67C5DCFE'} 
+ body=[{"url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52","repository_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse","labels_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/labels{/name}","comments_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/comments","events_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/events","html_url":"https://github.com/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52","id":857947524,"node_id":"MDU6SXNzdWU4NTc5NDc1MjQ=","number":52,"title":"Teste de criar Issue via API do GitHub","user":{"login":"mayribeirofernandes","id":26631940,"node_id":"MDQ6VXNlcjI2NjMxOTQw","avatar_url":"https://avatars.githubusercontent.com/u/26631940?v=4","gravatar_id":"","url":"https://api.github.com/users/mayribeirofernandes","html_url":"https://github.com/mayribeirofernandes","followers_url":"https://api.github.com/users/mayribeirofernandes/followers","following_url":"https://api.github.com/users/mayribeirofernandes/following{/other_user}","gists_url":"https://api.github.com/users/mayribeirofernandes/gists{/gist_id}","starred_url":"https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mayribeirofernandes/subscriptions","organizations_url":"https://api.github.com/users/mayribeirofernandes/orgs","repos_url":"https://api.github.com/users/mayribeirofernandes/repos","events_url":"https://api.github.com/users/mayribeirofernandes/events{/privacy}","received_events_url":"https://api.github.com/users/mayribeirofernandes/received_events","type":"User","user_view_type":"public","site_admin":false},"labels":[{"id":1637187945,"node_id":"MDU6TGFiZWwxNjM3MTg3OTQ1","url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/labels/bug","name":"bug","color":"d73a4a","default":true,"description":"Something isn't working"}],"state":"open","locked":false,"assignee":{"login":"mayribeirofernandes","id":26631940,"node_id":"MDQ6VXNlcjI2NjMxOTQw","avatar_url":"https://avatars.githubusercontent.com/u/26631940?v=4","gravatar_id":"","url":"https://api.github.com/users/mayribeirofernandes","html_url":"https://github.com/mayribeirofernandes","followers_url":"https://api.github.com/users/mayribeirofernandes/followers","following_url":"https://api.github.com/users/mayribeirofernandes/following{/other_user}","gists_url":"https://api.github.com/users/mayribeirofernandes/gists{/gist_id}","starred_url":"https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mayribeirofernandes/subscriptions","organizations_url":"https://api.github.com/users/mayribeirofernandes/orgs","repos_url":"https://api.github.com/users/mayribeirofernandes/repos","events_url":"https://api.github.com/users/mayribeirofernandes/events{/privacy}","received_events_url":"https://api.github.com/users/mayribeirofernandes/received_events","type":"User","user_view_type":"public","site_admin":false},"assignees":[{"login":"mayribeirofernandes","id":26631940,"node_id":"MDQ6VXNlcjI2NjMxOTQw","avatar_url":"https://avatars.githubusercontent.com/u/26631940?v=4","gravatar_id":"","url":"https://api.github.com/users/mayribeirofernandes","html_url":"https://github.com/mayribeirofernandes","followers_url":"https://api.github.com/users/mayribeirofernandes/followers","following_url":"https://api.github.com/users/mayribeirofernandes/following{/other_user}","gists_url":"https://api.github.com/users/mayribeirofernandes/gists{/gist_id}","starred_url":"https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mayribeirofernandes/subscriptions","organizations_url":"https://api.github.com/users/mayribeirofernandes/orgs","repos_url":"https://api.github.com/users/mayribeirofernandes/repos","events_url":"https://api.github.com/users/mayribeirofernandes/events{/privacy}","received_events_url":"https://api.github.com/users/mayribeirofernandes/received_events","type":"User","user_view_type":"public","site_admin":false}],"milestone":null,"comments":0,"created_at":"2021-04-14T14:19:20Z","updated_at":"2021-04-14T14:19:20Z","closed_at":null,"author_association":"OWNER","sub_issues_summary":{"total":0,"completed":0,"percent_completed":0},"active_lock_reason":null,"body":"Yeah! Criei uma issue via API!!!","closed_by":null,"reactions":{"url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/reactions","total_count":1,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":1,"eyes":0},"timeline_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/timeline","performed_via_github_app":null,"state_reason":null},{"url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12","repository_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse","labels_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/labels{/name}","comments_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/comments","events_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/events","html_url":"https://github.com/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12","id":515820817,"node_id":"MDU6SXNzdWU1MTU4MjA4MTc=","number":12,"title":"Teste de criar Issue via API do GitHub","user":{"login":"mayribeirofernandes","id":26631940,"node_id":"MDQ6VXNlcjI2NjMxOTQw","avatar_url":"https://avatars.githubusercontent.com/u/26631940?v=4","gravatar_id":"","url":"https://api.github.com/users/mayribeirofernandes","html_url":"https://github.com/mayribeirofernandes","followers_url":"https://api.github.com/users/mayribeirofernandes/followers","following_url":"https://api.github.com/users/mayribeirofernandes/following{/other_user}","gists_url":"https://api.github.com/users/mayribeirofernandes/gists{/gist_id}","starred_url":"https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mayribeirofernandes/subscriptions","organizations_url":"https://api.github.com/users/mayribeirofernandes/orgs","repos_url":"https://api.github.com/users/mayribeirofernandes/repos","events_url":"https://api.github.com/users/mayribeirofernandes/events{/privacy}","received_events_url":"https://api.github.com/users/mayribeirofernandes/received_events","type":"User","user_view_type":"public","site_admin":false},"labels":[{"id":1637187945,"node_id":"MDU6TGFiZWwxNjM3MTg3OTQ1","url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/labels/bug","name":"bug","color":"d73a4a","default":true,"description":"Something isn't working"}],"state":"open","locked":false,"assignee":{"login":"mayribeirofernandes","id":26631940,"node_id":"MDQ6VXNlcjI2NjMxOTQw","avatar_url":"https://avatars.githubusercontent.com/u/26631940?v=4","gravatar_id":"","url":"https://api.github.com/users/mayribeirofernandes","html_url":"https://github.com/mayribeirofernandes","followers_url":"https://api.github.com/users/mayribeirofernandes/followers","following_url":"https://api.github.com/users/mayribeirofernandes/following{/other_user}","gists_url":"https://api.github.com/users/mayribeirofernandes/gists{/gist_id}","starred_url":"https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mayribeirofernandes/subscriptions","organizations_url":"https://api.github.com/users/mayribeirofernandes/orgs","repos_url":"https://api.github.com/users/mayribeirofernandes/repos","events_url":"https://api.github.com/users/mayribeirofernandes/events{/privacy}","received_events_url":"https://api.github.com/users/mayribeirofernandes/received_events","type":"User","user_view_type":"public","site_admin":false},"assignees":[{"login":"mayribeirofernandes","id":26631940,"node_id":"MDQ6VXNlcjI2NjMxOTQw","avatar_url":"https://avatars.githubusercontent.com/u/26631940?v=4","gravatar_id":"","url":"https://api.github.com/users/mayribeirofernandes","html_url":"https://github.com/mayribeirofernandes","followers_url":"https://api.github.com/users/mayribeirofernandes/followers","following_url":"https://api.github.com/users/mayribeirofernandes/following{/other_user}","gists_url":"https://api.github.com/users/mayribeirofernandes/gists{/gist_id}","starred_url":"https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mayribeirofernandes/subscriptions","organizations_url":"https://api.github.com/users/mayribeirofernandes/orgs","repos_url":"https://api.github.com/users/mayribeirofernandes/repos","events_url":"https://api.github.com/users/mayribeirofernandes/events{/privacy}","received_events_url":"https://api.github.com/users/mayribeirofernandes/received_events","type":"User","user_view_type":"public","site_admin":false}],"milestone":null,"comments":169,"created_at":"2019-10-31T23:45:18Z","updated_at":"2025-02-04T21:45:18Z","closed_at":null,"author_association":"OWNER","sub_issues_summary":{"total":0,"completed":0,"percent_completed":0},"active_lock_reason":null,"body":"Yeah! Criei uma issue via API!!!","closed_by":null,"reactions":{"url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/reactions","total_count":2,"+1":1,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":1,"eyes":0},"timeline_url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/timeline","performed_via_github_app":null,"state_reason":null},{"url":"https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8","repository_url":"https://api.github.com/repos/mayribeirofer... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2025-03-03T13:52:14.674519" level="INFO">${MY_ISSUES} = &lt;Response [200]&gt;</msg>
+<var>${MY_ISSUES}</var>
+<arg>mygithub</arg>
+<arg>${ISSUES_URI}</arg>
+<arg>${PARAMS}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.321422" elapsed="0.353097"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-03T13:52:14.688514" level="INFO">Lista de Issues: [{'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52', 'repository_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse', 'labels_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/labels{/name}', 'comments_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/comments', 'events_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/events', 'html_url': 'https://github.com/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52', 'id': 857947524, 'node_id': 'MDU6SXNzdWU4NTc5NDc1MjQ=', 'number': 52, 'title': 'Teste de criar Issue via API do GitHub', 'user': {'login': 'mayribeirofernandes', 'id': 26631940, 'node_id': 'MDQ6VXNlcjI2NjMxOTQw', 'avatar_url': 'https://avatars.githubusercontent.com/u/26631940?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/mayribeirofernandes', 'html_url': 'https://github.com/mayribeirofernandes', 'followers_url': 'https://api.github.com/users/mayribeirofernandes/followers', 'following_url': 'https://api.github.com/users/mayribeirofernandes/following{/other_user}', 'gists_url': 'https://api.github.com/users/mayribeirofernandes/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/mayribeirofernandes/subscriptions', 'organizations_url': 'https://api.github.com/users/mayribeirofernandes/orgs', 'repos_url': 'https://api.github.com/users/mayribeirofernandes/repos', 'events_url': 'https://api.github.com/users/mayribeirofernandes/events{/privacy}', 'received_events_url': 'https://api.github.com/users/mayribeirofernandes/received_events', 'type': 'User', 'user_view_type': 'public', 'site_admin': False}, 'labels': [{'id': 1637187945, 'node_id': 'MDU6TGFiZWwxNjM3MTg3OTQ1', 'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/labels/bug', 'name': 'bug', 'color': 'd73a4a', 'default': True, 'description': "Something isn't working"}], 'state': 'open', 'locked': False, 'assignee': {'login': 'mayribeirofernandes', 'id': 26631940, 'node_id': 'MDQ6VXNlcjI2NjMxOTQw', 'avatar_url': 'https://avatars.githubusercontent.com/u/26631940?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/mayribeirofernandes', 'html_url': 'https://github.com/mayribeirofernandes', 'followers_url': 'https://api.github.com/users/mayribeirofernandes/followers', 'following_url': 'https://api.github.com/users/mayribeirofernandes/following{/other_user}', 'gists_url': 'https://api.github.com/users/mayribeirofernandes/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/mayribeirofernandes/subscriptions', 'organizations_url': 'https://api.github.com/users/mayribeirofernandes/orgs', 'repos_url': 'https://api.github.com/users/mayribeirofernandes/repos', 'events_url': 'https://api.github.com/users/mayribeirofernandes/events{/privacy}', 'received_events_url': 'https://api.github.com/users/mayribeirofernandes/received_events', 'type': 'User', 'user_view_type': 'public', 'site_admin': False}, 'assignees': [{'login': 'mayribeirofernandes', 'id': 26631940, 'node_id': 'MDQ6VXNlcjI2NjMxOTQw', 'avatar_url': 'https://avatars.githubusercontent.com/u/26631940?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/mayribeirofernandes', 'html_url': 'https://github.com/mayribeirofernandes', 'followers_url': 'https://api.github.com/users/mayribeirofernandes/followers', 'following_url': 'https://api.github.com/users/mayribeirofernandes/following{/other_user}', 'gists_url': 'https://api.github.com/users/mayribeirofernandes/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/mayribeirofernandes/subscriptions', 'organizations_url': 'https://api.github.com/users/mayribeirofernandes/orgs', 'repos_url': 'https://api.github.com/users/mayribeirofernandes/repos', 'events_url': 'https://api.github.com/users/mayribeirofernandes/events{/privacy}', 'received_events_url': 'https://api.github.com/users/mayribeirofernandes/received_events', 'type': 'User', 'user_view_type': 'public', 'site_admin': False}], 'milestone': None, 'comments': 0, 'created_at': '2021-04-14T14:19:20Z', 'updated_at': '2021-04-14T14:19:20Z', 'closed_at': None, 'author_association': 'OWNER', 'sub_issues_summary': {'total': 0, 'completed': 0, 'percent_completed': 0}, 'active_lock_reason': None, 'body': 'Yeah! Criei uma issue via API!!!', 'closed_by': None, 'reactions': {'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/reactions', 'total_count': 1, '+1': 0, '-1': 0, 'laugh': 0, 'hooray': 0, 'confused': 0, 'heart': 0, 'rocket': 1, 'eyes': 0}, 'timeline_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/52/timeline', 'performed_via_github_app': None, 'state_reason': None}, {'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12', 'repository_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse', 'labels_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/labels{/name}', 'comments_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/comments', 'events_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/events', 'html_url': 'https://github.com/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12', 'id': 515820817, 'node_id': 'MDU6SXNzdWU1MTU4MjA4MTc=', 'number': 12, 'title': 'Teste de criar Issue via API do GitHub', 'user': {'login': 'mayribeirofernandes', 'id': 26631940, 'node_id': 'MDQ6VXNlcjI2NjMxOTQw', 'avatar_url': 'https://avatars.githubusercontent.com/u/26631940?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/mayribeirofernandes', 'html_url': 'https://github.com/mayribeirofernandes', 'followers_url': 'https://api.github.com/users/mayribeirofernandes/followers', 'following_url': 'https://api.github.com/users/mayribeirofernandes/following{/other_user}', 'gists_url': 'https://api.github.com/users/mayribeirofernandes/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/mayribeirofernandes/subscriptions', 'organizations_url': 'https://api.github.com/users/mayribeirofernandes/orgs', 'repos_url': 'https://api.github.com/users/mayribeirofernandes/repos', 'events_url': 'https://api.github.com/users/mayribeirofernandes/events{/privacy}', 'received_events_url': 'https://api.github.com/users/mayribeirofernandes/received_events', 'type': 'User', 'user_view_type': 'public', 'site_admin': False}, 'labels': [{'id': 1637187945, 'node_id': 'MDU6TGFiZWwxNjM3MTg3OTQ1', 'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/labels/bug', 'name': 'bug', 'color': 'd73a4a', 'default': True, 'description': "Something isn't working"}], 'state': 'open', 'locked': False, 'assignee': {'login': 'mayribeirofernandes', 'id': 26631940, 'node_id': 'MDQ6VXNlcjI2NjMxOTQw', 'avatar_url': 'https://avatars.githubusercontent.com/u/26631940?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/mayribeirofernandes', 'html_url': 'https://github.com/mayribeirofernandes', 'followers_url': 'https://api.github.com/users/mayribeirofernandes/followers', 'following_url': 'https://api.github.com/users/mayribeirofernandes/following{/other_user}', 'gists_url': 'https://api.github.com/users/mayribeirofernandes/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/mayribeirofernandes/subscriptions', 'organizations_url': 'https://api.github.com/users/mayribeirofernandes/orgs', 'repos_url': 'https://api.github.com/users/mayribeirofernandes/repos', 'events_url': 'https://api.github.com/users/mayribeirofernandes/events{/privacy}', 'received_events_url': 'https://api.github.com/users/mayribeirofernandes/received_events', 'type': 'User', 'user_view_type': 'public', 'site_admin': False}, 'assignees': [{'login': 'mayribeirofernandes', 'id': 26631940, 'node_id': 'MDQ6VXNlcjI2NjMxOTQw', 'avatar_url': 'https://avatars.githubusercontent.com/u/26631940?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/mayribeirofernandes', 'html_url': 'https://github.com/mayribeirofernandes', 'followers_url': 'https://api.github.com/users/mayribeirofernandes/followers', 'following_url': 'https://api.github.com/users/mayribeirofernandes/following{/other_user}', 'gists_url': 'https://api.github.com/users/mayribeirofernandes/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/mayribeirofernandes/subscriptions', 'organizations_url': 'https://api.github.com/users/mayribeirofernandes/orgs', 'repos_url': 'https://api.github.com/users/mayribeirofernandes/repos', 'events_url': 'https://api.github.com/users/mayribeirofernandes/events{/privacy}', 'received_events_url': 'https://api.github.com/users/mayribeirofernandes/received_events', 'type': 'User', 'user_view_type': 'public', 'site_admin': False}], 'milestone': None, 'comments': 169, 'created_at': '2019-10-31T23:45:18Z', 'updated_at': '2025-02-04T21:45:18Z', 'closed_at': None, 'author_association': 'OWNER', 'sub_issues_summary': {'total': 0, 'completed': 0, 'percent_completed': 0}, 'active_lock_reason': None, 'body': 'Yeah! Criei uma issue via API!!!', 'closed_by': None, 'reactions': {'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/reactions', 'total_count': 2, '+1': 1, '-1': 0, 'laugh': 0, 'hooray': 0, 'confused': 0, 'heart': 0, 'rocket': 1, 'eyes': 0}, 'timeline_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/12/timeline', 'performed_via_github_app': None, 'state_reason': None}, {'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8', 'repository_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse', 'labels_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8/labels{/name}', 'comments_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8/comments', 'events_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8/events', 'html_url': 'https://github.com/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8', 'id': 514092805, 'node_id': 'MDU6SXNzdWU1MTQwOTI4MDU=', 'number': 8, 'title': 'Teste Issue que aceita muitos Reactions', 'user': {'login': 'mayribeirofernandes', 'id': 26631940, 'node_id': 'MDQ6VXNlcjI2NjMxOTQw', 'avatar_url': 'https://avatars.githubusercontent.com/u/26631940?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/mayribeirofernandes', 'html_url': 'https://github.com/mayribeirofernandes', 'followers_url': 'https://api.github.com/users/mayribeirofernandes/followers', 'following_url': 'https://api.github.com/users/mayribeirofernandes/following{/other_user}', 'gists_url': 'https://api.github.com/users/mayribeirofernandes/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/mayribeirofernandes/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/mayribeirofernandes/subscriptions', 'organizations_url': 'https://api.github.com/users/mayribeirofernandes/orgs', 'repos_url': 'https://api.github.com/users/mayribeirofernandes/repos', 'events_url': 'https://api.github.com/users/mayribeirofernandes/events{/privacy}', 'received_events_url': 'https://api.github.com/users/mayribeirofernandes/received_events', 'type': 'User', 'user_view_type': 'public', 'site_admin': False}, 'labels': [{'id': 1637187945, 'node_id': 'MDU6TGFiZWwxNjM3MTg3OTQ1', 'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/labels/bug', 'name': 'bug', 'color': 'd73a4a', 'default': True, 'description': "Something isn't working"}], 'state': 'open', 'locked': False, 'assignee': None, 'assignees': [], 'milestone': None, 'comments': 21, 'created_at': '2019-10-29T17:26:46Z', 'updated_at': '2024-06-10T16:51:11Z', 'closed_at': None, 'author_association': 'OWNER', 'sub_issues_summary': {'total': 0, 'completed': 0, 'percent_completed': 0}, 'active_lock_reason': None, 'body': 'Vamos lá, deixem seus **_reactions_** usando a API do GitHub pelo Robot Framework!!', 'closed_by': None, 'reactions': {'url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8/reactions', 'total_count': 154, '+1': 78, '-1': 0, 'laugh': 6, 'hooray': 8, 'confused': 2, 'heart': 20, 'rocket': 21, 'eyes': 19}, 'timeline_url': 'https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8/timeline', 'performed_via_github_app': None, 'state_reason': None}]</msg>
+<arg>Lista de Issues: ${MY_ISSUES.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.676515" elapsed="0.015999"/>
+</kw>
+<kw name="Confere sucesso na requisição">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
+<arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.698515" elapsed="0.008990"/>
+</kw>
+<arg>${MY_ISSUES}</arg>
+<status status="PASS" start="2025-03-03T13:52:14.693514" elapsed="0.013991"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:14.318424" elapsed="0.389081"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:14.309429" elapsed="0.399434"/>
+</test>
+<test id="s1-s2-s1-t3" name="Exemplo: Usando headers" line="25">
+<kw name="Conectar com autenticação por token na API do GitHub">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-03T13:52:14.715174" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
+<var>${HEADERS}</var>
+<arg>Authorization=Bearer ${MY_GITHUB_TOKEN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.714175" elapsed="0.000999"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-03-03T13:52:14.717174" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=mygithubAuth</arg>
+<arg>url=${GITHUB_HOST}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-03-03T13:52:14.716175" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:14.713165" elapsed="0.005008"/>
+</kw>
+<kw name="Enviar a reação &quot;eyes&quot; para a issue &quot;8&quot;" source_name="Enviar a reação &quot;${REACTION}&quot; para a issue &quot;${ISSUE_NUMBER}&quot;">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-03T13:52:14.720808" level="INFO">${HEADERS} = {'Accept': 'application/vnd.github.squirrel-girl-preview+json'}</msg>
+<var>${HEADERS}</var>
+<arg>Accept=application/vnd.github.squirrel-girl-preview+json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.719809" elapsed="0.000999"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-03T13:52:15.100840" level="INFO">POST Request : url=https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8/reactions 
+ path_url=/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8/reactions 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer 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', 'Content-Length': '19'} 
+ body={"content": "eyes"} 
+ </msg>
+<msg time="2025-03-03T13:52:15.101838" level="INFO">POST Response : url=https://api.github.com/repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues/8/reactions 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 03 Mar 2025 16:46:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'private, max-age=60, s-maxage=60', 'Vary': 'Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With', 'ETag': 'W/"e7f10360d7c00643f99d2bc830b1d9047b55208e91e35eb8988077b44432aa78"', 'X-OAuth-Scopes': 'gist, manage_billing:copilot, manage_billing:enterprise, manage_runners:enterprise, manage_runners:org, notifications, read:audit_log, read:discussion, read:gpg_key, read:network_configurations, read:org, read:packages, read:project, read:public_key, read:repo_hook, read:ssh_signing_key, repo, user, workflow', 'X-Accepted-OAuth-Scopes': '', 'github-authentication-token-expiration': '2025-04-02 14:11:10 UTC', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'X-RateLimit-Limit': '5000', 'X-RateLimit-Remaining': '4985', 'X-RateLimit-Reset': '1741021977', 'X-RateLimit-Used': '15', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Content-Encoding': 'gzip', 'Transfer-Encoding': 'chunked', 'Server': 'github.com', 'X-GitHub-Request-Id': '7A3D:37684A:4CAA11:6BA83A:67C5DCFE'} 
+ body={"id":200958806,"node_id":"REA_lAHODPWc7s4epG8Fzgv6Y1Y","user":{"login":"sthefanyricardo","id":51008694,"node_id":"MDQ6VXNlcjUxMDA4Njk0","avatar_url":"https://avatars.githubusercontent.com/u/51008694?v=4","gravatar_id":"","url":"https://api.github.com/users/sthefanyricardo","html_url":"https://github.com/sthefanyricardo","followers_url":"https://api.github.com/users/sthefanyricardo/followers","following_url":"https://api.github.com/users/sthefanyricardo/following{/other_user}","gists_url":"https://api.github.com/users/sthefanyricardo/gists{/gist_id}","starred_url":"https://api.github.com/users/sthefanyricardo/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/sthefanyricardo/subscriptions","organizations_url":"https://api.github.com/users/sthefanyricardo/orgs","repos_url":"https://api.github.com/users/sthefanyricardo/repos","events_url":"https://api.github.com/users/sthefanyricardo/events{/privacy}","received_events_url":"https://api.github.com/users/sthefanyricardo/received_events","type":"User","user_view_type":"public","site_admin":false},"content":"eyes","created_at":"2025-03-03T15:20:06Z"} 
+ </msg>
+<msg time="2025-03-03T13:52:15.103837" level="INFO">${MY_REACTION} = &lt;Response [200]&gt;</msg>
+<var>${MY_REACTION}</var>
+<arg>mygithubAuth</arg>
+<arg>${ISSUES_URI}/${ISSUE_NUMBER}/reactions</arg>
+<arg>{"content": "${REACTION}"}</arg>
+<arg>${HEADERS}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-03T13:52:14.720808" elapsed="0.383029"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-03T13:52:15.113836" level="INFO">Meus dados: {'id': 200958806, 'node_id': 'REA_lAHODPWc7s4epG8Fzgv6Y1Y', 'user': {'login': 'sthefanyricardo', 'id': 51008694, 'node_id': 'MDQ6VXNlcjUxMDA4Njk0', 'avatar_url': 'https://avatars.githubusercontent.com/u/51008694?v=4', 'gravatar_id': '', 'url': 'https://api.github.com/users/sthefanyricardo', 'html_url': 'https://github.com/sthefanyricardo', 'followers_url': 'https://api.github.com/users/sthefanyricardo/followers', 'following_url': 'https://api.github.com/users/sthefanyricardo/following{/other_user}', 'gists_url': 'https://api.github.com/users/sthefanyricardo/gists{/gist_id}', 'starred_url': 'https://api.github.com/users/sthefanyricardo/starred{/owner}{/repo}', 'subscriptions_url': 'https://api.github.com/users/sthefanyricardo/subscriptions', 'organizations_url': 'https://api.github.com/users/sthefanyricardo/orgs', 'repos_url': 'https://api.github.com/users/sthefanyricardo/repos', 'events_url': 'https://api.github.com/users/sthefanyricardo/events{/privacy}', 'received_events_url': 'https://api.github.com/users/sthefanyricardo/received_events', 'type': 'User', 'user_view_type': 'public', 'site_admin': False}, 'content': 'eyes', 'created_at': '2025-03-03T15:20:06Z'}</msg>
+<arg>Meus dados: ${MY_REACTION.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-03T13:52:15.106838" elapsed="0.007999"/>
+</kw>
+<kw name="Confere sucesso na requisição">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
+<arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-03-03T13:52:15.121843" elapsed="0.005989"/>
+</kw>
+<arg>${MY_REACTION}</arg>
+<status status="PASS" start="2025-03-03T13:52:15.116843" elapsed="0.010989"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:14.718799" elapsed="0.409033"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:14.711805" elapsed="0.416757"/>
+</test>
+<doc>Exemplos da própria Library: https://github.com/bulkan/robotframework-requests/blob/master/tests/testcase.robot
+Doc da API do GitHub: https://developer.github.com/v3/
+Doc endpoint de users: https://docs.github.com/pt/rest/users/users?apiVersion=2022-11-28#get-a-user
+Doc endpoint de issues: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#list-repository-issues
+Doc endpoint de reactions: https://docs.github.com/pt/rest/reactions/reactions?apiVersion=2022-11-28#create-reaction-for-an-issue</doc>
+<status status="PASS" start="2025-03-03T13:52:13.788694" elapsed="1.344412"/>
+</suite>
+<status status="PASS" start="2025-03-03T13:52:13.778695" elapsed="1.362414"/>
+</suite>
+<suite id="s1-s3" name="API post template" source="C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\tests\API_post_template">
+<suite id="s1-s3-s1" name="Post With Template" source="C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\tests\API_post_template\post_with_template.robot">
+<test id="s1-s3-s1-t1" name="Exemplo: Postando com body template" line="15">
+<kw name="Conectar com autenticação por token na API do GitHub">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-03T13:52:15.207106" level="INFO">${HEADERS} = {'Authorization': 'Bearer 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'}</msg>
+<var>${HEADERS}</var>
+<arg>Authorization=Bearer ${MY_GITHUB_TOKEN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-03T13:52:15.206104" elapsed="0.001002"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-03-03T13:52:15.209102" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Authorization': 'Bearer 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'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=mygithubAuth</arg>
+<arg>url=${GITHUB_HOST}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-03-03T13:52:15.207106" elapsed="0.002999"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:15.205105" elapsed="0.005000"/>
+</kw>
+<kw name="Postar uma nova issue com label &quot;robot framework&quot;" source_name="Postar uma nova issue com label &quot;${LABEL}&quot;">
+<kw name="Format String" owner="String">
+<msg time="2025-03-03T13:52:15.213102" level="INFO" html="true">Reading template from file &lt;a href="C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\resources\data\input\post_issue.json"&gt;C:\workspace\curso-robot-framework-avancado-may\testes_API_avancado\resources\data\input\post_issue.json&lt;/a&gt;.</msg>
+<msg time="2025-03-03T13:52:15.214102" level="INFO">${BODY} = {
+    "title": "Teste de criar Issue via API do GitHub by [sthefanyricardo]",
+    "body": "sthefanyricardo criou essa Issue via API do GitHub nos testes com Robot Framework!",
+    "assignees": [
+     ...</msg>
+<var>${BODY}</var>
+<arg>${EXECDIR}/resources/data/input/post_issue.json</arg>
+<arg>user_git=${MY_GITHUB_USER}</arg>
+<arg>label=${LABEL}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<status status="PASS" start="2025-03-03T13:52:15.212102" elapsed="0.003001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-03T13:52:15.218104" level="INFO">Meu Body ficou:
+{
+    "title": "Teste de criar Issue via API do GitHub by [sthefanyricardo]",
+    "body": "sthefanyricardo criou essa Issue via API do GitHub nos testes com Robot Framework!",
+    "assignees": [
+        "sthefanyricardo"
+    ],
+    "labels": [
+        "robot framework"
+    ]
+}
+</msg>
+<arg>Meu Body ficou:\n${BODY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-03T13:52:15.215103" elapsed="0.004002"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-03T13:52:16.222459" level="INFO">POST Request : url=https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues 
+ path_url=/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer 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', 'Content-Length': '278'} 
+ body={
+    "title": "Teste de criar Issue via API do GitHub by [sthefanyricardo]",
+    "body": "sthefanyricardo criou essa Issue via API do GitHub nos testes com Robot Framework!",
+    "assignees": [
+        "sthefanyricardo"
+    ],
+    "labels": [
+        "robot framework"
+    ]
+}
+ 
+ </msg>
+<msg time="2025-03-03T13:52:16.222459" level="INFO">POST Response : url=https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues 
+ status=201, reason=Created 
+ headers={'Date': 'Mon, 03 Mar 2025 16:46:56 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '4868', 'Cache-Control': 'private, max-age=60, s-maxage=60', 'Vary': 'Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With', 'ETag': '"4f0223c697551aaf9706870aee47e84d2763abeb7af751e422a892a3ecfdebde"', 'X-OAuth-Scopes': 'gist, manage_billing:copilot, manage_billing:enterprise, manage_runners:enterprise, manage_runners:org, notifications, read:audit_log, read:discussion, read:gpg_key, read:network_configurations, read:org, read:packages, read:project, read:public_key, read:repo_hook, read:ssh_signing_key, repo, user, workflow', 'X-Accepted-OAuth-Scopes': '', 'github-authentication-token-expiration': '2025-04-02 14:11:10 UTC', 'Location': 'https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues/8', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'X-RateLimit-Limit': '5000', 'X-RateLimit-Remaining': '4984', 'X-RateLimit-Reset': '1741021977', 'X-RateLimit-Used': '16', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Server': 'github.com', 'X-GitHub-Request-Id': '7A84:3F4077:4D13A5:6C24C1:67C5DCFF'} 
+ body={"url":"https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues/8","repository_url":"https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may","labels_url":"https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues/8/labels{/name}","comments_url":"https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues/8/comments","events_url":"https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues/8/events","html_url":"https://github.com/sthefanyricardo/curso-robot-framework-avancado-may/issues/8","id":2891763543,"node_id":"I_kwDON2k_xs6sXM9X","number":8,"title":"Teste de criar Issue via API do GitHub by [sthefanyricardo]","user":{"login":"sthefanyricardo","id":51008694,"node_id":"MDQ6VXNlcjUxMDA4Njk0","avatar_url":"https://avatars.githubusercontent.com/u/51008694?v=4","gravatar_id":"","url":"https://api.github.com/users/sthefanyricardo","html_url":"https://github.com/sthefanyricardo","followers_url":"https://api.github.com/users/sthefanyricardo/followers","following_url":"https://api.github.com/users/sthefanyricardo/following{/other_user}","gists_url":"https://api.github.com/users/sthefanyricardo/gists{/gist_id}","starred_url":"https://api.github.com/users/sthefanyricardo/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/sthefanyricardo/subscriptions","organizations_url":"https://api.github.com/users/sthefanyricardo/orgs","repos_url":"https://api.github.com/users/sthefanyricardo/repos","events_url":"https://api.github.com/users/sthefanyricardo/events{/privacy}","received_events_url":"https://api.github.com/users/sthefanyricardo/received_events","type":"User","user_view_type":"public","site_admin":false},"labels":[{"id":8235297890,"node_id":"LA_kwDON2k_xs8AAAAB6tysYg","url":"https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/labels/robot%20framework","name":"robot framework","color":"ededed","default":false,"description":null}],"state":"open","locked":false,"assignee":{"login":"sthefanyricardo","id":51008694,"node_id":"MDQ6VXNlcjUxMDA4Njk0","avatar_url":"https://avatars.githubusercontent.com/u/51008694?v=4","gravatar_id":"","url":"https://api.github.com/users/sthefanyricardo","html_url":"https://github.com/sthefanyricardo","followers_url":"https://api.github.com/users/sthefanyricardo/followers","following_url":"https://api.github.com/users/sthefanyricardo/following{/other_user}","gists_url":"https://api.github.com/users/sthefanyricardo/gists{/gist_id}","starred_url":"https://api.github.com/users/sthefanyricardo/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/sthefanyricardo/subscriptions","organizations_url":"https://api.github.com/users/sthefanyricardo/orgs","repos_url":"https://api.github.com/users/sthefanyricardo/repos","events_url":"https://api.github.com/users/sthefanyricardo/events{/privacy}","received_events_url":"https://api.github.com/users/sthefanyricardo/received_events","type":"User","user_view_type":"public","site_admin":false},"assignees":[{"login":"sthefanyricardo","id":51008694,"node_id":"MDQ6VXNlcjUxMDA4Njk0","avatar_url":"https://avatars.githubusercontent.com/u/51008694?v=4","gravatar_id":"","url":"https://api.github.com/users/sthefanyricardo","html_url":"https://github.com/sthefanyricardo","followers_url":"https://api.github.com/users/sthefanyricardo/followers","following_url":"https://api.github.com/users/sthefanyricardo/following{/other_user}","gists_url":"https://api.github.com/users/sthefanyricardo/gists{/gist_id}","starred_url":"https://api.github.com/users/sthefanyricardo/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/sthefanyricardo/subscriptions","organizations_url":"https://api.github.com/users/sthefanyricardo/orgs","repos_url":"https://api.github.com/users/sthefanyricardo/repos","events_url":"https://api.github.com/users/sthefanyricardo/events{/privacy}","received_events_url":"https://api.github.com/users/sthefanyricardo/received_events","type":"User","user_view_type":"public","site_admin":false}],"milestone":null,"comments":0,"created_at":"2025-03-03T16:46:55Z","updated_at":"2025-03-03T16:46:55Z","closed_at":null,"author_association":"OWNER","sub_issues_summary":{"total":0,"completed":0,"percent_completed":0},"active_lock_reason":null,"body":"sthefanyricardo criou essa Issue via API do GitHub nos testes com Robot Framework!","closed_by":null,"reactions":{"url":"https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues/8/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/sthefanyricardo/curso-robot-framework-avancado-may/issues/8/timeline","performed_via_github_app":null,"state_reason":null} 
+ </msg>
+<msg time="2025-03-03T13:52:16.223457" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>mygithubAuth</arg>
+<arg>${ISSUES_URI}</arg>
+<arg>${BODY}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-03T13:52:15.219105" elapsed="1.004352"/>
+</kw>
+<kw name="Confere sucesso na requisição">
+<kw name="Should Be True" owner="BuiltIn">
+<arg>'${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'</arg>
+<arg>msg=Erro na requisição! Verifique: ${RESPONSE}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-03-03T13:52:16.225456" elapsed="0.004001"/>
+</kw>
+<arg>${RESPONSE}</arg>
+<status status="PASS" start="2025-03-03T13:52:16.224456" elapsed="0.005001"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:15.212102" elapsed="1.017355"/>
+</kw>
+<status status="PASS" start="2025-03-03T13:52:15.203103" elapsed="1.027354"/>
+</test>
+<doc>Exemplos da própria Library: https://github.com/bulkan/robotframework-requests/blob/master/tests/testcase.robot
+Doc da API do GitHub: https://developer.github.com/v3/
+Doc endpoint de issues: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#create-an-issue</doc>
+<status status="PASS" start="2025-03-03T13:52:15.158108" elapsed="1.075352"/>
+</suite>
+<status status="PASS" start="2025-03-03T13:52:15.145108" elapsed="1.094352"/>
+</suite>
+<status status="PASS" start="2025-03-03T13:52:09.564013" elapsed="6.678443"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="5" fail="0" skip="0">Tests</stat>
+<stat name="API conferencia json" id="s1-s1" pass="1" fail="0" skip="0">Tests.API conferencia json</stat>
+<stat name="Conferindo Json" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.API conferencia json.Conferindo Json</stat>
+<stat name="API headers params auth" id="s1-s2" pass="3" fail="0" skip="0">Tests.API headers params auth</stat>
+<stat name="Headers Params Auth" id="s1-s2-s1" pass="3" fail="0" skip="0">Tests.API headers params auth.Headers Params Auth</stat>
+<stat name="API post template" id="s1-s3" pass="1" fail="0" skip="0">Tests.API post template</stat>
+<stat name="Post With Template" id="s1-s3-s1" pass="1" fail="0" skip="0">Tests.API post template.Post With Template</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
