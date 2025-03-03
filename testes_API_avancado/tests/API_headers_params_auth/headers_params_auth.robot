@@ -15,7 +15,6 @@ ${ISSUES_URI}  /repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues
 *** Test Cases ***
 Exemplo: Fazendo autenticação básica (Basic Authentication)
   # Conectar com autenticação básica na API do GitHub
-  Log  ${EXECDIR}
   Conectar com autenticação por token na API do GitHub
   Solicitar os dados do meu usuário
 
