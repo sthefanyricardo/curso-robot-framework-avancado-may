@@ -76,25 +76,30 @@ Este curso é destinado a profissionais que já possuem conhecimentos básicos e
 ```bash
    git clone https://github.com/sthefanyricardo/curso-robot-framework-avancado-may.git
 ```
-2. Pelo terminal ou IDE, navegue até a pasta desejada do projeto, como no exemplo abaixo:
+2. Pelo terminal ou IDE, navegue até a pasta desejada do projeto, **como no exemplo abaixo:**
 ```bash
    cd curso-robot-framework-avancado-may/testes_API_avancado
 ```
 3. Execute os testes, com os exemplos de comandos a seguir:
-- Dentro da pasta: testes_API_avancado/tests
-```bash
-   robot -d ../resultados -i CT01ORCT04 tests/
-```
-```bash
-   robot -d ../resultados nome_arquivo_teste.robot
-```
-```bash
-   robot -d ../resultados e- CT02ORCT03 tests/
-```
-- Apenas dentro da pasta: testes_API_avancado
-```bash
-   robot -d ../resultados tests/
-```
+- Dentro da pasta: **testes_API_avancado/tests**
+
+   📌 Definindo variáveis na execução:
+   Se o teste exigir usuário e token do GitHub, execute:
+   ```bash
+      robot -v MY_GITHUB_USER:seuUsuario -v MY_GITHUB_TOKEN:seuTokenGitHub -d resultados tests/
+   ```
+   📌 Executando testes específicos:
+   ```bash
+      robot -d resultados -t "Exemplo: Fazendo autenticação básica (Basic Authentication)" tests/
+   ```
+   📌 Executando um arquivo específico:
+   ```bash
+      robot -d resultados post_with_template.robot
+   ```
+   📌 Executando todos os testes da pasta:
+   ```bash
+      robot -d resultados tests/
+   ```
 4. Verifique os resultados:
   Os relatórios e logs serão gerados na pasta ```resultados```.
 
