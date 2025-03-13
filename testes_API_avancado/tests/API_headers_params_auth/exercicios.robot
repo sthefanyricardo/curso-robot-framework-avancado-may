@@ -25,8 +25,8 @@ CT02: Consulta os comentários de uma issue no GitHub
   [Documentation]  Teste que consulta os comentários de uma issue em um repositório no GitHub
   [Tags]  CT02
   Conectar com autenticação por token na API do GitHub
-  Pesquisar os comentários das issues existentes
-  Pesquisar os comentários das issue "12"
+  Pesquisar os comentários das issues existentes pela classificação "created" e ordenação "desc"
+  Pesquisar os comentários da issue "12" a partir da data "2025-01-01T00:00:00Z"
 
 *** Keywords ***
 Conectar com autenticação por token na API do GitHub
@@ -56,7 +56,7 @@ Confere sucesso na requisição
   Should Be True  '${RESPONSE.status_code}'=='${EXPECTED_STATUS_CODE}' or '${RESPONSE.status_code}'=='201'
   ...  msg=Erro na requisição! Verifique: ${RESPONSE}
 
-Pesquisar os comentários das issues existentes
+Pesquisar os comentários das issues existentes pela classificação "${sort}" e ordenação "${direction}"
   [Documentation]  Keyword responsavél por pesquisar os comentários das issues em um repositório no GitHub
   &{PARAMS}  Create Dictionary  sort=created  direction=desc
   ${RESPONSE_REQUEST}  GET On Session  
@@ -66,9 +66,9 @@ Pesquisar os comentários das issues existentes
   Log  Lista de Issues: ${RESPONSE_REQUEST.json()}
   Confere sucesso na requisição  ${RESPONSE_REQUEST}  200
 
-Pesquisar os comentários das issue "${ISSUE_NUMBER}"
+Pesquisar os comentários da issue "${ISSUE_NUMBER}" a partir da data "${data_especificada}"
   [Documentation]  Keyword responsavél por pesquisar os comentários das issues em um repositório no GitHub
-  &{PARAMS}  Create Dictionary  since=2025-01-01T00:00:00Z
+  &{PARAMS}  Create Dictionary  since=${data_especificada}
   ${RESPONSE_REQUEST}  GET On Session  
   ...  myGithubAuth  
   ...  ${ISSUES_URI}/${ISSUE_NUMBER}/comments
