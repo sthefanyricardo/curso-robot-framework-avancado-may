@@ -10,5 +10,9 @@ ${HEADLESS}  ${False}
 #### Setup e Teardown
 Abrir navegador
   [Documentation]  Abre o navegador
-  Open Browser  about:blank  ${BROWSER}  options=add_argument("--headless")
+  IF  '${HEADLESS}' == 'True'
+      Open Browser  about:blank  ${BROWSER}  options=add_argument("--headless=new")
+  ELSE
+      Open Browser  about:blank  ${BROWSER}
+  END
   Maximize Browser Window
