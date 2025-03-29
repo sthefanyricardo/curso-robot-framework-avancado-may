@@ -49,7 +49,7 @@ jobs:
         with:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
           report_path: test-web-results
-          report_name: Web Testing Report
+          summary: "Relatório de Testes Web"
 
   testing-api-workflows:
     runs-on: ubuntu-latest
@@ -103,4 +103,4 @@ jobs:
         with:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
           report_path: test-API-results
-          report_name: API Testing Report
+          summary: "Relatório de Testes API"
