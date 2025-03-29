@@ -26,7 +26,11 @@ jobs:
       
       - name: Run tests WEB
         run: |
-          robot -d ./testes_web_avancado/resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome  testes_web_avancado/tests
+          robot -d ./testes_web_avancado/resultados-testes-CI \
+          -v HEADLESS:true \
+          -v BROWSER:chrome \
+          -i RemoverProdutoCarrinho \
+          testes_web_avancado/tests
 
       - name: Upload test results
         if: always()
@@ -80,6 +84,8 @@ jobs:
           robot -d ./testes_API_avancado/resultados-testes-CI \
             -v MY_GITHUB_USER:${MY_GITHUB_USER} \
             -v MY_GITHUB_TOKEN:${MY_GITHUB_TOKEN} \
+            -i HeadersParamsAuth \
+            -i ExerciciosAPI \
             testes_API_avancado/tests
 
       - name: Upload test results
