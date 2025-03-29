@@ -5,6 +5,7 @@ on: [push]
 jobs:
   testing-web-workflows:
     runs-on: ubuntu-latest
+    permissions: write-all # Required for the reporter action to work properly
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,9 +33,25 @@ jobs:
           path: ./testes_web_avancado/resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
+      
+      - name: Download results
+        if: always()
+        uses: actions/download-artifact@v4
+        with:
+          name: test-web-results
+      
+      - name: Send Report
+        if: always()
+        uses: joonvena/robotframework-reporter-action@v2.5
+        with:
+          gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+          report_path: test-web-results
+          report_name: Web Testing Report
+
 
   testing-api-workflows:
     runs-on: ubuntu-latest
+    permissions: write-all # Required for the reporter action to work properly
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -68,3 +85,17 @@ jobs:
           path: ./testes_API_avancado/resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
+      
+      - name: Download results
+        if: always()
+        uses: actions/download-artifact@v4
+        with:
+          name: test-API-results
+        
+      - name: Send Report
+        if: always()
+        uses: joonvena/robotframework-reporter-action@v2.5
+        with:
+          gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+          report_path: test-API-results
+          report_name: Web Testing Report
