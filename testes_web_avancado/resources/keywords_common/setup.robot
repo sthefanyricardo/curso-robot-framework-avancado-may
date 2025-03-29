@@ -11,7 +11,7 @@ ${HEADLESS}  ${False}
 Abrir navegador
   [Documentation]  Abre o navegador
   IF  '${HEADLESS}' == 'True'
-      Open Browser  about:blank  ${BROWSER}  options=add_argument("--headless=new")
+      Open Browser  about:blank  ${BROWSER}  options=add_argument("--headless")
   ELSE
       Open Browser  about:blank  ${BROWSER}
   END
