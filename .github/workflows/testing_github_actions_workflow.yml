@@ -1,0 +1,9 @@
+name: Run testing Workflows GitHub Actions
+run-name: Deploy to testing Workflows GitHub Actions Run by @${{ github.actor }}
+on: [push]
+
+jobs:
+  testing-workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world!"
