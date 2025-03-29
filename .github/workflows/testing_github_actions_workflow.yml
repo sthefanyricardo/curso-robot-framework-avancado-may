@@ -43,14 +43,13 @@ jobs:
         with:
           name: test-web-results
       
-      - name: Send Report
+      - name: Send Web Test Report
         if: always()
         uses: joonvena/robotframework-reporter-action@v2.5
         with:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
           report_path: test-web-results
           report_name: Web Testing Report
-
 
   testing-api-workflows:
     runs-on: ubuntu-latest
@@ -98,10 +97,10 @@ jobs:
         with:
           name: test-API-results
         
-      - name: Send Report
+      - name: Send API Test Report
         if: always()
         uses: joonvena/robotframework-reporter-action@v2.5
         with:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
           report_path: test-API-results
-          report_name: Web Testing Report
+          report_name: API Testing Report
