@@ -1,89 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.12.0 on win32)" generated="2025-02-18T23:50:25.104275" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.12.0 on win32)" generated="2025-03-29T06:02:28.874557" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests">
 <suite id="s1-s1" name="My Custom Libraries Com Selenium" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_com_selenium">
 <suite id="s1-s1-s1" name="myLibrary" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_com_selenium\myLibrary.robot">
 <test id="s1-s1-s1-t1" name="Teste minha SeleniumLibrary" line="6">
 <kw name="Abrir meu browser">
 <kw name="My Open Browser" owner="Libraries.SeleniumLibrary">
-<msg time="2025-02-18T23:50:28.688969" level="INFO">Abrindo browser 'chrome' no site 'http://www.robotframework.org'.</msg>
+<msg time="2025-03-29T06:02:30.674792" level="INFO">Abrindo browser 'chrome' no site 'http://www.robotframework.org'.</msg>
 <arg>http://www.robotframework.org</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the given ``url``.</doc>
-<status status="PASS" start="2025-02-18T23:50:28.687967" elapsed="16.297203"/>
+<status status="PASS" start="2025-03-29T06:02:30.673793" elapsed="6.630213"/>
 </kw>
-<status status="PASS" start="2025-02-18T23:50:28.684969" elapsed="16.301205"/>
+<status status="PASS" start="2025-03-29T06:02:30.670793" elapsed="6.634218"/>
 </kw>
 <kw name="Close Browser" owner="Libraries.SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-18T23:50:45.002167" elapsed="2.644652"/>
+<status status="PASS" start="2025-03-29T06:02:37.331001" elapsed="2.536200"/>
 </kw>
-<status status="PASS" start="2025-02-18T23:50:28.682968" elapsed="18.966733"/>
+<status status="PASS" start="2025-03-29T06:02:30.667797" elapsed="9.201066"/>
 </test>
-<status status="PASS" start="2025-02-18T23:50:25.205273" elapsed="22.453321"/>
+<status status="PASS" start="2025-03-29T06:02:28.993549" elapsed="10.880916"/>
 </suite>
-<status status="PASS" start="2025-02-18T23:50:25.199272" elapsed="22.479176"/>
+<status status="PASS" start="2025-03-29T06:02:28.987549" elapsed="10.894032"/>
 </suite>
-<suite id="s1-s2" name="My Custom Libraries Hash" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_hash">
-<suite id="s1-s2-s1" name="myLibrary" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_hash\myLibrary.robot">
-<test id="s1-s2-s1-t1" name="Teste de conversão de string para HASH sha256" line="8">
+<suite id="s1-s2" name="My Custom Libraries Excel" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_excel">
+<suite id="s1-s2-s1" name="myLibraryExcel" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_excel\myLibraryExcel.robot">
+<test id="s1-s2-s1-t1" name="CT01: Teste Buscar Animais Por Tamanho" line="8">
+<kw name="Carregar Planilha" owner="excel_library">
+<msg time="2025-03-29T06:02:41.265581" level="INFO">${arquivo_excel} = &lt;openpyxl.workbook.workbook.Workbook object at 0x000001577368B6B0&gt;</msg>
+<var>${arquivo_excel}</var>
+<arg>${PLANILHA_DADOS}</arg>
+<doc>Carrega a planilha e retorna o objeto WorkBook.</doc>
+<status status="PASS" start="2025-03-29T06:02:41.159591" elapsed="0.105990"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-03-29T06:02:41.267587" level="INFO">${arquivo_excel} = &lt;openpyxl.workbook.workbook.Workbook object at 0x000001577368B6B0&gt;</msg>
+<arg>${arquivo_excel}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-03-29T06:02:41.266583" elapsed="0.001004"/>
+</kw>
+<kw name="Buscar Animais Por Tamanho" owner="excel_library">
+<msg time="2025-03-29T06:02:41.272582" level="INFO">${resultado} = [('gato', 'Siamês', 'Médio', 'Carinhoso'), ('gato', 'Persa', 'Médio', 'Calmo'), ('gato', 'Ragdoll', 'Médio', 'Afetuoso'), ('gato', 'British Shorthair', 'Médio', 'Independente'), ('gato', 'Bengal', 'Mé...</msg>
+<var>${resultado}</var>
+<arg>${arquivo_excel}</arg>
+<arg>Médio</arg>
+<doc>Retorna uma lista de animais que possuem o tamanho especificado.</doc>
+<status status="PASS" start="2025-03-29T06:02:41.270584" elapsed="0.001998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T06:02:41.274584" level="INFO">[('gato', 'Siamês', 'Médio', 'Carinhoso'), ('gato', 'Persa', 'Médio', 'Calmo'), ('gato', 'Ragdoll', 'Médio', 'Afetuoso'), ('gato', 'British Shorthair', 'Médio', 'Independente'), ('gato', 'Bengal', 'Médio', 'Energético'), ('gato', 'Burmês', 'Médio', 'Brincalhão'), ('gato', 'Himalaio', 'Médio', 'Calmo'), ('cachorro', 'Beagle', 'Médio', 'Curioso'), ('gato', 'Tonquinês', 'Médio', 'Vocal'), ('gato', 'Exótico Shorthair', 'Médio', 'Amoroso'), ('gato', 'Chartreux', 'Médio', 'Silencioso'), ('cachorro', 'Border Collie', 'Médio', 'Ativo'), ('gato', 'Ocicat', 'Médio', 'Curioso'), ('gato', 'Somali', 'Médio', 'Brincalhão'), ('gato', 'Javanês', 'Médio', 'Vocal'), ('cachorro', 'Buldogue Inglês', 'Médio', 'Tranquilo'), ('gato', 'Manx', 'Médio', 'Independente'), ('cachorro', 'Schnauzer', 'Médio', 'Protetor'), ('gato', 'Turkish Angora', 'Médio', 'Amoroso'), ('cachorro', 'Whippet', 'Médio', 'Ativo'), ('gato', 'York Chocolate', 'Médio', 'Doce')]</msg>
+<arg>${resultado}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T06:02:41.273585" elapsed="0.000999"/>
+</kw>
+<doc>Teste para buscar animais por tamanho na planilha do excel</doc>
+<tag>PlanilhaDadosAnimais CT01</tag>
+<status status="PASS" start="2025-03-29T06:02:41.149591" elapsed="0.126992"/>
+</test>
+<test id="s1-s2-s1-t2" name="CT02: Teste Contar Animais Por Temperamento" line="16">
+<kw name="Contar Animais Por Temperamento" owner="excel_library">
+<msg time="2025-03-29T06:02:41.290585" level="INFO">${quantidade} = 3</msg>
+<var>${quantidade}</var>
+<arg>${arquivo_excel}</arg>
+<arg>Calmo</arg>
+<doc>Conta quantos animais possuem o temperamento especificado.</doc>
+<status status="PASS" start="2025-03-29T06:02:41.288583" elapsed="0.002002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T06:02:41.291585" level="INFO">3</msg>
+<arg>${quantidade}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T06:02:41.291585" elapsed="0.000998"/>
+</kw>
+<doc>Teste para contar animais por temperamento na planilha do excel</doc>
+<tag>PlanilhaDadosAnimais CT02</tag>
+<status status="PASS" start="2025-03-29T06:02:41.283584" elapsed="0.016003"/>
+</test>
+<test id="s1-s2-s1-t3" name="CT03: Buscar Animal Por Raça" line="22">
+<kw name="Buscar Animal Por Raça" owner="excel_library">
+<msg time="2025-03-29T06:02:41.308581" level="INFO">${resultado} = ('cachorro', 'Pinscher', 'Pequeno', 'Atento')</msg>
+<var>${resultado}</var>
+<arg>${arquivo_excel}</arg>
+<arg>Pinscher</arg>
+<doc>Retorna os detalhes de uma raça específica.</doc>
+<status status="PASS" start="2025-03-29T06:02:41.307582" elapsed="0.000999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T06:02:41.310581" level="INFO">('cachorro', 'Pinscher', 'Pequeno', 'Atento')</msg>
+<arg>${resultado}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T06:02:41.310581" elapsed="0.001002"/>
+</kw>
+<doc>Teste para buscar um animal por raça na planilha do excel</doc>
+<tag>PlanilhaDadosAnimais CT03</tag>
+<status status="PASS" start="2025-03-29T06:02:41.305581" elapsed="0.009005"/>
+</test>
+<doc>Esta suíte de testes foi desenvolvida para utilizar a biblioteca personalizada "excel_library.py", que estende a biblioteca Python openpyxl. Essa biblioteca permite a manipulação de planilhas Excel no formato .xlsx e foi criada como parte da Tarefa 2 do curso avançado de Automação de Testes com Robot Framework.</doc>
+<status status="PASS" start="2025-03-29T06:02:39.904581" elapsed="1.416000"/>
+</suite>
+<status status="PASS" start="2025-03-29T06:02:39.889581" elapsed="1.438000"/>
+</suite>
+<suite id="s1-s3" name="My Custom Libraries Hash" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_hash">
+<suite id="s1-s3-s1" name="myLibrary" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_hash\myLibrary.robot">
+<test id="s1-s3-s1-t1" name="Teste de conversão de string para HASH sha256" line="8">
 <kw name="Converter &quot;Estou ficando ninja em Robot Framework!!&quot; para sha256" source_name="Converter &quot;${CONTEUDO}&quot; para sha256">
 <kw name="Gerar Hash" owner="geradorHash">
-<msg time="2025-02-18T23:50:47.733437" level="INFO">Conteúdo: Estou ficando ninja em Robot Framework!!
+<msg time="2025-03-29T06:02:41.390577" level="INFO">Conteúdo: Estou ficando ninja em Robot Framework!!
 Hash gerado: 6526496e1589bb11988c5fd1051d8927a1160b1c3da51ca93ff6e2eab6ecfa38</msg>
-<msg time="2025-02-18T23:50:47.733437" level="INFO">${CONTEUDO_HASH} = 6526496e1589bb11988c5fd1051d8927a1160b1c3da51ca93ff6e2eab6ecfa38</msg>
+<msg time="2025-03-29T06:02:41.390577" level="INFO">${CONTEUDO_HASH} = 6526496e1589bb11988c5fd1051d8927a1160b1c3da51ca93ff6e2eab6ecfa38</msg>
 <var>${CONTEUDO_HASH}</var>
 <arg>${CONTEUDO}</arg>
-<status status="PASS" start="2025-02-18T23:50:47.732438" elapsed="0.000999"/>
+<status status="PASS" start="2025-03-29T06:02:41.389577" elapsed="0.001000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-18T23:50:47.734438" level="INFO">6526496e1589bb11988c5fd1051d8927a1160b1c3da51ca93ff6e2eab6ecfa38</msg>
+<msg time="2025-03-29T06:02:41.391579" level="INFO">6526496e1589bb11988c5fd1051d8927a1160b1c3da51ca93ff6e2eab6ecfa38</msg>
 <arg>${CONTEUDO_HASH}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-18T23:50:47.734438" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-29T06:02:41.391579" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-02-18T23:50:47.731434" elapsed="0.004002"/>
+<status status="PASS" start="2025-03-29T06:02:41.386577" elapsed="0.005996"/>
 </kw>
-<status status="PASS" start="2025-02-18T23:50:47.729436" elapsed="0.006000"/>
+<status status="PASS" start="2025-03-29T06:02:41.383577" elapsed="0.010000"/>
 </test>
-<test id="s1-s2-s1-t2" name="Teste de conversão de arquivo para HASH sha256" line="11">
+<test id="s1-s3-s1-t2" name="Teste de conversão de arquivo para HASH sha256" line="11">
 <kw name="Converter o arquivo &quot;${ARQUIVO}&quot; para sha256" source_name="Converter o arquivo &quot;${FILE}&quot; para sha256">
 <kw name="Gerar Hash Arquivo" owner="geradorHash">
-<msg time="2025-02-18T23:50:47.749436" level="INFO">Arquivo: ./tests/my_custom_libraries_hash/arquivo_PDF.pdf
+<msg time="2025-03-29T06:02:41.407577" level="INFO">Arquivo: ./tests/my_custom_libraries_hash/arquivo_PDF.pdf
 Hash gerado: d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
-<msg time="2025-02-18T23:50:47.749436" level="INFO">${CONTEUDO_HASH} = d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
+<msg time="2025-03-29T06:02:41.409577" level="INFO">${CONTEUDO_HASH} = d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
 <var>${CONTEUDO_HASH}</var>
 <arg>${FILE}</arg>
-<status status="PASS" start="2025-02-18T23:50:47.747439" elapsed="0.001997"/>
+<status status="PASS" start="2025-03-29T06:02:41.405579" elapsed="0.003998"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-18T23:50:47.750438" level="INFO">d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
+<msg time="2025-03-29T06:02:41.410579" level="INFO">d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
 <arg>${CONTEUDO_HASH}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-18T23:50:47.750438" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-29T06:02:41.409577" elapsed="0.001002"/>
 </kw>
-<status status="PASS" start="2025-02-18T23:50:47.745436" elapsed="0.006000"/>
+<status status="PASS" start="2025-03-29T06:02:41.403576" elapsed="0.007003"/>
 </kw>
-<status status="PASS" start="2025-02-18T23:50:47.739435" elapsed="0.012001"/>
+<status status="PASS" start="2025-03-29T06:02:41.399575" elapsed="0.011998"/>
 </test>
-<status status="PASS" start="2025-02-18T23:50:47.707439" elapsed="0.053997"/>
+<status status="PASS" start="2025-03-29T06:02:41.354577" elapsed="0.069998"/>
 </suite>
-<status status="PASS" start="2025-02-18T23:50:47.691438" elapsed="0.074996"/>
+<status status="PASS" start="2025-03-29T06:02:41.338579" elapsed="0.101994"/>
 </suite>
-<status status="PASS" start="2025-02-18T23:50:25.110275" elapsed="22.665159"/>
+<status status="PASS" start="2025-03-29T06:02:28.882556" elapsed="12.781002"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">PlanilhaDadosAnimais CT01</stat>
+<stat pass="1" fail="0" skip="0">PlanilhaDadosAnimais CT02</stat>
+<stat pass="1" fail="0" skip="0">PlanilhaDadosAnimais CT03</stat>
 </tag>
 <suite>
-<stat name="Tests" id="s1" pass="3" fail="0" skip="0">Tests</stat>
+<stat name="Tests" id="s1" pass="6" fail="0" skip="0">Tests</stat>
 <stat name="My Custom Libraries Com Selenium" id="s1-s1" pass="1" fail="0" skip="0">Tests.My Custom Libraries Com Selenium</stat>
 <stat name="myLibrary" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.My Custom Libraries Com Selenium.myLibrary</stat>
-<stat name="My Custom Libraries Hash" id="s1-s2" pass="2" fail="0" skip="0">Tests.My Custom Libraries Hash</stat>
-<stat name="myLibrary" id="s1-s2-s1" pass="2" fail="0" skip="0">Tests.My Custom Libraries Hash.myLibrary</stat>
+<stat name="My Custom Libraries Excel" id="s1-s2" pass="3" fail="0" skip="0">Tests.My Custom Libraries Excel</stat>
+<stat name="myLibraryExcel" id="s1-s2-s1" pass="3" fail="0" skip="0">Tests.My Custom Libraries Excel.myLibraryExcel</stat>
+<stat name="My Custom Libraries Hash" id="s1-s3" pass="2" fail="0" skip="0">Tests.My Custom Libraries Hash</stat>
+<stat name="myLibrary" id="s1-s3-s1" pass="2" fail="0" skip="0">Tests.My Custom Libraries Hash.myLibrary</stat>
 </suite>
 </statistics>
 <errors>
