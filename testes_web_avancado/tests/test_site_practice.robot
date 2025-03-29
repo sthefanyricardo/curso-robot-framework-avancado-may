@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Suíte de testes para o site http://automationpractice.com, utilizando o padrão Page Objects
+Documentation  Suíte de testes para o site https://automationexercise.com/, utilizando o padrão Page Objects
 Resource  ../resources/main.robot
 Test Setup  Abrir navegador
 Test Teardown  Fechar navegador
