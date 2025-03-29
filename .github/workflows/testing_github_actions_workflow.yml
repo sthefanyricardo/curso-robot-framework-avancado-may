@@ -51,8 +51,14 @@ jobs:
           pip install -U -r requirements.txt
       
       - name: Run tests API
+        env:
+          MY_GITHUB_USER: ${{ secrets.MY_GITHUB_USER }}
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         run: |
-          robot -d ./testes_API_avancado/resultados-testes-CI testes_API_avancado/tests
+          robot -d ./testes_API_avancado/resultados-testes-CI \
+            -v MY_GITHUB_USER:${MY_GITHUB_USER} \
+            -v MY_GITHUB_TOKEN:${MY_GITHUB_TOKEN} \
+            testes_API_avancado/tests
 
       - name: Upload test results
         if: always()
