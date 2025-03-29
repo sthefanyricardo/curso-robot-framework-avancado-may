@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-web-results
-          path: ./resultados-testes-CI
+          path: ./testes_web_avancado/resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
 
@@ -59,6 +59,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-API-results
-          path: ./resultados-testes-CI
+          path: ./testes_API_avancado/resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
