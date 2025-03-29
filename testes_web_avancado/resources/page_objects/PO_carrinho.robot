@@ -1,4 +1,4 @@
 *** Variables ***
-${CARRINHO_TITLE}  Order - My Store
-${CARRINHO_DELETAR}  xpath=//*[@class="cart_quantity_delete"]
-${CARRINHO_MSG}  xpath=//*[@id="center_column"]/p[@class='alert alert-warning']
+${CARRINHO_TITLE}  Automation Exercise - Checkout
+${CARRINHO_DELETAR}  //td[@class='cart_delete']/a
+${CARRINHO_MSG}  //span[@id='empty_cart']/p/b
