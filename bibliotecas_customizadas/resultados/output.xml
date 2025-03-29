@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.0 on win32)" generated="2025-03-29T05:48:29.080865" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests">
+<suite id="s1-s1" name="My Custom Libraries Com Selenium" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_com_selenium">
+<suite id="s1-s1-s1" name="myLibrary" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_com_selenium\myLibrary.robot">
+<test id="s1-s1-s1-t1" name="Teste minha SeleniumLibrary" line="6">
+<kw name="Abrir meu browser">
+<kw name="My Open Browser" owner="Libraries.SeleniumLibrary">
+<msg time="2025-03-29T05:48:31.490217" level="INFO">Abrindo browser 'chrome' no site 'http://www.robotframework.org'.</msg>
+<arg>http://www.robotframework.org</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<status status="PASS" start="2025-03-29T05:48:31.488222" elapsed="12.395851"/>
+</kw>
+<status status="PASS" start="2025-03-29T05:48:31.484219" elapsed="12.399854"/>
+</kw>
+<kw name="Close Browser" owner="Libraries.SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-29T05:48:43.890070" elapsed="2.656840"/>
+</kw>
+<status status="PASS" start="2025-03-29T05:48:31.479223" elapsed="15.069638"/>
+</test>
+<status status="PASS" start="2025-03-29T05:48:29.309716" elapsed="17.246709"/>
+</suite>
+<status status="PASS" start="2025-03-29T05:48:29.297715" elapsed="17.273712"/>
+</suite>
+<suite id="s1-s2" name="My Custom Libraries Excel" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_excel">
+<suite id="s1-s2-s1" name="myLibraryExcel" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_excel\myLibraryExcel.robot">
+<test id="s1-s2-s1-t1" name="CT01: Teste Buscar Animais Por Tamanho" line="7">
+<kw name="Carregar Planilha" owner="excel_library">
+<msg time="2025-03-29T05:48:47.614570" level="INFO">${arquivo_excel} = &lt;openpyxl.workbook.workbook.Workbook object at 0x000001FD01040110&gt;</msg>
+<var>${arquivo_excel}</var>
+<arg>${PLANILHA_DADOS}</arg>
+<doc>Carrega a planilha e retorna o objeto WorkBook.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.567570" elapsed="0.047000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-03-29T05:48:47.616569" level="INFO">${arquivo_excel} = &lt;openpyxl.workbook.workbook.Workbook object at 0x000001FD01040110&gt;</msg>
+<arg>${arquivo_excel}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.615567" elapsed="0.001002"/>
+</kw>
+<kw name="Buscar Animais Por Tamanho" owner="excel_library">
+<msg time="2025-03-29T05:48:47.619573" level="INFO">${resultado} = [('gato', 'Siamês', 'Médio', 'Carinhoso'), ('gato', 'Persa', 'Médio', 'Calmo'), ('gato', 'Ragdoll', 'Médio', 'Afetuoso'), ('gato', 'British Shorthair', 'Médio', 'Independente'), ('gato', 'Bengal', 'Mé...</msg>
+<var>${resultado}</var>
+<arg>${arquivo_excel}</arg>
+<arg>Médio</arg>
+<doc>Retorna uma lista de animais que possuem o tamanho especificado.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.617568" elapsed="0.002005"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T05:48:47.620576" level="INFO">[('gato', 'Siamês', 'Médio', 'Carinhoso'), ('gato', 'Persa', 'Médio', 'Calmo'), ('gato', 'Ragdoll', 'Médio', 'Afetuoso'), ('gato', 'British Shorthair', 'Médio', 'Independente'), ('gato', 'Bengal', 'Médio', 'Energético'), ('gato', 'Burmês', 'Médio', 'Brincalhão'), ('gato', 'Himalaio', 'Médio', 'Calmo'), ('cachorro', 'Beagle', 'Médio', 'Curioso'), ('gato', 'Tonquinês', 'Médio', 'Vocal'), ('gato', 'Exótico Shorthair', 'Médio', 'Amoroso'), ('gato', 'Chartreux', 'Médio', 'Silencioso'), ('cachorro', 'Border Collie', 'Médio', 'Ativo'), ('gato', 'Ocicat', 'Médio', 'Curioso'), ('gato', 'Somali', 'Médio', 'Brincalhão'), ('gato', 'Javanês', 'Médio', 'Vocal'), ('cachorro', 'Buldogue Inglês', 'Médio', 'Tranquilo'), ('gato', 'Manx', 'Médio', 'Independente'), ('cachorro', 'Schnauzer', 'Médio', 'Protetor'), ('gato', 'Turkish Angora', 'Médio', 'Amoroso'), ('cachorro', 'Whippet', 'Médio', 'Ativo'), ('gato', 'York Chocolate', 'Médio', 'Doce')]</msg>
+<arg>${resultado}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.619573" elapsed="0.001003"/>
+</kw>
+<doc>Teste para buscar animais por tamanho na planilha do excel</doc>
+<tag>PlanilhaDadosAnimais CT01</tag>
+<status status="PASS" start="2025-03-29T05:48:47.565572" elapsed="0.059005"/>
+</test>
+<test id="s1-s2-s1-t2" name="CT02: Teste Contar Animais Por Temperamento" line="15">
+<kw name="Contar Animais Por Temperamento" owner="excel_library">
+<msg time="2025-03-29T05:48:47.633577" level="INFO">${quantidade} = 3</msg>
+<var>${quantidade}</var>
+<arg>${arquivo_excel}</arg>
+<arg>Calmo</arg>
+<doc>Conta quantos animais possuem o temperamento especificado.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.631581" elapsed="0.001996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T05:48:47.634576" level="INFO">3</msg>
+<arg>${quantidade}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.634576" elapsed="0.000999"/>
+</kw>
+<doc>Teste para contar animais por temperamento na planilha do excel</doc>
+<tag>PlanilhaDadosAnimais CT02</tag>
+<status status="PASS" start="2025-03-29T05:48:47.629580" elapsed="0.005995"/>
+</test>
+<test id="s1-s2-s1-t3" name="CT03: Buscar Animal Por Raça" line="21">
+<kw name="Buscar Animal Por Raça" owner="excel_library">
+<msg time="2025-03-29T05:48:47.643575" level="INFO">${resultado} = ('cachorro', 'Pinscher', 'Pequeno', 'Atento')</msg>
+<var>${resultado}</var>
+<arg>${arquivo_excel}</arg>
+<arg>Pinscher</arg>
+<doc>Retorna os detalhes de uma raça específica.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.642576" elapsed="0.000999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T05:48:47.645576" level="INFO">('cachorro', 'Pinscher', 'Pequeno', 'Atento')</msg>
+<arg>${resultado}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.644576" elapsed="0.001000"/>
+</kw>
+<doc>Teste para buscar um animal por raça na planilha do excel</doc>
+<tag>PlanilhaDadosAnimais CT03</tag>
+<status status="PASS" start="2025-03-29T05:48:47.639576" elapsed="0.006999"/>
+</test>
+<status status="PASS" start="2025-03-29T05:48:46.591421" elapsed="1.058156"/>
+</suite>
+<status status="PASS" start="2025-03-29T05:48:46.579428" elapsed="1.075145"/>
+</suite>
+<suite id="s1-s3" name="My Custom Libraries Hash" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_hash">
+<suite id="s1-s3-s1" name="myLibrary" source="C:\workspace\curso-robot-framework-avancado-may\bibliotecas_customizadas\tests\my_custom_libraries_hash\myLibrary.robot">
+<test id="s1-s3-s1-t1" name="Teste de conversão de string para HASH sha256" line="8">
+<kw name="Converter &quot;Estou ficando ninja em Robot Framework!!&quot; para sha256" source_name="Converter &quot;${CONTEUDO}&quot; para sha256">
+<kw name="Gerar Hash" owner="geradorHash">
+<msg time="2025-03-29T05:48:47.703573" level="INFO">Conteúdo: Estou ficando ninja em Robot Framework!!
+Hash gerado: 6526496e1589bb11988c5fd1051d8927a1160b1c3da51ca93ff6e2eab6ecfa38</msg>
+<msg time="2025-03-29T05:48:47.704571" level="INFO">${CONTEUDO_HASH} = 6526496e1589bb11988c5fd1051d8927a1160b1c3da51ca93ff6e2eab6ecfa38</msg>
+<var>${CONTEUDO_HASH}</var>
+<arg>${CONTEUDO}</arg>
+<status status="PASS" start="2025-03-29T05:48:47.703573" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T05:48:47.707574" level="INFO">6526496e1589bb11988c5fd1051d8927a1160b1c3da51ca93ff6e2eab6ecfa38</msg>
+<arg>${CONTEUDO_HASH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.704571" elapsed="0.004004"/>
+</kw>
+<status status="PASS" start="2025-03-29T05:48:47.701572" elapsed="0.008001"/>
+</kw>
+<status status="PASS" start="2025-03-29T05:48:47.699568" elapsed="0.010005"/>
+</test>
+<test id="s1-s3-s1-t2" name="Teste de conversão de arquivo para HASH sha256" line="11">
+<kw name="Converter o arquivo &quot;${ARQUIVO}&quot; para sha256" source_name="Converter o arquivo &quot;${FILE}&quot; para sha256">
+<kw name="Gerar Hash Arquivo" owner="geradorHash">
+<msg time="2025-03-29T05:48:47.717567" level="INFO">Arquivo: ./tests/my_custom_libraries_hash/arquivo_PDF.pdf
+Hash gerado: d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
+<msg time="2025-03-29T05:48:47.718574" level="INFO">${CONTEUDO_HASH} = d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
+<var>${CONTEUDO_HASH}</var>
+<arg>${FILE}</arg>
+<status status="PASS" start="2025-03-29T05:48:47.715568" elapsed="0.004002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T05:48:47.719570" level="INFO">d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
+<arg>${CONTEUDO_HASH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T05:48:47.719570" elapsed="0.001003"/>
+</kw>
+<status status="PASS" start="2025-03-29T05:48:47.714571" elapsed="0.006002"/>
+</kw>
+<status status="PASS" start="2025-03-29T05:48:47.713574" elapsed="0.007997"/>
+</test>
+<status status="PASS" start="2025-03-29T05:48:47.676575" elapsed="0.049994"/>
+</suite>
+<status status="PASS" start="2025-03-29T05:48:47.664572" elapsed="0.066998"/>
+</suite>
+<status status="PASS" start="2025-03-29T05:48:29.086730" elapsed="18.648838"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">PlanilhaDadosAnimais CT01</stat>
+<stat pass="1" fail="0" skip="0">PlanilhaDadosAnimais CT02</stat>
+<stat pass="1" fail="0" skip="0">PlanilhaDadosAnimais CT03</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="6" fail="0" skip="0">Tests</stat>
+<stat name="My Custom Libraries Com Selenium" id="s1-s1" pass="1" fail="0" skip="0">Tests.My Custom Libraries Com Selenium</stat>
+<stat name="myLibrary" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.My Custom Libraries Com Selenium.myLibrary</stat>
+<stat name="My Custom Libraries Excel" id="s1-s2" pass="3" fail="0" skip="0">Tests.My Custom Libraries Excel</stat>
+<stat name="myLibraryExcel" id="s1-s2-s1" pass="3" fail="0" skip="0">Tests.My Custom Libraries Excel.myLibraryExcel</stat>
+<stat name="My Custom Libraries Hash" id="s1-s3" pass="2" fail="0" skip="0">Tests.My Custom Libraries Hash</stat>
+<stat name="myLibrary" id="s1-s3-s1" pass="2" fail="0" skip="0">Tests.My Custom Libraries Hash.myLibrary</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
