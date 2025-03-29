@@ -1,4 +1,4 @@
-name: Run testing Workflows GitHub Actions
+name: CI - Testes Automatizados
 run-name: Deploy to testing Workflows GitHub Actions Run by @${{ github.actor }}
 on: [push]
 
@@ -6,4 +6,23 @@ jobs:
   testing-workflows:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world!"
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U -r requirements.txt
+      
+      - name: Run tests WEB
+        run: |
+          robot -d ./testes_web_avancado/resultados_CI -v HEADLESS:true -v BROWSER:chromium  testes_web_avancado/tests
+      
+      - name: Run tests API
+        run: |
+          robot -d ./testes_API_avancado/resultados_CI testes_API_avancado/tests
