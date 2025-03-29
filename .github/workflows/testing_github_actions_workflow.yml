@@ -5,7 +5,10 @@ on: [push]
 jobs:
   testing-web-workflows:
     runs-on: ubuntu-latest
-    permissions: write-all # Required for the reporter action to work properly
+    permissions:
+      contents: write
+      actions: write
+      checks: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,7 +54,10 @@ jobs:
 
   testing-api-workflows:
     runs-on: ubuntu-latest
-    permissions: write-all # Required for the reporter action to work properly
+    permissions:
+      contents: write
+      actions: write
+      checks: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
