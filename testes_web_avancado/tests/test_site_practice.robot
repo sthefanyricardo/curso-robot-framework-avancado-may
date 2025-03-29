@@ -4,7 +4,7 @@ Resource  ../resources/main.robot
 Test Setup  Abrir navegador
 Test Teardown  Fechar navegador
 
-*** Test Case ***
+*** Test Cases ***
 Caso de Teste com PO 01: Remover Produtos do Carrinho
   [Documentation]  Teste para adicionar e remover um produto do carrinho
   kws_home.Acessar a página home do site
