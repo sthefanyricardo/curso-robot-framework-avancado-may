@@ -12,7 +12,7 @@ Preencher campo "${NOME_CAMPO}" com um "${VALOR_CAMPO}"
     Set Test Variable  ${first_name}  ${NOME}
   ELSE IF  "${NOME_CAMPO}" in ["email", "EMAIL"]
     ${NUM_ALEATORIO}  FakerLibrary.Random Number  1  1000
-    ${EMAIL}  Catenate  RobotFramework${NUM_ALEATORIO}@automacaoteste.com
+    ${EMAIL}  Catenate  aut-rbfrm-${NUM_ALEATORIO}@automacaoteste.com
     ${VALOR_CAMPO}  Set Variable  ${EMAIL}
     Set Test Variable  ${email}  ${EMAIL}
   END
