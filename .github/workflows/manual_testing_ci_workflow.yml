@@ -14,7 +14,6 @@ on:
         type: choice
         description: Qual o BROWSER desejado para executar os testes WEB?
         required: false
-        default: "chrome"
         options:
         - "chrome"
         - "firefox"
