@@ -1,13 +1,16 @@
 *** Test Cases ***
 Relembrando argumentos posicionais x nomeados
+  [Tags]  ArgumentosCT01  RelembrandoArgumentos
   Teste de Argumentos Básico  1  2  3  4
   Teste de Argumentos Básico  arg4=1  arg3=2  arg2=3  arg1=4
 
 Teste de Argumentos Opcionais
+  [Tags]  ArgumentosCT02  TesteArgumentosOpcionais
   Passando argumentos opcionais como parâmetro  nome=Mayara  ultimo_nome=Fernandes
   Passando argumentos opcionais como parâmetro  nome=Mayara  nome_do_meio=Ribeiro  ultimo_nome=Fernandes
 
 Criando lista e dicionário via parâmetro
+  [Tags]  ArgumentosCT03  CriandoListaEDicionario
   [Documentation]  No Python é conhecido como "kwargs"
   Teste Criando um Dicionário  cwd=/home/user  shell=True  env=False
   Teste Criando uma Lista  may  ribeiro  fernandes

@@ -6,10 +6,12 @@ Test Timeout  1 seconds
 *** Test Cases ***
 #### TIMEOUT
 Exemplo 01: Teste lidando com o timeout do teste
+  [Tags]  EsperasCT01  TimeoutTeste
   Simular espera do teste  2s
 
 #### ESPERANDO UMA KEYWORD
 Exemplo 02: Teste de espera
+  [Tags]  EsperasCT02  EsperaKeyword
   [Timeout]  2 minutes
   Esperar uma keyword obter sucesso!
 
