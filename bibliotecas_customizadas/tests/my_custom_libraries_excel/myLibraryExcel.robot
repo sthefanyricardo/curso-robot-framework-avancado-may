@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation  Esta suíte de testes foi desenvolvida para utilizar a biblioteca personalizada "excel_library.py", que estende a biblioteca Python openpyxl. Essa biblioteca permite a manipulação de planilhas Excel no formato .xlsx e foi criada como parte da Tarefa 2 do curso avançado de Automação de Testes com Robot Framework.
-Library  ../../Libraries/ExcelLibrary/excel_library.py
+Library  ${EXECDIR}/Libraries/ExcelLibrary/excel_library.py
 *** Variables ***
 ${PLANILHA_DADOS}  ${CURDIR}/exem_planilha_testes_automatizados_2.xlsx
 

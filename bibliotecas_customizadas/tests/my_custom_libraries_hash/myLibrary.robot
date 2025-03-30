@@ -1,8 +1,8 @@
 *** Settings ***
-Library  ../../Libraries/HashLibrary/geradorHash.py
+Library  ${EXECDIR}/Libraries/HashLibrary/geradorHash.py
 
 *** Variables ***
-${ARQUIVO}  ./tests/my_custom_libraries_hash/arquivo_PDF.pdf
+${ARQUIVO}  ${CURDIR}/arquivo_PDF.pdf
 
 *** Test Cases ***
 Teste de conversão de string para HASH sha256
