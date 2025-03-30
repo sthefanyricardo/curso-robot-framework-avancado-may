@@ -51,31 +51,26 @@ jobs:
       - name: Testar conexão com PostgreSQL
         run: |
           PGPASSWORD=postgres psql -h localhost -U postgres -d robot -c "SELECT version();"
-      
-      - name: Definir EXECDIR e CURDIR
-        run: |
-          echo "EXECDIR=${GITHUB_WORKSPACE}" >> $GITHUB_ENV
-          echo "CURDIR=$(pwd)" >> $GITHUB_ENV
-
-      - name: Verificar variáveis no GitHub Actions
-        run: |
-          echo "EXECDIR = $EXECDIR"
-          echo "CURDIR = $CURDIR"
-        shell: bash
         
       - name: Run tests
         run: |
           if [ "${{ matrix.test_type }}" == "web" ]; then
-            robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome -v EXECDIR:$EXECDIR -v CURDIR:$CURDIR testes_web_avancado/tests
+            robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome -v EXECDIR=${GITHUB_WORKSPACE}/testes_web_avancado \
+            -v CURDIR:${GITHUB_WORKSPACE}testes_web_avancado/tests testes_web_avancado/tests
           elif [ "${{ matrix.test_type }}" == "API" ]; then
             robot -d ./resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
-            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -v EXECDIR:$EXECDIR -v CURDIR:$CURDIR -i HeadersParamsAuth -i ExerciciosAPI testes_API_avancado/tests
+            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -v EXECDIR=${GITHUB_WORKSPACE}/testes_API_avancado \
+            -v CURDIR:${GITHUB_WORKSPACE}testes_API_avancado/tests -i HeadersParamsAuth -i ExerciciosAPI testes_API_avancado/tests
           elif [ "${{ matrix.test_type }}" == "builtin_lib" ]; then
-            robot -d ./resultados-testes-CI -v EXECDIR:$EXECDIR -v CURDIR:$CURDIR -e EsperasCT01 biblioteca_builtin_avancado/tests
+            robot -d ./resultados-testes-CI -v EXECDIR=${GITHUB_WORKSPACE}/biblioteca_builtin_avancado \
+            -v CURDIR:${GITHUB_WORKSPACE}biblioteca_builtin_avancado/tests -e EsperasCT01 biblioteca_builtin_avancado/tests
           elif [ "${{ matrix.test_type }}" == "custom_lib" ]; then
-            robot -d ./resultados-testes-CI -v EXECDIR:$EXECDIR -v CURDIR:$CURDIR -e SeleniumLibraryCustom bibliotecas_customizadas/tests
+            robot -d ./resultados-testes-CI -v EXECDIR=${GITHUB_WORKSPACE}/bibliotecas_customizadas \
+            -v CURDIR=${GITHUB_WORKSPACE}bibliotecas_customizadas/tests \
+            -e SeleniumLibraryCustom bibliotecas_customizadas/tests
           elif [ "${{ matrix.test_type }}" == "aux_lib" ]; then
-            robot -d ./resultados-testes-CI -v EXECDIR:$EXECDIR -v CURDIR:$CURDIR -e ProcessCT01 bibliotecas_auxiliares/tests
+            robot -d ./resultados-testes-CI -v EXECDIR=${GITHUB_WORKSPACE}/bibliotecas_auxiliares \
+            -v CURDIR:${GITHUB_WORKSPACE}bibliotecas_auxiliares/tests -e ProcessCT01 bibliotecas_auxiliares/tests
           fi
 
       - name: Upload test results
