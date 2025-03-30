@@ -8,11 +8,10 @@ Preencher campo "${NOME_CAMPO}" com um "${VALOR_CAMPO}"
   Wait Until Element Is Visible  ${LOGIN_TITLE_PAGE}
   IF  "${NOME_CAMPO}" in ["name", "NAME"]
     ${NOME}  FakerLibrary.First Name Female
-    ${NOME}  Replace String  ${NOME}  ' '  _
     ${VALOR_CAMPO}  Set Variable  ${NOME}
-    Set Test Variable  ${first_name}  ${NOME}
   ELSE IF  "${NOME_CAMPO}" in ["email", "EMAIL"]
-    ${EMAIL}  Catenate  ${first_name}Teste@robotautomacao.com
+    ${NUM_ALEATORIO}  FakerLibrary.Random Number  1  1000
+    ${EMAIL}  Catenate  RobotFramework${NUM_ALEATORIO}@automacaoteste.com
     ${VALOR_CAMPO}  Set Variable  ${EMAIL}
     Set Test Variable  ${email}  ${EMAIL}
   END
