@@ -49,10 +49,6 @@ jobs:
         run: |
           PGPASSWORD=postgres psql -h localhost -U postgres -d robot -c "SELECT version();"
 
-      - name: Executar testes automatizados
-        run: |
-          robot -d ./resultados-testes-CI tests
-
       - name: Run tests
         run: |
           if [ "${{ matrix.test_type }}" == "web" ]; then
