@@ -7,13 +7,13 @@ on:
   pull_request:
     branches:
       - main
-   
+
 jobs:
   testing:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        test_type: [web, api]  # Matriz para rodar os testes web e api
+        test_type: [web, API, builtin_lib, custom_lib, aux_lib]
 
     steps:
       - name: Checkout
@@ -34,9 +34,15 @@ jobs:
         run: |
           if [ "${{ matrix.test_type }}" == "web" ]; then
             robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome testes_web_avancado/tests
-          elif [ "${{ matrix.test_type }}" == "api" ]; then
+          elif [ "${{ matrix.test_type }}" == "API" ]; then
             robot -d ./resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
             -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -i HeadersParamsAuth -i ExerciciosAPI testes_API_avancado/tests
+          elif [ "${{ matrix.test_type }}" == "builtin_lib" ]; then
+            robot -d ./resultados-testes-CI biblioteca_builtin_avancado/tests
+          elif [ "${{ matrix.test_type }}" == "custom_lib" ]; then
+            robot -d ./resultados-testes-CI -e SeleniumLibraryCustom bibliotecas_customizadas/tests
+          elif [ "${{ matrix.test_type }}" == "aux_lib" ]; then
+            robot -d ./resultados-testes-CI bibliotecas_auxiliares/tests
           fi
 
       - name: Upload test results
