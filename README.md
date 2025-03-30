@@ -51,7 +51,9 @@ Este curso é destinado a profissionais que já possuem conhecimentos básicos e
 
 2. **GitHub Actions Workflow:**
 
-- **`testing_github_actions_workflow.yml`** → Este arquivo define o fluxo de trabalho de integração contínua (CI) utilizando o GitHub Actions para executar testes automatizados com Robot Framework.
+- **`testing_ci_workflow.yml`** → Este arquivo define o fluxo de trabalho de integração contínua (CI) utilizando o GitHub Actions para executar testes automatizados com Robot Framework. Este workflow é acionado automaticamente em cada push ou pull request para a branch main.
+
+- **`manual_testing_ci_workflow.yml`** → Este arquivo configura o fluxo de trabalho de Integração Contínua (CI) no GitHub Actions, permitindo a execução manual dos testes diretamente pela interface do GitHub Actions. Ideal para quando se deseja controlar a execução dos testes de forma personalizada.
 
 - ***Descrição:***
   - O workflow é responsável por rodar os testes automatizados tanto para testes web quanto para testes de API.
