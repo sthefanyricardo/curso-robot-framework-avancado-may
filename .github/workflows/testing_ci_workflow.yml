@@ -13,7 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        test_type: [web, API, builtin_lib, custom_lib, aux_lib]
+        test_combination: [
+          { test_type: web, test_path: testes_web_avancado },
+          { test_type: API, test_path: testes_API_avancado },
+          { test_type: builtin_lib, test_path: biblioteca_builtin_avancado },
+          { test_type: custom_lib, test_path: bibliotecas_customizadas },
+          { test_type: aux_lib, test_path: bibliotecas_auxiliares }
+        ]
     services:
       postgres:
         image: postgres:15
@@ -54,30 +60,31 @@ jobs:
         
       - name: Run tests
         run: |
-          if [ "${{ matrix.test_type }}" == "web" ]; then
-            robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome -v EXECDIR:${GITHUB_WORKSPACE}/testes_web_avancado \
-            -v CURDIR:${GITHUB_WORKSPACE}/testes_web_avancado/tests testes_web_avancado/tests
-          elif [ "${{ matrix.test_type }}" == "API" ]; then
+          BASE_DIR="${GITHUB_WORKSPACE}/${{ matrix.test_combination.test_path }}"
+          if [ "${{ matrix.test_combination.test_type }}" == "web" ]; then
+            robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome -v EXECDIR:${BASE_DIR} \
+            -v CURDIR:${BASE_DIR}/tests testes_web_avancado/tests
+          elif [ "${{ matrix.test_combination.test_type }}" == "API" ]; then
             robot -d ./resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
-            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -v EXECDIR:${GITHUB_WORKSPACE}/testes_API_avancado \
-            -v CURDIR:${GITHUB_WORKSPACE}/testes_API_avancado/tests testes_API_avancado/tests
-          elif [ "${{ matrix.test_type }}" == "builtin_lib" ]; then
-            robot -d ./resultados-testes-CI -v EXECDIR:${GITHUB_WORKSPACE}/biblioteca_builtin_avancado \
-            -v CURDIR:${GITHUB_WORKSPACE}/biblioteca_builtin_avancado/tests  biblioteca_builtin_avancado/tests
-          elif [ "${{ matrix.test_type }}" == "custom_lib" ]; then
-            robot -d ./resultados-testes-CI -v EXECDIR:${GITHUB_WORKSPACE}/bibliotecas_customizadas \
-            -v CURDIR:${GITHUB_WORKSPACE}/bibliotecas_customizadas/tests \
+            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -v EXECDIR:${BASE_DIR} \
+            -v CURDIR:${BASE_DIR}/tests testes_API_avancado/tests
+          elif [ "${{ matrix.test_combination.test_type }}" == "builtin_lib" ]; then
+            robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
+            -v CURDIR:${BASE_DIR}/tests  biblioteca_builtin_avancado/tests
+          elif [ "${{ matrix.test_combination.test_type }}" == "custom_lib" ]; then
+            robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
+            -v CURDIR:${BASE_DIR}/tests \
             -e SeleniumLibraryCustom bibliotecas_customizadas/tests
-          elif [ "${{ matrix.test_type }}" == "aux_lib" ]; then
-            robot -d ./resultados-testes-CI -v EXECDIR:${GITHUB_WORKSPACE}/bibliotecas_auxiliares \
-            -v CURDIR:${GITHUB_WORKSPACE}/bibliotecas_auxiliares/tests -e ProcessCT01 bibliotecas_auxiliares/tests
+          elif [ "${{ matrix.test_combination.test_type }}" == "aux_lib" ]; then
+            robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
+            -v CURDIR:${BASE_DIR}/tests -e ProcessCT01 bibliotecas_auxiliares/tests
           fi
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.test_type }}_results
+          name: ${{ matrix.test_combination.test_type }}_results
           path: ./resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
@@ -86,16 +93,16 @@ jobs:
         if: always()
         uses: actions/download-artifact@v4
         with:
-          name: ${{ matrix.test_type }}_results
-          path: ./resultados/${{ matrix.test_type }}
+          name: ${{ matrix.test_combination.test_type }}_results
+          path: ./resultados/${{ matrix.test_combination.test_type }}
 
       - name: Debug - Verificar arquivos baixados
         if: always()
-        run: ls -R ./resultados/${{ matrix.test_type }} || echo "Nenhum arquivo baixado!"
+        run: ls -R ./resultados/${{ matrix.test_combination.test_type }} || echo "Nenhum arquivo baixado!"
       
       - name: Publicar Sumário no GitHub Actions
         if: always()
         run: |
           echo "## 📊 Resultados dos Testes Automatizados 🚀" >> $GITHUB_STEP_SUMMARY
-          echo "- Tipo de teste: **${{ matrix.test_type }}**" >> $GITHUB_STEP_SUMMARY
+          echo "- Tipo de teste: **${{ matrix.test_combination.test_type }}**" >> $GITHUB_STEP_SUMMARY
           echo "- Status da execução: **${{ job.status == 'success' && '✅ Sucesso' || '❌ Falha' }}**" >> $GITHUB_STEP_SUMMARY
