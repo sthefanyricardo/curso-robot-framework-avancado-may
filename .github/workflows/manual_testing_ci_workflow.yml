@@ -57,7 +57,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.test_type }}_results
+          name: ${{ inputs.test_type }}_results
           path: ./resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
@@ -66,7 +66,7 @@ jobs:
         if: always()
         uses: actions/download-artifact@v4
         with:
-          name: ${{ matrix.test_type }}_results
+          name: ${{ inputs.test_type }}_results
           path: ./resultados/${{ inputs.test_type }}
 
       - name: Debug - Verificar arquivos baixados
