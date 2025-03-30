@@ -4,16 +4,30 @@ on:
   workflow_dispatch:
     inputs:
       test_type:
+        type: choice
         description: 'Escolha o tipo de teste (web ou api)'
+        required: true
+        options:
+            - "web"
+            - "api"
+      tag:
+        type: string
+        description: Qual é a TAG do teste a ser executado?
         required: false
-        default: 'web, api'
+        default: "HeadersParamsAuthORExerciciosAPI"
+      browser:
+        type: choice
+        description: Qual o BROWSER desejado para executar os testes WEB?
+        required: false
+        default: "chrome"
+        options:
+        - "chrome"
+        - "firefox"
+        - "webkit"
    
 jobs:
   testing:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        test_type: [web, api]  # Matriz para rodar os testes web e api
 
     steps:
       - name: Checkout
@@ -32,19 +46,19 @@ jobs:
       
       - name: Run tests
         run: |
-          if [ "${{ matrix.test_type }}" == "web" ]; then
-            robot -d ./testes_web_avancado/resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome testes_web_avancado/tests
-          elif [ "${{ matrix.test_type }}" == "api" ]; then
-            robot -d ./testes_API_avancado/resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
-            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -i HeadersParamsAuth -i ExerciciosAPI testes_API_avancado/tests
+          if [ "${{ inputs.test_type }}" == "web" ]; then
+            robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:${{ inputs.browser }} testes_web_avancado/tests
+          elif [ "${{ inputs.test_type }}" == "api" ]; then
+            robot -d ./resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
+            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -i ${{ inputs.tag }} testes_API_avancado/tests
           fi
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.test_type }}-results
-          path: ./testes_${{ matrix.test_type == 'api' && 'API' || 'web' }}_avancado/resultados-testes-CI
+          name: ${{ matrix.test_type }}_results
+          path: ./resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
   
@@ -52,16 +66,16 @@ jobs:
         if: always()
         uses: actions/download-artifact@v4
         with:
-          name: ${{ matrix.test_type }}-results
-          path: ./resultados/${{ matrix.test_type }}
+          name: ${{ matrix.test_type }}_results
+          path: ./resultados/${{ inputs.test_type }}
 
       - name: Debug - Verificar arquivos baixados
         if: always()
-        run: ls -R ./resultados/${{ matrix.test_type }} || echo "Nenhum arquivo baixado!"
+        run: ls -R ./resultados/${{ inputs.test_type }} || echo "Nenhum arquivo baixado!"
       
       - name: Publicar Sumário no GitHub Actions
         if: always()
         run: |
           echo "## 📊 Resultados dos Testes Automatizados 🚀" >> $GITHUB_STEP_SUMMARY
-          echo "- Tipo de teste: **${{ matrix.test_type }}**" >> $GITHUB_STEP_SUMMARY
+          echo "- Tipo de teste: **${{ inputs.test_type }}**" >> $GITHUB_STEP_SUMMARY
           echo "- Status da execução: **${{ job.status == 'success' && '✅ Sucesso' || '❌ Falha' }}**" >> $GITHUB_STEP_SUMMARY
