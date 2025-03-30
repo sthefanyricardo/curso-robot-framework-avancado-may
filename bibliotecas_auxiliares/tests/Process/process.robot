@@ -4,7 +4,7 @@ Library  Process
 
 *** Test Cases ***
 Exemplo 01: Abrindo programas
-  [Tags]  ProcessCT03  AbrindoProgramas
+  [Tags]  ProcessCT01  AbrindoProgramas
   Abra e feche o Notepad
 
 Exemplo 02: Executando e aguardando scripts/programas
