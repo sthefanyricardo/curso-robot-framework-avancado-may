@@ -51,15 +51,6 @@ jobs:
       - name: Testar conexão com PostgreSQL
         run: |
           PGPASSWORD=postgres psql -h localhost -U postgres -d robot -c "SELECT version();"
-      
-      - name: Set Python path for custom libraries
-        run: |
-          export PYTHONPATH=$PYTHONPATH:${GITHUB_WORKSPACE}/bibliotecas_customizadas/Libraries
-      
-      - name: Verificar estrutura de diretórios
-        run: |
-          echo "Estrutura de diretórios"
-          ls -R ${GITHUB_WORKSPACE}/bibliotecas_customizadas
         
       - name: Run tests
         run: |
@@ -71,7 +62,7 @@ jobs:
           elif [ "${{ matrix.test_type }}" == "builtin_lib" ]; then
             robot -d ./resultados-testes-CI -e EsperasCT01 biblioteca_builtin_avancado/tests
           elif [ "${{ matrix.test_type }}" == "custom_lib" ]; then
-            python -m robot -d ./resultados-testes-CI -e SeleniumLibraryCustom bibliotecas_customizadas/tests
+            robot -d ./resultados-testes-CI -e SeleniumLibraryCustom bibliotecas_customizadas/tests
           elif [ "${{ matrix.test_type }}" == "aux_lib" ]; then
             robot -d ./resultados-testes-CI -e ProcessCT01 bibliotecas_auxiliares/tests
           fi
