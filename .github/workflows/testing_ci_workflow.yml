@@ -14,11 +14,11 @@ jobs:
     strategy:
       matrix:
         test_combination: [
-          { test_type: web, test_path: testes_web_avancado },
-          { test_type: API, test_path: testes_API_avancado },
-          { test_type: builtin_lib, test_path: biblioteca_builtin_avancado },
-          { test_type: custom_lib, test_path: bibliotecas_customizadas },
-          { test_type: aux_lib, test_path: bibliotecas_auxiliares }
+          { test_type: e2e_web, test_path: testes_web_avancado },
+          { test_type: api, test_path: testes_API_avancado },
+          { test_type: lib_custom, test_path: bibliotecas_customizadas },
+          { test_type: lib_builtin, test_path: biblioteca_builtin_avancado },
+          { test_type: lib_aux, test_path: bibliotecas_auxiliares }
         ]
     services:
       postgres:
@@ -61,10 +61,10 @@ jobs:
       - name: Run tests
         run: |
           BASE_DIR="${GITHUB_WORKSPACE}/${{ matrix.test_combination.test_path }}"
-          if [ "${{ matrix.test_combination.test_type }}" == "web" ]; then
+          if [ "${{ matrix.test_combination.test_type }}" == "e2e_web" ]; then
             robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests testes_web_avancado/tests
-          elif [ "${{ matrix.test_combination.test_type }}" == "API" ]; then
+          elif [ "${{ matrix.test_combination.test_type }}" == "api" ]; then
             robot -d ./resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
             -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests testes_API_avancado/tests
