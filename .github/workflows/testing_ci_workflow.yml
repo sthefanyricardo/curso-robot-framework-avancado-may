@@ -60,10 +60,10 @@ jobs:
           elif [ "${{ matrix.test_type }}" == "API" ]; then
             robot -d ./resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
             -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -v EXECDIR:${GITHUB_WORKSPACE}/testes_API_avancado \
-            -v CURDIR:${GITHUB_WORKSPACE}/testes_API_avancado/tests -i HeadersParamsAuth -i ExerciciosAPI testes_API_avancado/tests
+            -v CURDIR:${GITHUB_WORKSPACE}/testes_API_avancado/tests testes_API_avancado/tests
           elif [ "${{ matrix.test_type }}" == "builtin_lib" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${GITHUB_WORKSPACE}/biblioteca_builtin_avancado \
-            -v CURDIR:${GITHUB_WORKSPACE}/biblioteca_builtin_avancado/tests -e EsperasCT01 biblioteca_builtin_avancado/tests
+            -v CURDIR:${GITHUB_WORKSPACE}/biblioteca_builtin_avancado/tests  biblioteca_builtin_avancado/tests
           elif [ "${{ matrix.test_type }}" == "custom_lib" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${GITHUB_WORKSPACE}/bibliotecas_customizadas \
             -v CURDIR:${GITHUB_WORKSPACE}/bibliotecas_customizadas/tests \
