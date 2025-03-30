@@ -52,11 +52,3 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ matrix.test_type }}-results
-      
-      - name: Send Web Test Report
-        if: always()
-        uses: joonvena/robotframework-reporter-action@v2.5
-        with:
-          gh_access_token: ${{ secrets.GITHUB_TOKEN }}
-          report_path: ${{ matrix.test_type }}-results
-          summary: "Relatório de Testes ${{ matrix.test_type == 'web' && 'Web' || 'API' }}"
