@@ -3,8 +3,8 @@ Resource  ../main.robot
 
 *** Keywords ***
 Preencher os dados obrigatórios no formulário de cadastro
-  Title Should Be  ${SIGN_UP_TITLE_HEAD}
   Wait Until Element Is Visible  ${SIGN_UP_TITLE_PAGE}
+  Title Should Be  ${SIGN_UP_TITLE_HEAD}
   ${password}  ${ano}  ${last_name}  ${company}  ${address}  ${address_2}  ${state}  ${city}  ${postal_code}  ${mobile_number}  ${genero}  ${dia}  ${mes}  ${country}  Gerar os dados do formulário de cadastro
   Clicar no radio button "${genero}"
   Preencher campo com valor  ${INPUT_PASSWORD}  ${password}
