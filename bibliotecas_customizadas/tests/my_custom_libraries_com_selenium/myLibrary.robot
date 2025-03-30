@@ -4,6 +4,7 @@ Test Teardown  Close Browser
 
 *** Test Cases ***
 Teste minha SeleniumLibrary
+  [Tags]  SeleniumLibraryCustom
   Abrir meu browser
 
 *** Keywords ***
