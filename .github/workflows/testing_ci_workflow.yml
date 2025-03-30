@@ -59,8 +59,8 @@ jobs:
       - name: Verificar estrutura de diretórios
         run: |
           echo "Estrutura de diretórios"
-          ls -R ${GITHUB_WORKSPACE}/curso-robot-framework-avancado-may/bibliotecas_customizadas
-
+          ls -R ${GITHUB_WORKSPACE}/bibliotecas_customizadas
+        
       - name: Run tests
         run: |
           if [ "${{ matrix.test_type }}" == "web" ]; then
