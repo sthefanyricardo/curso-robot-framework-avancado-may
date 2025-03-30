@@ -70,7 +70,7 @@ jobs:
             -v CURDIR:${BASE_DIR}/tests testes_API_avancado/tests
           elif [ "${{ matrix.test_combination.test_type }}" == "lib_builtin" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
-            -v CURDIR:${BASE_DIR}/tests -e EsperasCT01ORFalhasPrevistasCT01ORTeardownCT03orTeardownCT04 biblioteca_builtin_avancado/tests
+            -v CURDIR:${BASE_DIR}/tests -e EsperasCT01ORFalhasPrevistasCT01ORTeardownCT03ORTeardownCT04 biblioteca_builtin_avancado/tests
           elif [ "${{ matrix.test_combination.test_type }}" == "lib_custom" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests \
