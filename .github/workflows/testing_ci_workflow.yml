@@ -54,7 +54,7 @@ jobs:
       
       - name: Set Python path for custom libraries
         run: |
-          export PYTHONPATH=$PYTHONPATH:/curso-robot-framework-avancado-may/bibliotecas_customizadas/Libraries
+          export PYTHONPATH=$PYTHONPATH:${GITHUB_WORKSPACE}/bibliotecas_customizadas/Libraries
       
       - name: Verificar estrutura de diretórios
         run: |
