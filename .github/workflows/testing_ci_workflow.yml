@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         test_combination: [
-          { test_type: e2e_tests_web, test_path: testes_web_avancado },
+          { test_type: web_tests, test_path: testes_web_avancado },
           { test_type: api_tests, test_path: testes_API_avancado },
           { test_type: lib_custom, test_path: bibliotecas_customizadas },
           { test_type: lib_builtin, test_path: biblioteca_builtin_avancado },
@@ -61,7 +61,7 @@ jobs:
       - name: Run tests
         run: |
           BASE_DIR="${GITHUB_WORKSPACE}/${{ matrix.test_combination.test_path }}"
-          if [ "${{ matrix.test_combination.test_type }}" == "e2e_tests_web" ]; then
+          if [ "${{ matrix.test_combination.test_type }}" == "web_tests" ]; then
             robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests testes_web_avancado/tests
           elif [ "${{ matrix.test_combination.test_type }}" == "api_tests" ]; then
