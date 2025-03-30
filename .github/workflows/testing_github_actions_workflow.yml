@@ -8,10 +8,6 @@ jobs:
     strategy:
       matrix:
         test_type: [web, api]  # Matriz para rodar os testes web e api
-    permissions:
-      contents: write
-      actions: write
-      checks: write
 
     steps:
       - name: Checkout
@@ -46,7 +42,15 @@ jobs:
           path: ./testes_${{ matrix.test_type }}_avancado/resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
-
+        
+      - name: Debug - List files (Web)
+        if: always()
+        run: ls -R ./testes_web_avancado/resultados-testes-CI || echo "Web test folder not found"
+      
+      - name: Debug - List files (API)
+        if: always()
+        run: ls -R ./testes_API_avancado/resultados-testes-CI || echo "API test folder not found"
+      
       - name: Download results
         if: always()
         uses: actions/download-artifact@v4
