@@ -59,9 +59,4 @@ jobs:
         run: |
           echo "## 📊 Resultados dos Testes Automatizados 🚀" >> $GITHUB_STEP_SUMMARY
           echo "- Tipo de teste: **${{ matrix.test_type }}**" >> $GITHUB_STEP_SUMMARY
-          echo "- Status da execução: **$([[ $GITHUB_JOB == "success" ]] && echo '✅ Sucesso' || echo '❌ Falha')**" >> $GITHUB_STEP_SUMMARY
-          echo "- 📂 Diretório dos resultados: \`./testes_${{ matrix.test_type == 'api' && 'API' || 'web' }}_avancado/resultados-testes-CI\`" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 🔗 Acesse os Relatórios" >> $GITHUB_STEP_SUMMARY
-          echo "- 📜 [Report HTML](./testes_${{ matrix.test_type == 'api' && 'API' || 'web' }}_avancado/resultados-testes-CI/report.html)" >> $GITHUB_STEP_SUMMARY
-          echo "- 📑 [Log HTML](./testes_${{ matrix.test_type == 'api' && 'API' || 'web' }}_avancado/resultados-testes-CI/log.html)" >> $GITHUB_STEP_SUMMARY
+          echo "- Status da execução: **${{ job.status == 'success' && '✅ Sucesso' || '❌ Falha' }}**" >> $GITHUB_STEP_SUMMARY
