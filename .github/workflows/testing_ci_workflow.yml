@@ -14,8 +14,8 @@ jobs:
     strategy:
       matrix:
         test_combination: [
-          { test_type: e2e_web, test_path: testes_web_avancado },
-          { test_type: api, test_path: testes_API_avancado },
+          { test_type: testes_web, test_path: testes_web_avancado },
+          { test_type: testes_api, test_path: testes_API_avancado },
           { test_type: lib_custom, test_path: bibliotecas_customizadas },
           { test_type: lib_builtin, test_path: biblioteca_builtin_avancado },
           { test_type: lib_aux, test_path: bibliotecas_auxiliares }
@@ -61,21 +61,21 @@ jobs:
       - name: Run tests
         run: |
           BASE_DIR="${GITHUB_WORKSPACE}/${{ matrix.test_combination.test_path }}"
-          if [ "${{ matrix.test_combination.test_type }}" == "e2e_web" ]; then
+          if [ "${{ matrix.test_combination.test_type }}" == "testes_web" ]; then
             robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests testes_web_avancado/tests
-          elif [ "${{ matrix.test_combination.test_type }}" == "api" ]; then
+          elif [ "${{ matrix.test_combination.test_type }}" == "testes_api" ]; then
             robot -d ./resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
             -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests testes_API_avancado/tests
-          elif [ "${{ matrix.test_combination.test_type }}" == "builtin_lib" ]; then
+          elif [ "${{ matrix.test_combination.test_type }}" == "lib_builtin" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests  biblioteca_builtin_avancado/tests
-          elif [ "${{ matrix.test_combination.test_type }}" == "custom_lib" ]; then
+          elif [ "${{ matrix.test_combination.test_type }}" == "lib_custom" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests \
             -e SeleniumLibraryCustom bibliotecas_customizadas/tests
-          elif [ "${{ matrix.test_combination.test_type }}" == "aux_lib" ]; then
+          elif [ "${{ matrix.test_combination.test_type }}" == "lib_aux" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests -e ProcessCT01 bibliotecas_auxiliares/tests
           fi
