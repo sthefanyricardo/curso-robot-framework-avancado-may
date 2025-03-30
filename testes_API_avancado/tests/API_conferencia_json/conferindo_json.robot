@@ -6,6 +6,7 @@ Library  JSONLibrary
 
 *** Variables ***
 ${MEU_DICT_ESPERADO}  {"primeiro_nome": "mayara", "nomes_do_meio": "ribeiro", "ultimo_nome": "fernandes", "apelido": "May"}
+${ARQ_JSON}  ${EXECDIR}/resources/data/output/json_complexo.json
 
 *** Test Cases ***
 Exemplo: Conferindo JSON complexo
@@ -14,7 +15,7 @@ Exemplo: Conferindo JSON complexo
 
 *** Keywords ***
 Pega JSON
-  ${MEU_JSON_COMPLEXO}  Get File  ${EXECDIR}/resources/data/output/json_complexo.json
+  ${MEU_JSON_COMPLEXO}  Get File  ${ARQ_JSON}
   ### A Get File retorna uma STRING, vamos transformá-la em JSON
   ${MEU_JSON_COMPLEXO}  Convert String To Json  ${MEU_JSON_COMPLEXO}
   RETURN  ${MEU_JSON_COMPLEXO}

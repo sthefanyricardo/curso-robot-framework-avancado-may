@@ -10,11 +10,6 @@ on:
         options:
             - "web"
             - "api"
-      tag:
-        type: string
-        description: Qual é a TAG do teste a ser executado?
-        required: false
-        default: "HeadersParamsAuthORExerciciosAPI"
       browser:
         type: choice
         description: Qual o BROWSER desejado para executar os testes WEB?
@@ -47,10 +42,14 @@ jobs:
       - name: Run tests
         run: |
           if [ "${{ inputs.test_type }}" == "web" ]; then
-            robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:${{ inputs.browser }} testes_web_avancado/tests
+            robot -d ./resultados-testes-CI -v HEADLESS:true -v BROWSER:${{ inputs.browser }} \
+            -v EXECDIR:${GITHUB_WORKSPACE}/testes_web_avancado \
+            -v CURDIR:${GITHUB_WORKSPACE}/testes_web_avancado/tests testes_web_avancado/tests
           elif [ "${{ inputs.test_type }}" == "api" ]; then
             robot -d ./resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
-            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -i ${{ inputs.tag }} testes_API_avancado/tests
+            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} \
+            -v EXECDIR:${GITHUB_WORKSPACE}/testes_API_avancado \
+            -v CURDIR:${GITHUB_WORKSPACE}/testes_API_avancado/tests testes_API_avancado/tests
           fi
 
       - name: Upload test results
