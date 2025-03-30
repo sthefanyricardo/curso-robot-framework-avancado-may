@@ -14,6 +14,20 @@ jobs:
     strategy:
       matrix:
         test_type: [web, API, builtin_lib, custom_lib, aux_lib]
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: robot
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d robot"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout
@@ -28,8 +42,17 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install --upgrade setuptools
+          sudo apt-get install -y postgresql-client
           pip install -U -r requirements.txt
-      
+
+      - name: Testar conexão com PostgreSQL
+        run: |
+          PGPASSWORD=postgres psql -h localhost -U postgres -d robot -c "SELECT version();"
+
+      - name: Executar testes automatizados
+        run: |
+          robot -d ./resultados-testes-CI tests
+
       - name: Run tests
         run: |
           if [ "${{ matrix.test_type }}" == "web" ]; then
