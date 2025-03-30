@@ -1,5 +1,5 @@
 name: CI - Execução de Testes Automatizados
-run-name: Testando ${{ matrix.test_type }} no evento ${{ github.event_name }} | Iniciado por @${{ github.actor }}
+run-name: Testando ${{ github.event_name }} com Robot Framework | Iniciado por @${{ github.actor }}
 on: [push]
 
 jobs:
