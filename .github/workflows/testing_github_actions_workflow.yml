@@ -60,10 +60,6 @@ jobs:
           echo "## 📊 Resultados dos Testes Automatizados 🚀" >> $GITHUB_STEP_SUMMARY
           echo "- Tipo de teste: **${{ matrix.test_type }}**" >> $GITHUB_STEP_SUMMARY
           echo "- Status da execução: **${{ job.status == 'success' && '✅ Sucesso' || '❌ Falha' }}**" >> $GITHUB_STEP_SUMMARY
-          echo "- Total de Testes Executados: **$(grep -o 'Tests run' ./testes_${{ matrix.test_type == 'api' && 'API' || 'web' }}_avancado/resultados-testes-CI/report.html | awk '{print $3}')**" >> $GITHUB_STEP_SUMMARY
-          echo "- Testes Bem-Sucedidos: **$(grep -o 'Passes' ./testes_${{ matrix.test_type == 'api' && 'API' || 'web' }}_avancado/resultados-testes-CI/report.html | awk '{print $2}')**" >> $GITHUB_STEP_SUMMARY
-          echo "- Testes Falhados: **$(grep -o 'Fails' ./testes_${{ matrix.test_type == 'api' && 'API' || 'web' }}_avancado/resultados-testes-CI/report.html | awk '{print $2}')**" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
           if: success()
           echo "- 🎉 Parabéns, todos os testes passaram com sucesso!" >> $GITHUB_STEP_SUMMARY
           if: failure()
