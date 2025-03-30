@@ -1,5 +1,5 @@
 *** Settings ***
-Library  ./Libraries/HashLibrary/geradorHash.py
+Library  ../Libraries/HashLibrary/geradorHash.py
 
 *** Variables ***
 ${ARQUIVO}  ./tests/my_custom_libraries_hash/arquivo_PDF.pdf
