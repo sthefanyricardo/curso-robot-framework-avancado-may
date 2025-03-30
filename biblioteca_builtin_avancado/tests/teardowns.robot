@@ -5,11 +5,13 @@ Test Teardown  Controlando o teardown do teste
 *** Test Cases ***
 #### SUCESSO
 Exemplo 01: Teste lidando com Suite e Test Teardowns
+  [Tags]  TeardownCT01  SuiteTestTeardown
   Essa keyword fará o teste passar, não executando as keywords abaixo!
   Esse keyword vai passar sozinha!
   Essa keyword fará o teste falhar, não executando as keywords abaixo!
 
 Exemplo 02: Teste lidando com Suite e Test Teardowns
+  [Tags]  TeardownCT02  SuiteTestTeardown
   Esse keyword vai passar sozinha!
   Esse keyword vai passar sozinha!
   Esse aqui também vai passar com uma condição e vai parar de executar as keywords abaixo!
@@ -18,12 +20,14 @@ Exemplo 02: Teste lidando com Suite e Test Teardowns
 
 #### FALHAS
 Exemplo 03: Teste lidando com Suite e Test Teardowns
+  [Tags]  TeardownCT03  SuiteTestTeardown
   Esse keyword vai passar sozinha!
   Essa keyword fará o teste falhar, não executando as keywords abaixo!
   Esse keyword vai passar sozinha!
   Esse keyword vai falhar sozinha!
 
 Exemplo 04: Teste lidando com Suite e Test Teardowns
+  [Tags]  TeardownCT04  SuiteTestTeardown
   Esse keyword vai falhar sozinha!
 
 *** Keywords ***

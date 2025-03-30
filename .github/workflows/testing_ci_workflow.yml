@@ -51,6 +51,10 @@ jobs:
       - name: Testar conexão com PostgreSQL
         run: |
           PGPASSWORD=postgres psql -h localhost -U postgres -d robot -c "SELECT version();"
+      
+      - name: Set Python path for custom libraries
+        run: |
+          export PYTHONPATH=$PYTHONPATH:/curso-robot-framework-avancado-may/bibliotecas_customizadas/Libraries
 
       - name: Run tests
         run: |
@@ -62,9 +66,9 @@ jobs:
           elif [ "${{ matrix.test_type }}" == "builtin_lib" ]; then
             robot -d ./resultados-testes-CI biblioteca_builtin_avancado/tests
           elif [ "${{ matrix.test_type }}" == "custom_lib" ]; then
-            robot -d ./resultados-testes-CI -e SeleniumLibraryCustom bibliotecas_customizadas/tests
+            python -m robot -d ./resultados-testes-CI -e SeleniumLibraryCustom bibliotecas_customizadas/tests
           elif [ "${{ matrix.test_type }}" == "aux_lib" ]; then
-            robot -d ./resultados-testes-CI bibliotecas_auxiliares/tests
+            robot -d ./resultados-testes-CI -e ProcessCT01 bibliotecas_auxiliares/tests
           fi
 
       - name: Upload test results

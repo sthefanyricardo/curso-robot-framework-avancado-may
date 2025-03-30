@@ -4,13 +4,16 @@ Library  Process
 
 *** Test Cases ***
 Exemplo 01: Abrindo programas
+  [Tags]  ProcessCT01  AbrindoProgramas
   Abra e feche o Notepad
 
 Exemplo 02: Executando e aguardando scripts/programas
+  [Tags]  ProcessCT02  ExecutandoScriptsProgramas
   Execute um script e aguarde ele finalizar com sucesso
   Execute um script e aguarde ele finalizar com falha
 
 Exemplo 03: Execute comandos de prompt
+  [Tags]  ProcessCT03  ExecutandoComandosPrompt
   Executando comandos diversos de prompt
 
 *** Keywords ***

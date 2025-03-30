@@ -1,6 +1,7 @@
 *** Test Cases ***
 #### FALHAS PREVISTAS
 Exemplo 01: Teste lidando com falhas previstas
+  [Tags]  FalhasPrevistasCT01  FalhasPrevistas
   Essa keyword vai falhar, mas vou ignorar (a suíte irá passar)!
   #Essa keyword encerra a execução da suíte!  Não pare, por favor!
   Essa keyword vai falhar, mas é uma falha que deve acontecer para meu teste ser considerado OK!
@@ -8,9 +9,11 @@ Exemplo 01: Teste lidando com falhas previstas
   #Essa keyword encerra a execução da suíte!  Para tudo!
 
 Exemplo 02: Teste de continuação da suíte
+  [Tags]  FalhasPrevistasCT02  ContinuacaoSuite
   No Operation
 
 Exemplo 03: Teste de continuação da suíte
+  [Tags]  FalhasPrevistasCT03  ContinuacaoSuite
   No Operation
 
 *** Keywords ***
