@@ -1,5 +1,5 @@
 name: CI - Execução de Testes Automatizados
-run-name: Testando ${{ github.event_name }} com Robot Framework | Iniciado por @${{ github.actor }}
+run-name: Testando ${{ matrix.test_type }} no evento ${{ github.event_name }} | Iniciado por @${{ github.actor }}
 on: [push]
 
 jobs:
@@ -42,13 +42,14 @@ jobs:
           path: ./testes_${{ matrix.test_type == 'api' && 'API' || 'web' }}_avancado/resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
-          
+  
       - name: Download results
         if: always()
         uses: actions/download-artifact@v4
         with:
           name: ${{ matrix.test_type }}-results
-        
+          path: ./resultados/${{ matrix.test_type }}
+
       - name: Debug - Verificar arquivos baixados
         if: always()
-        run: ls -R ${{ matrix.test_type }}-results || echo "Nenhum arquivo baixado!"
+        run: ls -R ./resultados/${{ matrix.test_type }} || echo "Nenhum arquivo baixado!"
