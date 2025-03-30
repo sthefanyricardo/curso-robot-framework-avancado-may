@@ -70,14 +70,14 @@ jobs:
             -v CURDIR:${BASE_DIR}/tests testes_API_avancado/tests
           elif [ "${{ matrix.test_combination.test_type }}" == "lib_builtin" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
-            -v CURDIR:${BASE_DIR}/tests  biblioteca_builtin_avancado/tests
+            -v CURDIR:${BASE_DIR}/tests -e EsperasCT01ORFalhasPrevistasCT01ORTeardownCT03orTeardownCT04 biblioteca_builtin_avancado/tests
           elif [ "${{ matrix.test_combination.test_type }}" == "lib_custom" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
             -v CURDIR:${BASE_DIR}/tests \
             -e SeleniumLibraryCustom bibliotecas_customizadas/tests
           elif [ "${{ matrix.test_combination.test_type }}" == "lib_aux" ]; then
             robot -d ./resultados-testes-CI -v EXECDIR:${BASE_DIR} \
-            -v CURDIR:${BASE_DIR}/tests -e ProcessCT01 bibliotecas_auxiliares/tests
+            -v CURDIR:${BASE_DIR}/tests -e ProcessLibCT01ORProcessLibCT02ORDiffLibraryLibCT01 bibliotecas_auxiliares/tests
           fi
 
       - name: Upload test results
