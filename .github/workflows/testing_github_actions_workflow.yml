@@ -27,8 +27,7 @@ jobs:
       - name: Run tests
         run: |
           if [ "${{ matrix.test_type }}" == "web" ]; then
-            robot -d ./testes_web_avancado/resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome \
-            -i RemoverProdutoCarrinho testes_web_avancado/tests
+            robot -d ./testes_web_avancado/resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome testes_web_avancado/tests
           elif [ "${{ matrix.test_type }}" == "api" ]; then
             robot -d ./testes_API_avancado/resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
             -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -i HeadersParamsAuth -i ExerciciosAPI testes_API_avancado/tests
