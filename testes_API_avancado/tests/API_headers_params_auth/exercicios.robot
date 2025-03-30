@@ -16,14 +16,14 @@ ${ISSUES_URI}  /repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues
 *** Test Cases ***
 CT01: Criar comentário em uma issue no GitHub
   [Documentation]  Teste que cria um comentário em uma issue de um repositório no GitHub
-  [Tags]  CT01
+  [Tags]  CT01  ExerciciosAPI
   Conectar com autenticação por token na API do GitHub
   Enviar o comentário "Comentário cadastrado via Robot Framework!" para a issue "12"
   Enviar o comentário "Teste Sthefany A. R." para a issue "12"
 
 CT02: Consulta os comentários de uma issue no GitHub
   [Documentation]  Teste que consulta os comentários de uma issue em um repositório no GitHub
-  [Tags]  CT02
+  [Tags]  CT02  ExerciciosAPI
   Conectar com autenticação por token na API do GitHub
   Pesquisar os comentários das issues existentes pela classificação "created" e ordenação "desc"
   Pesquisar os comentários da issue "12" a partir da data "2025-01-01T00:00:00Z"

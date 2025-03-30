@@ -5,14 +5,15 @@ Resource  ../main.robot
 #### Ações
 Acessar a página home do site
   Go To  ${HOME_URL}
-  Wait Until Element Is Visible  ${HOME_TOPMENU}
+  Wait Until Element Is Visible  ${HOME_TOP_MENU} 
   Title Should Be  ${HOME_TITLE}
 
 Adicionar o produto "${PRODUTO}" no carrinho
+  Clicar no elemento do menu "products"
   Digitar o nome do produto "${PRODUTO}" no campo de pesquisa
   Clicar no botão pesquisar
   Clicar no botão "Add to Cart" do produto
-  Clicar no botão "Proceed to checkout"
+  Clicar no elemento do menu "view_cart"
 
 Digitar o nome do produto "${PRODUTO}" no campo de pesquisa
   Input Text  ${HOME_FIELD_PESQUISAR}  ${PRODUTO}
@@ -20,11 +21,15 @@ Digitar o nome do produto "${PRODUTO}" no campo de pesquisa
 Clicar no botão pesquisar
   Click Element  ${HOME_BTN_PESQUISAR}
 
+Clicar no elemento do menu "${NOME_ABA_MENU}"
+  ${ELEMENTO_MENU}  Set Variable  ${HOME_TOP_MENU}//a[@href='/${NOME_ABA_MENU}']
+  Click Element  ${ELEMENTO_MENU}
+
 Clicar no botão "Add to Cart" do produto
   Wait Until Element Is Visible  ${HOME_PRODUCT}
   Click Element  ${HOME_PRODUCT}
-  Wait Until Element Is Visible  ${HOME_BTN_ADDCART}
-  Click Button  ${HOME_BTN_ADDCART}
+  Wait Until Element Is Visible  ${HOME_BTN_CONTINUE}
+  Click Button  ${HOME_BTN_CONTINUE}
 
 Clicar no botão "Proceed to checkout"
   Wait Until Element Is Visible  ${HOME_BTN_CHECKOUT}

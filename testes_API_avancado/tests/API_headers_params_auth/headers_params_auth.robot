@@ -14,15 +14,21 @@ ${ISSUES_URI}  /repos/mayribeirofernandes/myudemyrobotframeworkcourse/issues
 
 *** Test Cases ***
 Exemplo: Fazendo autenticação básica (Basic Authentication)
+  [Documentation]  Teste que conecta na API do GitHub com autenticação básica (Basic Authentication)
+  [Tags]  CT01  AutenticaçãoGitHub  HeadersParamsAuth
   # Conectar com autenticação básica na API do GitHub
   Conectar com autenticação por token na API do GitHub
   Solicitar os dados do meu usuário
 
 Exemplo: Usando parâmetros
+  [Documentation]  Teste que conecta na API do GitHub com parâmetros
+  [Tags]  CT02  UtilizandoParâmetros  HeadersParamsAuth
   Conectar na API do GitHub sem autenticação
   Pesquisar issues com o state "open" e com o label "bug"
 
 Exemplo: Usando headers
+  [Documentation]  Teste que conecta na API do GitHub com headers
+  [Tags]  CT03  UtilizandoHeaders  HeadersParamsAuth
   # Conectar com autenticação básica na API do GitHub
   Conectar com autenticação por token na API do GitHub
   Enviar a reação "eyes" para a issue "8"

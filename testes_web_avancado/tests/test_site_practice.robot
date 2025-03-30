@@ -1,12 +1,13 @@
 *** Settings ***
-Documentation  Suíte de testes para o site http://automationpractice.com, utilizando o padrão Page Objects
+Documentation  Suíte de testes para o site https://automationexercise.com/, utilizando o padrão Page Objects
 Resource  ../resources/main.robot
 Test Setup  Abrir navegador
 Test Teardown  Fechar navegador
 
-*** Test Case ***
+*** Test Cases ***
 Caso de Teste com PO 01: Remover Produtos do Carrinho
   [Documentation]  Teste para adicionar e remover um produto do carrinho
+  [Tags]  CT01  RemoverProdutoCarrinho
   kws_home.Acessar a página home do site
   kws_home.Adicionar o produto "t-shirt" no carrinho
   kws_carrinho.Excluir o produto do carrinho
@@ -15,6 +16,7 @@ Caso de Teste com PO 01: Remover Produtos do Carrinho
 ## EXERCÍCIO
 Caso de Teste com PO 02: Adicionar Cliente
   [Documentation]  Teste para cadastrar e validar o registro do novo cliente
+  [Tags]  CT02  CadastroCliente
   kws_home.Acessar a página home do site
   kws_home.Clicar no campo "Signup / Login"
   kws_login.Preencher campo "name" com um "nome válido"

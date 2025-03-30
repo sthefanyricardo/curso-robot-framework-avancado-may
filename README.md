@@ -40,10 +40,6 @@ Este curso é destinado a profissionais que já possuem conhecimentos básicos e
 
 - **`biblioteca_builtin_avancado/`** → Exemplos e exercícios utilizando keywords avançadas da biblioteca built-in do Robot Framework.  
 
-- **`execucao_docker/`** → Configurações e arquivos necessários para executar testes em ambientes Docker, permitindo a automação em contêineres.  
-
-- **`integracao_continua/`** → Configuração e exemplos de integração contínua (CI/CD) para rodar testes automatizados em pipelines.  
-
 - **`testes_API_avancado/`** → Scripts avançados para automação de testes de API REST utilizando RequestsLibrary e outras ferramentas.  
 
 - **`testes_web_avancado/`** → Automação avançada de testes web com SeleniumLibrary, incluindo execução headless e uso de Page Object Model.  
@@ -52,6 +48,15 @@ Este curso é destinado a profissionais que já possuem conhecimentos básicos e
   - **`requirements.txt`** → Lista de dependências do projeto para instalação rápida.  
   - **`.gitignore`** → Lista de arquivos e diretórios que devem ser ignorados pelo Git.  
   - **`README.md`** → Documentação do projeto, incluindo instruções de instalação e execução dos testes.  
+
+2. **GitHub Actions Workflow:**
+
+- **`testing_github_actions_workflow.yml`** → Este arquivo define o fluxo de trabalho de integração contínua (CI) utilizando o GitHub Actions para executar testes automatizados com Robot Framework.
+
+- ***Descrição:***
+  - O workflow é responsável por rodar os testes automatizados tanto para testes web quanto para testes de API.
+  - Inclui etapas como checkout do código, instalação de dependências, execução de testes, upload e download de resultados, e publicação do sumário dos testes no GitHub.
+  - Ele é configurado para rodar de forma automática sempre que houver um push para o repositório, garantindo que os testes sejam executados de forma contínua.
 
 ---
 
@@ -114,7 +119,5 @@ Este curso é destinado a profissionais que já possuem conhecimentos básicos e
 
 ## 🙋‍♀️ Autora
 Feito com ❤️ por Sthefany A. Ricardo.
-
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
 📅 Última atualização: Março de 2025.
