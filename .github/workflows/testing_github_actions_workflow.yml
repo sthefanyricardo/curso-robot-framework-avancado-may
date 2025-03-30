@@ -3,12 +3,16 @@ run-name: Deploy to testing Workflows GitHub Actions Run by @${{ github.actor }}
 on: [push]
 
 jobs:
-  testing-web-workflows:
+  testing:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test_type: [web, api]  # Matriz para rodar os testes web e api
     permissions:
       contents: write
       actions: write
       checks: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,95 +22,41 @@ jobs:
         with:
           python-version: '3.12.0'
       
-      - name: Install requirements
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install --upgrade setuptools
           pip install -U -r requirements.txt
       
-      - name: Run tests WEB
+      - name: Run tests
         run: |
-          robot -d ./testes_web_avancado/resultados-testes-CI \
-          -v HEADLESS:true \
-          -v BROWSER:chrome \
-          -i RemoverProdutoCarrinho \
-          testes_web_avancado/tests
+          if [ "${{ matrix.test_type }}" == "web" ]; then
+            robot -d ./testes_web_avancado/resultados-testes-CI -v HEADLESS:true -v BROWSER:chrome \
+            -i RemoverProdutoCarrinho testes_web_avancado/tests
+          elif [ "${{ matrix.test_type }}" == "api" ]; then
+            robot -d ./testes_API_avancado/resultados-testes-CI -v MY_GITHUB_USER:${{ secrets.MY_GITHUB_USER }} \
+            -v MY_GITHUB_TOKEN:${{ secrets.MY_GITHUB_TOKEN }} -i HeadersParamsAuth -i ExerciciosAPI testes_API_avancado/tests
+          fi
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-web-results
-          path: ./testes_web_avancado/resultados-testes-CI
+          name: ${{ matrix.test_type }}-results
+          path: ./testes_${{ matrix.test_type }}_avancado/resultados-testes-CI
           if-no-files-found: ignore
           retention-days: 2
-      
+
       - name: Download results
         if: always()
         uses: actions/download-artifact@v4
         with:
-          name: test-web-results
+          name: ${{ matrix.test_type }}-results
       
       - name: Send Web Test Report
         if: always()
         uses: joonvena/robotframework-reporter-action@v2.5
         with:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
-          report_path: test-web-results
-          summary: "Relatório de Testes Web"
-
-  testing-api-workflows:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      actions: write
-      checks: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install Python 3.12.0
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12.0'
-      
-      - name: Install requirements
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install --upgrade setuptools
-          pip install -U -r requirements.txt
-      
-      - name: Run tests API
-        env:
-          MY_GITHUB_USER: ${{ secrets.MY_GITHUB_USER }}
-          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-        run: |
-          robot -d ./testes_API_avancado/resultados-testes-CI \
-            -v MY_GITHUB_USER:${MY_GITHUB_USER} \
-            -v MY_GITHUB_TOKEN:${MY_GITHUB_TOKEN} \
-            -i HeadersParamsAuth \
-            -i ExerciciosAPI \
-            testes_API_avancado/tests
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-API-results
-          path: ./testes_API_avancado/resultados-testes-CI
-          if-no-files-found: ignore
-          retention-days: 2
-      
-      - name: Download results
-        if: always()
-        uses: actions/download-artifact@v4
-        with:
-          name: test-API-results
-        
-      - name: Send API Test Report
-        if: always()
-        uses: joonvena/robotframework-reporter-action@v2.5
-        with:
-          gh_access_token: ${{ secrets.GITHUB_TOKEN }}
-          report_path: test-API-results
-          summary: "Relatório de Testes API"
+          report_path: ${{ matrix.test_type }}-results
+          summary: "Relatório de Testes ${{ matrix.test_type | capitalize }}"
