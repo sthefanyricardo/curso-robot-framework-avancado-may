@@ -10,6 +10,7 @@ Resource  ${EXECDIR}/resources/variables/my_user_and_passwords.robot
 *** Variables ***
 ${GITHUB_HOST}  https://api.github.com
 ${ISSUES_URI}  /repos/sthefanyricardo/curso-robot-framework-avancado-may/issues
+${ARQ_BODY_JSON}  ${EXECDIR}/resources/data/input/post_issue.json
 
 *** Test Cases ***
 Exemplo: Postando com body template
@@ -29,7 +30,7 @@ Conectar com autenticação por token na API do GitHub
   Create Session  alias=mygithubAuth  url=${GITHUB_HOST}  headers=${HEADERS}  disable_warnings=True
 
 Postar uma nova issue com label "${LABEL}"
-  ${BODY}  Format String  ${EXECDIR}/resources/data/input/post_issue.json
+  ${BODY}  Format String  ${ARQ_BODY_JSON}
   ...  user_git=${MY_GITHUB_USER}
   ...  label=${LABEL}
   Log  Meu Body ficou:\n${BODY}
