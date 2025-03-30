@@ -1,4 +1,4 @@
-name: CI - Execução de Testes Automatizados
+name:  Manual CI - Execução de Testes Automatizados
 run-name: Testes de CI com Robot Framework
 on:
   workflow_dispatch:
